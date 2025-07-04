@@ -1,6 +1,6 @@
 ## 《计算概论（B）》课程简介
 
-Updated 1623 GMT+8 Aug 23, 2024				
+Updated 2157 GMT+8 Jul 4, 2025				
 
 2023 fall, Complied by Hongfei Yan
 
