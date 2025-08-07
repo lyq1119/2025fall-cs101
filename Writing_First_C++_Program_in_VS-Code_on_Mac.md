@@ -1,6 +1,6 @@
 # 在 Mac 的 VS Code 中写第一个 C++ 程序
 
-Updated 1330 GMT+8 Mar 1 2025
+Updated 2204 GMT+8 Aug 7 2025
 
 2025 spring, Complied by Hongfei Yan
 
