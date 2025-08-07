@@ -20,7 +20,7 @@ Updated 1330 GMT+8 Mar 1 2025
 xcode-select --install
 ```
 
-会弹出提示窗口，点击安装即可。这会安装 `g++` 编译器（Apple 的 LLVM）。
+会弹出提示窗口，点击安装即可。这会安装 Apple 提供的 `clang++` 编译器，它兼容 `g++` 的使用方式。。
 
 ### 2. 安装 VS Code（已安装可跳过）
 
@@ -79,7 +79,7 @@ int main() {
 
 ## ✅ 第三步：编译并运行程序
 
-可以在终端运行以下命令（确保当前目录中有 `main.cpp`）：
+确保终端当前目录为项目路径，如 `/Users/hfyan/Code/cpp`：
 
 ```bash
 g++ hello_world.cpp -o hello_world
@@ -110,23 +110,6 @@ bye
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "build current cpp file",
-            "type": "shell",
-            "command": "g++",
-            "args": [
-                "-std=c++11",
-                "-g",
-                "${file}",
-                "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
-            ],
-            "group": "build",
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "detail": "编译当前打开的 C++ 文件（启用 C++11）"
-        },
-        {
             "type": "cppbuild",
             "label": "C/C++: g++ build active file",
             "command": "/usr/bin/g++",
@@ -151,7 +134,6 @@ bye
         }
     ]
 }
-
 ```
 
 
@@ -176,7 +158,6 @@ bye
     }
   ]
 }
-
 ```
 
 然后按：
