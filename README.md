@@ -1,6 +1,6 @@
 # 2025fall-cs101: DS Alog （计算概论）
 
-Updated 2208 GMT+8 Aug 7 2025
+Updated 2010 GMT+8 Aug 10 2025
 
 2025 summer, Complied by Hongfei Yan  
 https://github.com/GMyhf/2025fall-cs101/
@@ -36,12 +36,16 @@ AI教材：从零构建大模型 Build a Large Language Model (From Scratch) (Se
 
 ## 2 计概B-11班 上课、机考和笔试
 
-上课时间：1-16周 每周 周二 7-9节（15:10-18:00），上课地点：理教207
+上课时间：1-16周 每周 周二 7-9节（15:10-18:00），上课地点：理教207（425座位）
 
-机考时间：第16周周四 7-8节 上机，2025年12月25日 15:08-17:00, 在6、7号机房  
+机考时间：第16周周四 7-8节 上机，2025年12月25日 15:08-17:00, 在6号（6A 44台、6B 44台机器）、7号（109台）机房  
 笔试时间：周二，2026年1月6日 下午 14:00-16:00
 
 数算总评规划：期末机考1小时52分钟包含6个题目，AC5或者AC6尽量确保获得优秀评级；如果AC0，即使笔试满分，总评最高也只能达到84；如果AC4，笔试成绩较高，在不超优秀率限制的前提下，仍有机会被评定为优秀。
+
+> 北大信息门户，`课表查询`、`课程介绍`
+>
+> 或者 课程查询，https://dean.pku.edu.cn/service/web/courseSearch.php
 
 ## 3 暑假可以开始预习
 
@@ -69,7 +73,11 @@ https://github.com/GMyhf/2024fall-cs101/blob/main/written_exam/written_exam_2024
 
 
 
-- VS Code写Python相对容易配置。有同学问到 VS Code写C++程序，我在mac机器上试通了，如上“Writing_First_C++_Program_in_VS-Code_on_Mac.pdf”。源文件在  https://github.com/GMyhf/2025fall-cs101/blob/main/Writing_First_C%2B%2B_Program_in_VS-Code_on_Mac.md
+- VS Code写Python相对容易配置。有同学问到 VS Code写C++程序，我在mac机器上试通了，如上“Writing_First_C++_Program_in_VSCode_on_Mac.pdf”。源文件在  https://github.com/GMyhf/2025fall-cs101/blob/main/Writing_First_C%2B%2B_Program_in_VS-Code_on_Mac.md
+
+  > 24-CYK 计概课前准备，https://github.com/Usercyk/cs101/blob/master/Notes/Preparation.md
+  >
+  > 写Python，建议使用PyCharm。因为机房VS Code 不好用，很大一个问题是插件太多。
 
 - 计算概论课前任务：盲打技能训练与打字测试，https://github.com/GMyhf/2025fall-cs101/blob/main/question1_before_class.md
 
@@ -79,8 +87,6 @@ https://github.com/GMyhf/2024fall-cs101/blob/main/written_exam/written_exam_2024
 
 - 同学们在假期里观看一部电影：《模仿游戏》（The Imitation Game 2015）。这部影片讲述了计算机科学奠基人艾伦·图灵破解二战密码的故事。通过了解图灵的生平与贡献，可以更好地理解“图灵机”这一核心概念。同时，这也有助于大家理解“图灵测试”等现代人工智能中的关键术语。
 
-
-- 写Python，建议使用PyCharm。因为机房vs code 不好用，很大一个问题是插件太多。
 
 - 如果在校外，开了VPN，https://its.pku.edu.cn/service_1_vpn_client.jsp
 
@@ -105,5 +111,7 @@ https://github.com/GMyhf/2024fall-cs101/blob/main/written_exam/written_exam_2024
   https://189854.xyz/verify/
 
   https://blog.189854.xyz/blog/walless/2023/11/04/clash.html
+
+  > 最好用更现代的clash-verge
 
 - 北京大学计算机基础科学与开发手册，https://github.com/ZangXuanyi/getting-started-handout
