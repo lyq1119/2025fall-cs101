@@ -98,7 +98,7 @@ https://github.com/GMyhf/2024fall-cs101/blob/main/written_exam/written_exam_2024
 
   此外，在本课程中，我们推荐使用 Markdown 编辑器 Typora（官网：https://typoraio.cn ）来进行文档编写和笔记整理。Typora 操作简洁、所见即所得，非常适合初学者和技术写作。
 
-  Typora 的正版授权价格为 89 元，可激活 3 台设备（购买页面：https://lizhi.shop/products/typora）。往年也曾出现过优惠价（如 80 元），也有同学选择三人合买的方式分摊费用。
+  Typora 的正版授权价格为 89 元，可激活 3 台设备（购买页面：https://lizhi.shop/products/typora ）。往年也曾出现过优惠价（如 80 元），也有同学选择三人合买的方式分摊费用。
 
   当然，也可以选择免费替代工具，如 Obsidian等。虽然 Word 也可以使用，但在代码和公式排版方面，体验相对较差。
 
