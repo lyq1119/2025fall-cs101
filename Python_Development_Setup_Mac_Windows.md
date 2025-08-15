@@ -124,7 +124,7 @@ brew install --cask visual-studio-code
 
 4. 选择解释器：
 
-   > `⇧⌘P` → **Python: Select Interpreter** → 选择 `.venv/bin/python`
+   `⇧⌘P` → **Python: Select Interpreter** → 选择 `.venv/bin/python`
 
 
 
