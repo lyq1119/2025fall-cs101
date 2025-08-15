@@ -1,6 +1,6 @@
 # Python 开发环境配置指南（Mac 与 Windows）
 
-Updated 15:58 GMT+8 Aug 15, 2025
+Updated 2024 GMT+8 Aug 15, 2025
 
 2025 summer, Complied by Hongfei Yan
 
@@ -12,7 +12,7 @@ Updated 15:58 GMT+8 Aug 15, 2025
 - 虚拟环境（venv）
 - 主流 IDE 配置（PyCharm 或 VS Code）
 
-> ⚠️ 如需配置 C++ 编程环境，请参考： [Writing First C++ Program in VS Code on Mac](https://github.com/GMyhf/2025fall-cs101/blob/main/Writing_First_C%2B%2B_Program_in_VS-Code_on_Mac.md)
+> ⚠️ 如需配置 C++ 编程环境，请参考： [Writing First C++ Program in VS Code](https://github.com/GMyhf/2025fall-cs101/blob/main/Writing_First_C%2B%2B_Program_in_VS-Code.md)
 
 
 
