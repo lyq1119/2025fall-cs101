@@ -6,7 +6,7 @@ Updated 2204 GMT+8 Aug 15 2025
 
 
 
-> 在macOS 或者 Windows 的 VS Code 上可以正常编译、执行或者调试。
+目标：在macOS 或者 Windows 的 VS Code 上可以正常编译、执行或者调试 C++ 程序。
 
 
 
