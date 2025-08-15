@@ -108,19 +108,19 @@ brew install --cask visual-studio-code
 
 1. 启动 VS Code，按 `⇧⌘P`（Shift+Command+P）打开命令面板。
 
+   > 若无响应，请从菜单栏选择：**View → Command Palette...**
+
 2. 输入并执行：
 
-   > `Shell Command: Install 'code' command in PATH`
-
-   - 若无响应，请从菜单栏选择：**View → Command Palette...**
+   `Shell Command: Install 'code' command in PATH`
 
 3. 安装推荐扩展：
 
-   - **Python** (ms-python.python)
-   - **Pylance**
-   - **Jupyter**
-   - **Black Formatter**
-   - **Ruff**
+   - **Python（ms-python.python）** —— 语言支持、调试、测试入口
+   - **Pylance（ms-python.vscode-pylance）** —— 高性能智能补全/类型分析
+   - **Jupyter（ms-toolsai.jupyter）** —— 运行/编辑 `.ipynb`
+   - **Black Formatter（ms-python.black-formatter）** —— 使用 Black 自动格式化
+   - **Ruff（charliermarsh.ruff）** —— 极速 Lint/格式化（PEP8、isort 等一站式）
 
 4. 选择解释器：
 
@@ -195,23 +195,23 @@ C:\Users\<你的用户名>\AppData\Local\Programs\Python\Python313\
 
 ## 3. 创建虚拟环境
 
-> PowerShell 中执行：
->
-> ```powershell
-> # 设置执行策略（如提示无法运行脚本）
-> Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
-> 
-> # 创建并激活虚拟环境
-> cd D:\MyPythonApp
-> python -m venv .venv
-> .venv\Scripts\activate
-> pip install --upgrade pip ruff black ipykernel
-> ```
->
-> > 退出虚拟环境：`deactivate`
->
-> **说明**：  
-> 若 `activate` 脚本被阻止运行，通常是因为 PowerShell 的执行策略限制。运行上述 `Set-ExecutionPolicy` 命令即可解决。
+PowerShell 中执行：
+
+```powershell
+# 设置执行策略（如提示无法运行脚本）
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+# 创建并激活虚拟环境
+cd D:\MyPythonApp
+python -m venv .venv
+.venv\Scripts\activate
+pip install --upgrade pip ruff black ipykernel
+```
+
+> 退出虚拟环境：`deactivate`
+
+**说明**：  
+若 `activate` 脚本被阻止运行，通常是因为 PowerShell 的执行策略限制。运行上述 `Set-ExecutionPolicy` 命令即可解决。
 
 
 
@@ -223,23 +223,23 @@ C:\Users\<你的用户名>\AppData\Local\Programs\Python\Python313\
 
 3. 创建项目时，选择解释器：
 
-   > `.venv\Scripts\python.exe`
+   `.venv\Scripts\python.exe`
 
 
 
 ## 5. 安装 VS Code
 
-1. 使用 `winget`（Windows 包管理器）快速安装：
+使用 `winget`（Windows 包管理器）快速安装：
 
-   ```powershell
-   winget install --id Microsoft.VisualStudioCode
-   ```
+```powershell
+winget install --id Microsoft.VisualStudioCode
+```
 
-   ### 配置步骤：
+### 配置步骤：
 
-   1. 启动 VS Code，按 `Ctrl+Shift+P` 打开命令面板。
+1. 启动 VS Code，按 `Ctrl+Shift+P` 打开命令面板。
 
-   2. 安装以下扩展：
+2. 安装以下扩展：
 
       - Python
       - Pylance
@@ -247,21 +247,21 @@ C:\Users\<你的用户名>\AppData\Local\Programs\Python\Python313\
       - Black Formatter
       - Ruff
 
-   3. 选择 Python 解释器：
+3. 选择 Python 解释器：
 
-      > `Ctrl+Shift+P` → **Python: Select Interpreter** → 选择 `.venv\Scripts\python.exe`
+`Ctrl+Shift+P` → **Python: Select Interpreter** → 选择 `.venv\Scripts\python.exe`
 
    
 
 ## 6. 测试运行
 
-   创建 `main.py` 文件，内容如下：
+创建 `main.py` 文件，内容如下：
 
    ```python
    print("Hello from Python on Windows!")
    ```
 
-   在 IDE 中运行，确认输出成功。
+在 IDE 中运行，确认输出成功。
 
    
 
@@ -274,9 +274,7 @@ C:\Users\<你的用户名>\AppData\Local\Programs\Python\Python313\
    | IDE 配置解释器 | `.venv/bin/python`          | `.venv\Scripts\python.exe`     |
    | 推荐终端       | zsh / iTerm2                | Windows Terminal + PowerShell  |
 
----
-
-   现在你的 Python 开发环境已准备就绪。可以开始编写、调试和运行 Python 程序了！
+现在你的 Python 开发环境已准备就绪。可以开始编写、调试和运行 Python 程序了！
 
    > 提示：建议使用 `black` 和 `ruff` 保持代码风格统一，提升开发效率。
    >
