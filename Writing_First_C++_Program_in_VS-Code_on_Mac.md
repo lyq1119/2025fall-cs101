@@ -1,14 +1,16 @@
-# 在 Mac 的 VS Code 中写第一个 C++ 程序
+# 在 VS Code 中写第一个 C++ 程序
 
-Updated 2204 GMT+8 Aug 7 2025
+Updated 2204 GMT+8 Aug 15 2025
 
 2025 spring, Complied by Hongfei Yan
 
 
 
-> 在AI回答的基础上，修改如下，在我的MAC 的 VS Code 上可以正常编译、执行或者调试。
+> 在macOS 或者 Windows 的 VS Code 上可以正常编译、执行或者调试。
 
 
+
+# macOS 环境配置
 
 ## ✅ 第一步：安装必要工具
 
@@ -40,7 +42,7 @@ Command + Shift + X
 C/C++（Microsoft 出品的）
 ```
 
-------
+
 
 ## ✅ 第二步：写一个简单的 C++ 程序
 
@@ -75,7 +77,7 @@ int main() {
 
 ```
 
-------
+
 
 ## ✅ 第三步：编译并运行程序
 
@@ -96,7 +98,7 @@ Hello, world!
 bye
 ```
 
-------
+
 
 ## ✅ （可选）第四步：设置 VS Code 的一键构建任务
 
@@ -197,4 +199,214 @@ bye
 > - 使用 `Makefile`
 > - 使用 `CMake`
 > - 安装 Code Runner 插件来快速运行简单 C++ 文件
+
+
+
+# Windows 环境配置
+
+## ✅ 第一步：安装必要工具
+
+### 1. 安装 C++ 编译器
+
+在 Windows 下，选择：**MinGW-w64**
+
+1. 打开官网安装包（建议从 MSYS2 下载最新版）：
+   https://www.msys2.org/
+
+2. 安装完成后，打开 `MSYS2 MinGW` 终端，执行：
+
+   ```bash
+   pacman -Syu
+   pacman -S mingw-w64-ucrt-x86_64-gcc
+   pacman -S mingw-w64-ucrt-x86_64-gdb
+   ```
+
+3. 把 g++ 加到 PATH（让 VS Code 终端能用）
+   例如：`C:\msys64\ucrt64\bin`
+
+   > 按下：
+   >
+   > ```
+   > Win + S → 输入 “环境变量” → 打开 “编辑系统环境变量” → 环境变量
+   > ```
+   >
+   > 在 **系统变量** 里找到 `Path` → 编辑 → 新建 → 粘贴上面的路径 → 确定保存。
+   >
+   > 关闭 VS Code，重新打开，让新 PATH 生效。
+
+4. 检查是否安装成功
+
+   在 VS Code 终端（PowerShell 或 CMD）里输入：
+
+   ```
+   g++ --version
+   ```
+
+   如果能显示版本号，说明安装成功。
+
+
+
+### 2. 安装 VS Code（已安装可跳过）
+
+下载地址：https://code.visualstudio.com/
+
+------
+
+### 3. 安装 VS Code C++ 扩展（一次性操作）
+
+打开 VS Code，按下：
+
+```
+Ctrl + Shift + X
+```
+
+在扩展市场搜索并安装：
+
+```
+C/C++（Microsoft 出品的）
+```
+
+
+
+## ✅ 第二步：写一个简单的 C++ 程序
+
+### 1. 新建项目文件夹
+
+例如：`D:\MyCpp`
+
+在 **PowerShell 或 CMD** 中执行：
+
+```powershell
+code D:\MyCpp
+```
+
+这会直接以该目录作为工作区打开 VS Code。
+
+------
+
+### 2. 创建 `hello_world.cpp`
+
+内容如下：
+
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello, world!" << endl;
+    cout << "1" << endl;
+    cout << "2" << endl;
+    cout << "3" << endl;
+    cout << "bye" << endl;
+    return 0;
+}
+```
+
+
+
+## ✅ 第三步：编译并运行程序
+
+确保终端当前目录为项目路径，例如：
+
+```powershell
+cd D:\Code\cpp
+```
+
+编译：
+
+```powershell
+g++ hello_world.cpp -o hello_world.exe
+```
+
+运行：
+
+```powershell
+.\hello_world.exe
+```
+
+输出应该是：
+
+```
+Hello, world!
+1
+2
+3
+bye
+```
+
+
+
+## ✅ （可选）第四步：VS Code 一键编译运行
+
+1. 在项目根目录 `D:\Code\cpp` 下创建 `.vscode` 文件夹
+2. 新建 `.vscode/tasks.json`：
+
+```json
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++ build active file",
+            "command": "g++",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Task generated for Windows g++."
+        }
+    ]
+}
+```
+
+1. 新建 `.vscode/launch.json`：
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "debug current cpp file",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [],
+      "externalConsole": true,
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb"
+    }
+  ]
+}
+```
+
+1. 在 VS Code 按：
+
+```
+Ctrl + Shift + B
+```
+
+选择 **C/C++: g++ build active file**
+即可编译。
+
+运行则直接：
+
+```powershell
+.\hello_world.exe
+```
 
