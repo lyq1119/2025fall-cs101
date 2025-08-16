@@ -1,12 +1,11 @@
 # 在 VS Code 中写第一个 C++ 程序
 
-Updated 2204 GMT+8 Aug 15 2025
-
-2025 spring, Complied by Hongfei Yan
-
+*Updated 2025-08-16 17:05 GMT+8*  
+ *Compiled by Hongfei Yan (2025 Summer)*    
 
 
-目标：在macOS 或者 Windows 的 VS Code 上可以正常编译、执行或者调试 C++ 程序。
+
+目标：在macOS 或者 Windows 的 VS Code 上编译、执行和调试 C++ 程序。
 
 
 
@@ -309,7 +308,7 @@ int main() {
 确保终端当前目录为项目路径，例如：
 
 ```powershell
-cd D:\Code\cpp
+cd D:\MyCpp
 ```
 
 编译：
@@ -338,8 +337,8 @@ bye
 
 ## ✅ （可选）第四步：VS Code 一键编译运行
 
-1. 在项目根目录 `D:\Code\cpp` 下创建 `.vscode` 文件夹
-2. 新建 `.vscode/tasks.json`：
+1. 在项目根目录 `D:\MyCpp` 下创建 `.vscode` 文件夹
+2. 新建 `.vscode\tasks.json`：
 
 ```json
 {
@@ -372,7 +371,7 @@ bye
 }
 ```
 
-1. 新建 `.vscode/launch.json`：
+1. 新建 `.vscode\launch.json`：
 
 ```json
 {
