@@ -1,6 +1,6 @@
 # Python 开发环境配置指南（Mac 与 Windows）
 
-*Updated 2025-08-16 17:05 GMT+8*  
+*Updated 2025-08-16 23:22 GMT+8*  
  *Compiled by Hongfei Yan (2025 Summer)*    
 
 
@@ -37,7 +37,7 @@ macOS 默认优先用系统自带的 `/usr/bin/python3`（3.9.x），需要调�
 1. 编辑 shell 配置文件（zsh）：
 
 ```bash
-vi ~/.zprofile
+vi ~/.zshrc
 ```
 
 2. 按 `i` 进入插入模式，在文件**开头**添加：
@@ -52,7 +52,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 4. 重新加载配置：
 
 ```bash
-source ~/.zprofile
+source ~/.zshrc
 ```
 
 5. 验证安装结果：
@@ -76,7 +76,7 @@ Python 3.13.6
 推荐为每个项目创建独立的虚拟环境，避免依赖冲突。
 
 ```bash
-cd ~/MyPythonApp  # 替换为你的项目路径
+cd ~/MyPython  # 替换为你的项目路径
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -U pip ruff black ipykernel
@@ -89,7 +89,7 @@ pip install -U pip ruff black ipykernel
 ## 4. 安装 PyCharm
 
 1. 从 [PyCharm 官网](https://www.jetbrains.com/pycharm/) 下载 **macOS (Apple Silicon)** 版本
-2. 打开 `.dmg`，将 **PyCharm Edu.app** 拖入「应用程序」
+2. 打开 `.dmg`，将 **PyCharm.app** 拖入「应用程序」
 3. 启动并登录 JetBrains 账号（关联你的 License ID）
 4. 新建项目 → **Interpreter** 选 **Existing environment** → 指向 `.venv/bin/python`
 
@@ -209,7 +209,7 @@ PowerShell 中执行：
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 
 # 创建并激活虚拟环境
-cd D:\MyPythonApp
+cd D:\MyPython
 python -m venv .venv
 .venv\Scripts\activate
 pip install --upgrade pip ruff black ipykernel
