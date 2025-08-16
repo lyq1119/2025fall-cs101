@@ -1,4 +1,4 @@
-# 2025fall-cs101: DS Alog （计算概论）
+# 2025fall-cs101: Alog DS （计算概论）
 
 *Updated 2025-08-16 13:42 GMT+8*  
  *Compiled by Hongfei Yan (2025 Summer)*    
