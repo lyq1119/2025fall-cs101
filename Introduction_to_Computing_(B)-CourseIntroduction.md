@@ -1,8 +1,7 @@
 ## 《计算概论（B）》课程简介
 
-Updated 2157 GMT+8 Jul 4, 2025				
-
-2023 fall, Complied by Hongfei Yan
+*Updated 2025-07-04 21:57 GMT+8*  
+ *Compiled by Hongfei Yan (2023 Fall)*    
 
 课程编号：04831410，学分：3，总 学 时：48学时理论课（每周3学时）+ 32学时上机实习课（每周2学时）
 
