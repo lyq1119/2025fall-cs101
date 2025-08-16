@@ -1,8 +1,7 @@
 # Python 开发环境配置指南（Mac 与 Windows）
 
-Updated 2024 GMT+8 Aug 15, 2025
-
-2025 summer, Complied by Hongfei Yan
+*Updated 2025-08-16 17:05 GMT+8*  
+ *Compiled by Hongfei Yan (2025 Summer)*    
 
 
 
@@ -159,7 +158,7 @@ print("Hello from Python on Mac!")
 | Shell 配置文件 | `~/.zprofile`         | 系统环境变量 PATH                    |
 | 虚拟环境路径   | `.venv/bin/python`    | `.venv\Scripts\python.exe`           |
 | 编辑器安装     | `.dmg` 或 `brew cask` | `.exe` 安装包 或 `winget`            |
-| 默认终端       | zsh                   | PowerShell / CMD                     |
+| 默认终端       | zsh                   | PowerShell                           |
 
 
 
@@ -190,6 +189,14 @@ pip --version
 ```
 C:\Users\<你的用户名>\AppData\Local\Programs\Python\Python313\
 ```
+
+> 按下：
+>
+> ```
+> Win + S → 输入 “环境变量” → 打开 “编辑系统环境变量” → 环境变量
+> ```
+>
+> 在 **系统变量** 里找到 `Path` → 编辑 → 新建 → 粘贴上面的路径 → 确定保存。
 
 
 
@@ -238,15 +245,13 @@ winget install --id Microsoft.VisualStudioCode
 ### 配置步骤：
 
 1. 启动 VS Code，按 `Ctrl+Shift+P` 打开命令面板。
+2. 安装推荐扩展：
 
-2. 安装以下扩展：
-
-      - Python
-      - Pylance
-      - Jupyter
-      - Black Formatter
-      - Ruff
-
+      - **Python（ms-python.python）** —— 语言支持、调试、测试入口
+      - **Pylance（ms-python.vscode-pylance）** —— 高性能智能补全/类型分析
+      - **Jupyter（ms-toolsai.jupyter）** —— 运行/编辑 `.ipynb`
+      - **Black Formatter（ms-python.black-formatter）** —— 使用 Black 自动格式化
+      - **Ruff（charliermarsh.ruff）** —— 极速 Lint/格式化（PEP8、isort 等一站式）
 3. 选择 Python 解释器：
 
 `Ctrl+Shift+P` → **Python: Select Interpreter** → 选择 `.venv\Scripts\python.exe`
@@ -267,12 +272,12 @@ winget install --id Microsoft.VisualStudioCode
 
 # 总结
 
-   | 步骤           | macOS                       | Windows                        |
-   | -------------- | --------------------------- | ------------------------------ |
-   | 安装 Python    | `brew install python`       | 官方 `.exe` + 勾选 Add to PATH |
-   | 虚拟环境激活   | `source .venv/bin/activate` | `.venv\Scripts\activate`       |
-   | IDE 配置解释器 | `.venv/bin/python`          | `.venv\Scripts\python.exe`     |
-   | 推荐终端       | zsh / iTerm2                | Windows Terminal + PowerShell  |
+| 步骤           | macOS                       | Windows                        |
+| -------------- | --------------------------- | ------------------------------ |
+| 安装 Python    | `brew install python`       | 官方 `.exe` + 勾选 Add to PATH |
+| 虚拟环境激活   | `source .venv/bin/activate` | `.venv\Scripts\activate`       |
+| IDE 配置解释器 | `.venv/bin/python`          | `.venv\Scripts\python.exe`     |
+| 推荐终端       | zsh                         | PowerShell                     |
 
 现在你的 Python 开发环境已准备就绪。可以开始编写、调试和运行 Python 程序了！
 
