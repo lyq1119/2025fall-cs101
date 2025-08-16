@@ -27,7 +27,7 @@ https://github.com/GMyhf/2025fall-cs101/
 
 主要教材：
 
-- 《Book_my_flight_2025spring》
+- 《Book_my_flight》
 - 《计算机科学导论（第4版）》
 - Python 学习：
   - [Python 3 教程（菜鸟教程）](https://www.runoob.com/python3/python3-tutorial.html)
