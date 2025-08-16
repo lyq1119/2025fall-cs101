@@ -112,7 +112,7 @@ https://github.com/GMyhf/2025fall-cs101/
   - [VPN 使用说明](https://its.pku.edu.cn/service_1_vpn_client.jsp)
   - [云计算实验平台](https://clab.pku.edu.cn/)
   - [北京大学正版软件](https://software.pku.edu.cn/index.html)
-  - 文档编辑推荐：Markdown 编辑器 **Typora**（￥89，可激活3台设备），或免费替代 **Obsidian**。
+  - 文档编辑推荐：Markdown 编辑器 [Typora](https://typoraio.cn/)（￥89，可激活3台设备），或免费替代 [Obsidian](https://obsidian.md/)。
 - **选课建议**
   - 有信息学竞赛基础的同学可同时选“计算概论”和“数据结构与算法”。
   - 初学者建议第1学期先修“计算概论”，第2学期再选“数据结构与算法”。
