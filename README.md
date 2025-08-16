@@ -103,7 +103,7 @@ https://github.com/GMyhf/2025fall-cs101/
   3. 持续编程训练（11–100天）：刷 LeetCode Top 100 → OpenJudge / Codeforces / 洛谷。
 - **开发工具建议**
   - Python：推荐使用 **PyCharm**。
-  - C++ 开发：推荐使用 **VS Code**。[配置指南](https://github.com/GMyhf/2025fall-cs101/blob/main/Writing_First_C%2B%2B_Program_in_VS-Code.md)
+  - C++：推荐使用 **VS Code**。[配置指南](https://github.com/GMyhf/2025fall-cs101/blob/main/Writing_First_C%2B%2B_Program_in_VS-Code.md)
 - **课前准备**
   - 盲打技能训练与打字测试：[练习入口](https://github.com/GMyhf/2025fall-cs101/blob/main/question1_before_class.md)
   - O365（含 Teams）账号申请：[申请入口](https://www.wjx.cn/vm/Y5XwfHD.aspx#)
