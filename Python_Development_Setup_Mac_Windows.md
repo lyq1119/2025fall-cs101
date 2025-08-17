@@ -1,6 +1,6 @@
 # Python 开发环境配置指南（Mac 与 Windows）
 
-*Updated 2025-08-16 23:22 GMT+8*  
+*Updated 2025-08-17 09:21 GMT+8*  
  *Compiled by Hongfei Yan (2025 Summer)*    
 
 
@@ -116,10 +116,18 @@ brew install --cask visual-studio-code
 3. 安装推荐扩展：
 
    - **Python（ms-python.python）** —— 语言支持、调试、测试入口
+
    - **Pylance（ms-python.vscode-pylance）** —— 高性能智能补全/类型分析
+
    - **Jupyter（ms-toolsai.jupyter）** —— 运行/编辑 `.ipynb`
+
    - **Black Formatter（ms-python.black-formatter）** —— 使用 Black 自动格式化
+
    - **Ruff（charliermarsh.ruff）** —— 极速 Lint/格式化（PEP8、isort 等一站式）
+
+     > **Astral Software**（原作者 Charlie Marsh 后来成立的 Astral 公司）
+     >
+     > 功能：极速 Python Linter & Formatter（集成了 flake8、isort、pep8-naming 等功能）
 
 4. 选择解释器：
 
