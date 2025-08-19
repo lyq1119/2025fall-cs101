@@ -47,14 +47,14 @@ C/C++（Microsoft 出品的）
 
 ### 1. 打开 VS Code，新建一个文件夹作为项目目录
 
-比如目录为：`/Users/hfyan/MyCpp`
+比如目录为：`cd ~/MyCpp  # 替换为你的项目路径`
 
 **在终端打开 VS Code（推荐）**
 
 在终端中执行：
 
 ```
-code /Users/hfyan/MyCpp
+code ./
 ```
 
 这会直接以该目录作为工作区打开 VS Code。
@@ -80,7 +80,7 @@ int main() {
 
 ## ✅ 第三步：编译并运行程序
 
-确保终端当前目录为项目路径，如 `/Users/hfyan/Code/cpp`：
+确保终端当前目录为项目路径，如 `MyCpp`：
 
 ```bash
 g++ hello_world.cpp -o hello_world
@@ -103,7 +103,7 @@ bye
 
 想要在 VS Code 里按快捷键就编译运行，可以设置 Task：
 
-1. 在项目根目录`/Users/hfyan/MyCpp`下创建文件夹 `.vscode`
+1. 在项目根目录`~/MyCpp`下创建文件夹 `.vscode`
 2. 新建文件 `.vscode/tasks.json`，内容如下：
 
 ```json
