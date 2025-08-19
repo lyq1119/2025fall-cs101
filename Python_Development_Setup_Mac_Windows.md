@@ -37,7 +37,7 @@ macOS 默认优先用系统自带的 `/usr/bin/python3`（3.9.x），需要调�
 1. 编辑 shell 配置文件（zsh）：
 
 ```bash
-vi ~/.zshrc
+vi ~/.zprofile
 ```
 
 2. 按 `i` 进入插入模式，在文件**开头**添加：
@@ -52,7 +52,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 4. 重新加载配置：
 
 ```bash
-source ~/.zshrc
+source ~/.zprofile
 ```
 
 5. 验证安装结果：
