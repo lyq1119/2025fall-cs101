@@ -1,6 +1,6 @@
 # 2025fall-cs101: Alog DS （计算概论）
 
-*Updated 2025-08-16 13:42 GMT+8*  
+*Updated 2025-08-19 11:56 GMT+8*  
  *Compiled by Hongfei Yan (2025 Summer)*    
 https://github.com/GMyhf/2025fall-cs101/
 
@@ -80,14 +80,14 @@ https://github.com/GMyhf/2025fall-cs101/
 
 **推荐学习顺序：**
 
-1. **LeetCode 热题 100**
-   - 链接：[Top 100 Liked](https://leetcode.cn/studyplan/top-100-liked/)
-   - 建议优先完成除链表（14题）与二叉树（15题）外的部分。
-2. **课程组精选 200+ 题目**
+1. **课程组精选 200+ 题目**
    - 链接：[CS101 OpenJudge](http://cs101.openjudge.cn/)
    - 加入方式：首次登录后 → 点击“加入” → 选择小组“cs101”。
    - 题型分级：E（简单）、M（中等）、T（挑战）。
    - 建议完成 **全部 Easy 和 Medium**，并尝试部分 Tough。
+2. **LeetCode 热题 100**
+   - 链接：[Top 100 Liked](https://leetcode.cn/studyplan/top-100-liked/)
+   - 建议优先完成除链表（14题）与二叉树（15题）外的部分。
 3. **笔试准备**
    - [往年笔试题库](https://github.com/GMyhf/2024fall-cs101/blob/main/written_exam/written_exam_20241210.md)
 
@@ -98,7 +98,7 @@ https://github.com/GMyhf/2025fall-cs101/
 - **零基础学习路径**
   1. 搭建编程环境（1–3天）：安装 Python，配置 VS Code 或 PyCharm。[配置指南](https://github.com/GMyhf/2025fall-cs101/blob/main/Python_Development_Setup_Mac_Windows.md)
   2. 掌握基础语法（4–10天）：变量与数据类型、条件语句与循环结构、函数定义与使用、常用数据结构（列表、元组、字典、集合等）。建议结合动手练习，巩固理解。
-  3. 持续编程训练（11–100天）：刷 LeetCode Top 100 → OpenJudge / Codeforces / 洛谷。
+  3. 持续编程训练（11–100天）：刷 OpenJudge →  LeetCode Top 100 / Codeforces / 洛谷。
 - **开发工具建议**
   - Python：推荐使用 **PyCharm**。
   - C++：推荐使用 **VS Code**。[配置指南](https://github.com/GMyhf/2025fall-cs101/blob/main/Writing_First_C%2B%2B_Program_in_VS-Code.md)
