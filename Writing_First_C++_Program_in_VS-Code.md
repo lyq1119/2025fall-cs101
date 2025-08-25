@@ -1,6 +1,6 @@
 # 在 VS Code 中写第一个 C++ 程序
 
-*Updated 2025-08-16 17:05 GMT+8*  
+*Updated 2025-08-25 18:56 GMT+8*  
  *Compiled by Hongfei Yan (2025 Summer)*    
 
 
@@ -205,6 +205,8 @@ bye
 
 ## ✅ 第一步：安装必要工具
 
+> 特别⚠️：务必记住 GCC 和非ASCII 字符是死敌，因此请不要将 GCC 安装在包含非 ASCII 字符（如汉字、空格）的路径下！（最大的坑可能是你的用户名中包含非 ASCII 字符，例如汉字！）
+
 ### 1. 安装 C++ 编译器
 
 在 Windows 下，选择：**MinGW-w64**
@@ -219,6 +221,49 @@ bye
    pacman -S mingw-w64-ucrt-x86_64-gcc
    pacman -S mingw-w64-ucrt-x86_64-gdb
    ```
+
+   > 如果下载软件包时出现的网络错误信息，主要原因不是包有问题，而是网络传输过程中断或超时了。报错主要原因是：
+   >
+   > - 网络不稳定 / 太慢
+   > - 镜像源不通或服务器负载大
+   > - Pacman 默认超时比较短
+   >
+   > ------
+   >
+   > **解决方法**
+   >
+   > 可以尝试以下几步：
+   >
+   > 1. **换镜像源**（推荐）
+   >    编辑 `C:\msys64\etc\pacman.d\mirrorlist.msys` 和 `mirrorlist.mingw`，把 `mirror.msys2.org` 换成国内镜像，例如：
+   >
+   >    - 清华大学：https://mirrors.tuna.tsinghua.edu.cn/msys2/
+   >    - 中科大：https://mirrors.ustc.edu.cn/msys2/
+   >    - 浙江大学：https://mirrors.zju.edu.cn/msys2/
+   >
+   >    然后再执行：
+   >
+   >    ```bash
+   >    pacman -Syyu
+   >    ```
+   >
+   > 2. **增加超时时间**
+   >    在 pacman 命令中加上选项：
+   >
+   >    ```bash
+   >    pacman -Syu --disable-download-timeout
+   >    ```
+   >
+   >    这样即使速度慢也不会轻易中断。
+   >
+   > 3. **尝试多次更新**
+   >    有时只是临时网络问题，可以重复执行：
+   >
+   >    ```bash
+   >    pacman -Syu
+   >    ```
+   >
+   > 
 
 3. 把 g++ 加到 PATH（让 VS Code 终端能用）
    例如：`C:\msys64\ucrt64\bin`
@@ -316,6 +361,68 @@ cd D:\MyCpp
 ```powershell
 g++ hello_world.cpp -o hello_world.exe
 ```
+
+> 如果编译报错
+>
+> ```powershell
+> PS D:\MyCpp> g++ hello_world.cpp -o hello_world.exe
+> Assembler messages:
+> Fatal error: can't create C:\Users\
+> PS D:\MyCpp>
+> ```
+>
+> **用户名包含汉字很可能是导致你遇到 `g++` 编译错误的主要原因**。
+>
+> 虽然现代操作系统和许多软件已经对 Unicode（包括中文）有了较好的支持，但**一些较老的、或基于特定工具链的软件（尤其是某些版本的 MinGW-w64 / g++）在处理包含非 ASCII 字符（如中文、空格、特殊符号）的路径时，仍然存在兼容性问题**。
+>
+> **为什么用户名含汉字会导致问题？**
+>
+> 1. **临时文件路径**：`g++` 在编译过程中会创建临时文件。这些临时文件通常会存放在系统的临时目录中，比如 `C:\Users\<你的用户名>\AppData\Local\Temp\`。如果用户名是中文，这个路径就包含了中文字符。
+> 2. **工具链解析错误**：`g++` 本身或其依赖的底层工具（如 `as` 汇编器、`ld` 链接器）可能无法正确解析或处理包含中文字符的路径名，导致“无法创建文件”或“路径不存在”的错误，即使路径在文件资源管理器中是可见的。
+> 3. **编码问题**：命令行环境（CMD 或 PowerShell）与编译器之间可能存在字符编码（如 ANSI vs UTF-8）的不匹配，导致路径被错误地解释。
+>
+> **✅ 解决方法：更改系统的临时目录（推荐，无需改用户名）**
+>
+> 这是最安全、最直接的解决方案，无需更改你的 Windows 用户名。
+>
+> 1. **打开系统环境变量设置**：
+>
+>    - 右键点击“此电脑”或“我的电脑” -> “属性”。
+>    - 点击“高级系统设置”。
+>    - 在“系统属性”窗口中，点击“环境变量”按钮。
+>
+> 2. **修改临时目录变量**：
+>
+>    - 在“用户变量”或“系统变量”中找到 `TEMP` 和 `TMP`。
+>
+>    - 将它们的值从类似 `C:\Users\你的中文用户名\AppData\Local\Temp` 修改为一个不包含中文和空格的路径
+>
+>      ，例如：`C:\Temp`
+>
+>    - **重要**：你需要先手动创建这个新文件夹（如 `C:\Temp`），并确保你有读写权限。
+>
+> 3. **验证更改**
+>
+>    完成上述步骤后，重新打开一个新的 PowerShell 或 CMD 窗口，验证环境变量是否已更改：
+>
+>    ```powershell
+>    echo $env:TEMP
+>    echo $env:TMP
+>    ```
+>
+>    你应该能看到输出为 `C:\Temp`。
+>
+> 4. **重启命令行**：
+>
+>    - 关闭所有已打开的 CMD 或 PowerShell 窗口，然后重新打开一个新的窗口。
+>
+>    - 再次尝试运行你的 `g++`命令：
+>
+>      ```
+>      g++ hello_world.cpp -o hello_world.exe
+>      ```
+>
+> #### 
 
 运行：
 
