@@ -1,6 +1,6 @@
 # 2025fall-cs101: Alog DS （计算概论）
 
-*Updated 2025-08-19 11:56 GMT+8*  
+*Updated 2025-08-27 12:40 GMT+8*  
  *Compiled by Hongfei Yan (2025 Summer)*    
 https://github.com/GMyhf/2025fall-cs101/
 
@@ -116,7 +116,7 @@ https://github.com/GMyhf/2025fall-cs101/
   - 有信息学竞赛基础的同学可同时选“计算概论”和“数据结构与算法”。
   - 初学者建议第1学期先修“计算概论”，第2学期再选“数据结构与算法”。
 - **其他资源**
-  - 科学上网工具（如 Clash-Verge）：https://189854.xyz/verify/
+  - [科学上网工具](https://wallesspku.org/blog/walless/2025/08/17/guide-zh.html)
   - [北京大学计算机基础科学与开发手册](https://github.com/ZangXuanyi/getting-started-handout)
 
 ------
