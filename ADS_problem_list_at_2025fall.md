@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-08-27 22:12 GMT+8*  
+*Updated 2025-08-28 00:27 GMT+8*  
  *Compiled by Hongfei Yan (2020 Fall)*  
 
 题解在 
@@ -20,7 +20,7 @@
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
 | 0829 |                 |      |      |                                                  |
-| 0828 |                 |      |      |                                                  |
+| 0828 | 50A. Domino piling | greedy, math   | 800  | http://codeforces.com/problemset/problem/50/A                                                  |
 | 0828 | 02733: 判断闰年 | math | Easy | http://cs101.openjudge.cn/pctbook/E02733/ |
 | 0827 | 1.两数之和      | 数组 哈希表 | Easy | https://leetcode.cn/problems/two-sum/     |
 | 0827 | 02750: 鸡兔同笼 | math | Easy | http://cs101.openjudge.cn/pctbook/E02750/ |
