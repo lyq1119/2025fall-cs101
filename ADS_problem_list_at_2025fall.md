@@ -1,0 +1,29 @@
+# cs101计概（Algo DS）编程题目
+
+*Updated 2025-08-27 22:12 GMT+8*  
+ *Compiled by Hongfei Yan (2020 Fall)*  
+
+题解在 
+[2020fall_cs101.openjudge.cn_problems.md](https://github.com/GMyhf/2020fall-cs101/blob/main/2020fall_cs101.openjudge.cn_problems.md),
+[2020fall_Codeforces_problems.md](https://github.com/GMyhf/2020fall-cs101/blob/main/2020fall_Codeforces_problems.md),
+[sunnywhy_problems.md](https://github.com/GMyhf/2024spring-cs201/blob/main/sunnywhy_problems.md),
+[2024fall_LeetCode_problems.md](https://github.com/GMyhf/2024fall-cs101/blob/main/2024fall_LeetCode_problems.md)
+
+<!--
+| 1122 |       |       | - |          |
+-->
+
+
+
+## 2025fall 每日选做
+
+<!-- ### ==2025/08/27 -->
+
+
+
+| 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
+| ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 0828 |                 |      |      |                                                  |
+| 0828 | 02733: 判断闰年 | math | Easy | http://cs101.openjudge.cn/pctbook/E02733/ |
+| 0827 | 1.两数之和      | 数组 哈希表 | Easy | https://leetcode.cn/problems/two-sum/     |
+| 0827 | 02750: 鸡兔同笼 | math | Easy | http://cs101.openjudge.cn/pctbook/E02750/ |
