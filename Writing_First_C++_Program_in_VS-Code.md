@@ -1,6 +1,6 @@
 # 在 VS Code 中写第一个 C++ 程序
 
-*Updated 2025-08-25 18:56 GMT+8*  
+*Updated 2025-08-29 17:25 GMT+8*  
  *Compiled by Hongfei Yan (2025 Summer)*    
 
 
@@ -198,6 +198,148 @@ bye
 > - 使用 `Makefile`
 > - 使用 `CMake`
 > - 安装 Code Runner 插件来快速运行简单 C++ 文件
+
+
+
+## ✅ 第五步：调试程序
+
+用 macOS 自带的 **lldb** 来调试这个“闰年判断”小程序。
+
+在 **macOS 上调试 C++**，最稳妥的方式是：
+
+- 编译用 `clang++`（代替 g++）。
+- 调试用 `lldb`（代替 gdb）。
+- 在 VS Code 里用 **C/C++ 扩展**，一键编译运行调试即可。
+
+假设你的文件名是 `leap.cpp`。
+
+------
+
+① 编译带调试信息的程序
+
+要想用 lldb 单步调试，必须加 `-g`：
+
+```bash
+clang++ -g leap.cpp -o leap
+```
+
+------
+
+② 启动 lldb
+
+```bash
+lldb ./leap
+```
+
+你会看到类似：
+
+```
+(lldb) target create "leap"
+Current executable set to 'leap' (x86_64).
+```
+
+------
+
+③ 常用调试命令
+
+1. **设置断点**（例如在 `main` 函数入口）：
+
+   ```bash
+   (lldb) break set -n main
+   ```
+
+   或者指定行号：
+
+   ```bash
+   (lldb) break set -f leap.cpp -l 6
+   ```
+
+2. **运行程序**：
+
+   ```bash
+   (lldb) run
+   ```
+
+   程序会停在断点处，等待你调试。
+
+3. **单步执行**：
+
+   - 下一行（不进入函数）：
+
+     ```bash
+     (lldb) next
+     ```
+
+   - 进入函数：
+
+     ```bash
+     (lldb) step
+     ```
+
+   - 跳出当前函数：
+
+     ```bash
+     (lldb) finish
+     ```
+
+4. **查看变量**：
+
+   ```bash
+   (lldb) print a
+   ```
+
+   或者更短：
+
+   ```bash
+   (lldb) p a
+   ```
+
+5. **继续运行直到下一个断点**：
+
+   ```bash
+   (lldb) continue
+   ```
+
+6. **退出调试**：
+
+   ```bash
+   (lldb) quit
+   ```
+
+------
+
+④ 示例调试过程
+
+```bash
+clang++ -g leap.cpp -o leap
+lldb ./leap
+(lldb) break set -n main
+(lldb) run
+```
+
+这时会卡在 `main` 的第一行。你输入：
+
+```bash
+(lldb) next      # 单步，走到 scanf
+(lldb) continue  # 让程序跑到需要输入
+```
+
+程序会等待你输入数字，比如：
+
+```
+2000
+```
+
+继续调试：
+
+```bash
+(lldb) next
+(lldb) print a   # 打印变量 a，应该是 2000
+(lldb) next      # 跳到 if (a % 4 == 0)
+(lldb) step      # 进入 if 分支
+```
+
+你就能一步步看到程序的执行流程，直到输出结果 `Y` 或 `N`。
 
 
 
