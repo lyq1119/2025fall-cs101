@@ -2,7 +2,7 @@
 
 高中与大学的计算机基础课程衔接
 
-*Updated 2025-08-31 19:11 GMT+8*  
+*Updated 2025-08-31 22:35 GMT+8*  
  *Compiled by Hongfei Yan (2025 Summer)*  
 
 
@@ -1515,6 +1515,58 @@ for line in sys.stdin:  # 支持管道输入或文件重定向
 详细示例可参考 Python 官方文档或教程链接。
 
 
+
+# 处理不定行输入的常用方法 
+
+在 Python 中，处理多行输入有以下几种常见方式： 使用 try...except 捕获输入结束（如 EOFError） 利用 sys.stdin 逐行读取 通过 sys.stdin.read() 一次性读取所有输入
+
+在 Python 中，处理不定行输入（即不知道具体行数的输入）有以下几种常用方法：
+
+1. **使用 try-except 捕获 EOFError**
+```python
+while True:
+    try:
+        line = input()
+        # 处理每一行的逻辑
+    except EOFError:
+        break
+```
+这种方法适用于手动输入时使用 Ctrl+D（Unix/Linux）或 Ctrl+Z+Enter（Windows）结束输入的场景。
+
+2. **利用 sys.stdin 逐行读取**
+```python
+import sys
+for line in sys.stdin:
+    # 处理每一行的逻辑（包含换行符）
+    line = line.strip()  # 通常需要去除首尾空白
+```
+
+3. **通过 sys.stdin.read() 一次性读取所有输入**
+```python
+import sys
+data = sys.stdin.read()  # 整个输入作为字符串
+lines = data.splitlines()  # 按行分割
+for line in lines:
+    # 处理每一行的逻辑
+```
+这种方法特别适合处理大规模输入，效率较高。
+
+4. **列表存储法**
+```python
+lines = []
+while True:
+    try:
+        lines.append(input())
+    except EOFError:
+        break
+# 后续处理lines列表
+```
+这种方法将所有输入存储在列表中便于后续处理。
+
+注意事项：
+- Windows 和 Unix/Linux 系统的EOF输入方式不同
+- 字符串处理时注意换行符和首尾空格
+- 对于算法竞赛等场景，推荐使用sys.stdin.read()方法提高IO效率
 
 
 
