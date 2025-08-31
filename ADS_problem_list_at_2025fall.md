@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-08-30 23:38 GMT+8*  
+*Updated 2025-08-31 21:39 GMT+8*  
  *Compiled by Hongfei Yan (2020 Fall)*  
 
 题解在 
@@ -20,7 +20,7 @@
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
 | 0901 | 158A. Next Round    | *special problem, implementation  | 800 | http://codeforces.com/problemset/problem/158/A          |
-| 0901 | 04067: 回文数字     | queue      | Easy | http://cs101.openjudge.cn/pctbook/E04067          |
+| 0901 | 04067: 回文数字     | two pointers, queue      | Easy | http://cs101.openjudge.cn/pctbook/E04067          |
 | 0831 | 1A. Theatre Square  | math       | 1000 | https://codeforces.com/problemset/problem/1/A          |
 | 0831 | 07618: 病人排队 | sortings   | Easy | http://cs101.openjudge.cn/pctbook/E07618/          |
 | 0830 | 4A. Watermelon | brute force, math | 800 | http://codeforces.com/problemset/problem/4/A          |
