@@ -89,8 +89,13 @@ pip install -U pip ruff black ipykernel
 ## 4. 安装 PyCharm
 
 1. 从 [PyCharm 官网](https://www.jetbrains.com/pycharm/) 下载 **macOS (Apple Silicon)** 版本
+
 2. 打开 `.dmg`，将 **PyCharm.app** 拖入「应用程序」
+
 3. 启动并登录 JetBrains 账号（关联你的 License ID）
+
+   > 不申请JetBrain licence也可以用PyCharm。如果想申请，对学生和老师是免费的，https://www.jetbrains.com/academy/student-pack/
+
 4. 新建项目 → **Interpreter** 选 **Existing environment** → 指向 `.venv/bin/python`
 
 
@@ -237,6 +242,8 @@ pip install --upgrade pip ruff black ipykernel
 1. 从 [PyCharm 官网](https://www.jetbrains.com/pycharm/) 下载 Windows `.exe` 安装包。
 
 2. 安装后启动，登录 JetBrains 账号。
+
+   > 不申请JetBrain licence也可以用PyCharm。如果想申请，对学生和老师是免费的，https://www.jetbrains.com/academy/student-pack/
 
 3. 创建项目时，选择解释器：
 
