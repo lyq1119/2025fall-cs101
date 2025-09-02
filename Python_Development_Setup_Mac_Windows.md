@@ -224,6 +224,8 @@ pip install --upgrade pip ruff black ipykernel
 ```
 
 > 退出虚拟环境：`deactivate`
+>
+> 如果报 找不到路径 "D:\MyPython"，那就先在D盘建立目录 MyPython
 
 **说明**：  
 若 `activate` 脚本被阻止运行，通常是因为 PowerShell 的执行策略限制。运行上述 `Set-ExecutionPolicy` 命令即可解决。
