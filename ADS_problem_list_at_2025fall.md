@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-09-03 00:07 GMT+8*  
+*Updated 2025-09-04 00:20 GMT+8*  
  *Compiled by Hongfei Yan (2020 Fall)*  
 
 题解在 
@@ -19,6 +19,8 @@
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 0904 | 236A. Boy or Girl              | brute force, implementation, strings | 800  | https://codeforces.com/problemset/problem/236/A    |
+| 0904 | 02724: 生日相同 | sortings      | Easy  | http://cs101.openjudge.cn/pctbook/E02724/          |
 | 0903 | 231A. Team          | bruteforce, greedy     | 800  | http://codeforces.com/problemset/problem/231/A   | 
 | 0903 | 02712: 细菌繁殖     | math   | Easy | http://cs101.openjudge.cn/pctbook/E02712          |
 | 0902 | 112A. Petya and Strings        | implementation, strings              | 800  | http://codeforces.com/problemset/problem/112/A   |
