@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-09-05 19:24 GMT+8*  
+*Updated 2025-09-06 20:36 GMT+8*  
  *Compiled by Hongfei Yan (2020 Fall)*  
 
 题解在 
@@ -19,6 +19,8 @@
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 0907 | 996A. Hit the Lottery          | dp, greedy                           | 800  | https://codeforces.com/problemset/problem/996/A  | 
+| 0907 | 12556: 编码字符串 | strings    | Easy | http://cs101.openjudge.cn/pctbook/E12556/          |
 | 0906 | 263A. Beautiful Matrix         | implementation                       | 800  | http://codeforces.com/problemset/problem/263/A   | 
 | 0906 | 06374: 文字排版 | strings      | Easy | http://cs101.openjudge.cn/pctbook/E06374/         |
 | 0905 | 266A. Stones on the Table      | implementation                       | 800  | http://codeforces.com/problemset/problem/266/A   | 
