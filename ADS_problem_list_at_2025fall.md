@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-09-07 19:29 GMT+8*  
+*Updated 2025-09-09 13:02 GMT+8*  
  *Compiled by Hongfei Yan (2020 Fall)*  
 
 题解在 
@@ -19,6 +19,8 @@
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 0909 | 1352A. Sum of Round Numbers    | implementation, math                 | 800  | https://codeforces.com/problemset/problem/1352/A | 
+| 0909 | 01218: THE DRUNK JAILER      | math, implementation  | Easy | http://cs101.openjudge.cn/pctbook/E01218/          |
 | 0908 | 1328A. Divisibility Problem    | math                                 | 800  | https://codeforces.com/problemset/problem/1328/A | 
 | 0908 | 19949: 提取实体  | strings   | Easy | http://cs101.openjudge.cn/pctbook/E19949/          |
 | 0907 | 996A. Hit the Lottery          | dp, greedy                           | 800  | https://codeforces.com/problemset/problem/996/A  | 
