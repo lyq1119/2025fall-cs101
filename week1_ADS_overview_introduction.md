@@ -823,7 +823,7 @@ plt.show()
 
 运行结果示例：
 
-<img src="/Users/hfyan/Library/Containers/com.tencent.xinWeChat/Data/Documents/xwechat_files/wxid_hkklp9z39u0a22_139d/temp/RWTemp/2025-09/f4676d751c537b56bf6060a3b1511eb3.png" alt="f4676d751c537b56bf6060a3b1511eb3" style="zoom: 33%;" />
+<img src="https://raw.githubusercontent.com/GMyhf/img/main/img/f4676d751c537b56bf6060a3b1511eb3.png" alt="f4676d751c537b56bf6060a3b1511eb3" style="zoom: 33%;" />
 
 
 
