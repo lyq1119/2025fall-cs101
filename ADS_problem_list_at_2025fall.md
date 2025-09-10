@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-09-09 22:27 GMT+8*  
+*Updated 2025-09-10 14:45 GMT+8*  
  *Compiled by Hongfei Yan (2020 Fall)*  
 
 题解在 
@@ -19,6 +19,8 @@
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 0911 | 151A. Soft Drinking            | implementation, math                 | 800  | https://codeforces.com/problemset/problem/151/A  |
+| 0911 | 03143: 验证“歌德巴赫猜想”  | math | Easy | http://cs101.openjudge.cn/pctbook/E03143/
 | 0910 | 1335A. Candies and Two Sisters | math                                 | 800  | https://codeforces.com/problemset/problem/1335/A | 
 | 0910 | 18223: 24点   | brute force, implementation      | Easy | http://cs101.openjudge.cn/pctbook/E18223/          |
 | 0909 | 1352A. Sum of Round Numbers    | implementation, math                 | 800  | https://codeforces.com/problemset/problem/1352/A | 
