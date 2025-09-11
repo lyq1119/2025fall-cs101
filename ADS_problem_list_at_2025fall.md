@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-09-10 14:45 GMT+8*  
+*Updated 2025-09-11 19:35 GMT+8*  
  *Compiled by Hongfei Yan (2020 Fall)*  
 
 题解在 
@@ -19,6 +19,8 @@
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 0912 | 1475A. Odd Divisor             | math, number theory                  | 900  | https://codeforces.com/problemset/problem/1475/A | 
+| 0912 | 19944: 这一天星期几  | math  | Medium | http://cs101.openjudge.cn/pctbook/M19944/          |
 | 0911 | 151A. Soft Drinking            | implementation, math                 | 800  | https://codeforces.com/problemset/problem/151/A  |
 | 0911 | 03143: 验证“歌德巴赫猜想”  | math | Easy | http://cs101.openjudge.cn/pctbook/E03143/
 | 0910 | 1335A. Candies and Two Sisters | math                                 | 800  | https://codeforces.com/problemset/problem/1335/A | 
