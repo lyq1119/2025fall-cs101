@@ -20,7 +20,7 @@
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
 | 0913 | 160A. Twins                    | greedy, sortings                     | 900  | https://codeforces.com/problemset/problem/160/A  |
-| 0913 | 01002: 方便记忆的电话号码      | sortings, hash table      | M | http://cs101.openjudge.cn/pctbook/M01002/          |
+| 0913 | 01002: 方便记忆的电话号码      | sortings, hash table      | Medium | http://cs101.openjudge.cn/pctbook/M01002/          |
 | 0912 | 1475A. Odd Divisor             | math, number theory                  | 900  | https://codeforces.com/problemset/problem/1475/A | 
 | 0912 | 19944: 这一天星期几  | math  | Medium | http://cs101.openjudge.cn/pctbook/M19944/          |
 |  |       |       | - | 不再放CF 800难度的题目          |
