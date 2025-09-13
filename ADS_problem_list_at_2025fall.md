@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-09-12 20:14 GMT+8*  
+*Updated 2025-09-13 21:56 GMT+8*  
  *Compiled by Hongfei Yan (2020 Fall)*  
 
 题解在 
@@ -19,6 +19,8 @@
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 0914 | 96A. Football                  | implementation, strings              | 900  | http://codeforces.com/problemset/problem/96/A    | 
+| 0914 | 04015: 邮箱验证  | strings   | Medium | http://cs101.openjudge.cn/pctbook/M04015/          |
 | 0913 | 160A. Twins                    | greedy, sortings                     | 900  | https://codeforces.com/problemset/problem/160/A  |
 | 0913 | 01002: 方便记忆的电话号码      | sortings, hash table      | Medium | http://cs101.openjudge.cn/pctbook/M01002/          |
 | 0912 | 1475A. Odd Divisor             | math, number theory                  | 900  | https://codeforces.com/problemset/problem/1475/A | 
