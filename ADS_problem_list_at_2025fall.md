@@ -1,7 +1,8 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-09-13 21:56 GMT+8*  
+*Updated 2025-09-13 21:56 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
+https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
 题解在 
 [2020fall_cs101.openjudge.cn_problems.md](https://github.com/GMyhf/2020fall-cs101/blob/main/2020fall_cs101.openjudge.cn_problems.md),
