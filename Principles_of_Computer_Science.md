@@ -1,6 +1,6 @@
 # 计算机原理
 
-*Updated 2025-09-13 15:21 GMT+8*  
+*Updated 2025-09-13 17:23 GMT+8*  
  *Compiled by Hongfei Yan (2024 Fall)*    
 
 
@@ -204,7 +204,7 @@ print(chr(uppera))  # 输出: A
 
 
 
-​	**软件实现**：附录 1A 提供了一个图灵机的 Python 实现，代码在
+​	**软件实现**：提供一个图灵机的 Python 实现，代码在
 https://github.com/GMyhf/2019fall-cs101/tree/master/TuringMachine
 ​	参考自 https://www.python-course.eu/turing_machine.php，在此基础上增加了加法操作，能够完成 14 分钟示例视频中的加法演示。该实现采用 Python **面向对象编程（Object-Oriented Programming, OOP）** 方式编写，相关语法可参考 https://www.runoob.com/python3/python3-class.html。
 
