@@ -1,6 +1,6 @@
 # 202509-Week1-计算概论课程概述
 
-*Updated 2025-09-09 14:20 GMT+8*  
+*Updated 2025-09-10 18:14 GMT+8*  
 *Compiled by Hongfei Yan (2025 Summer)*    
 https://github.com/GMyhf/2025fall-cs101/
 
@@ -774,36 +774,56 @@ print(square(5))  # 输出 25
 
 ```python
 import pandas as pd
-
-df = pd.read_excel('studentListInCourse-20240907.xls')
-df_schools = df['所属院系'].value_counts().reset_index()
-df_schools.columns = ['所属院系', 'Count']
-#print(df_schools)
-
-import itertools
-#print(*df_schools.loc[:, ['所属院系']].values)
-#print(*df_schools.loc[:, ['Count']].values)
-labels = list(itertools.chain(*df_schools.loc[:, ['所属院系']].values))
-sizes = list(itertools.chain(*df_schools.loc[:, ['Count']].values))
-
 import matplotlib.pyplot as plt
-plt.rcParams['font.family'] = ['Heiti TC']
 
+# 读取数据
+file_path = '/Users/hfyan/MyPythonApp/studentListInCourse-ADS-20250910.xls'
+df = pd.read_excel(file_path)
+
+print("原始数据 df.head():")
+print(df.head())
+print("原始数据列名:", df.columns.tolist())
+
+# 统计各院系人数并重命名列
+df_schools = (
+    df['所属院系']
+    .value_counts()
+    .reset_index()
+)
+
+# 确保列名统一为 ['所属院系', 'Count']
+old_cols = df_schools.columns.tolist()
+if len(old_cols) == 2:
+    df_schools = df_schools.rename(columns={old_cols[0]: '所属院系', old_cols[1]: 'Count'})
+else:
+    raise ValueError(f"意外的列名: {old_cols}")
+
+print("\n统计结果 df_schools.head():")
+print(df_schools.head())
+print("df_schools 列名:", df_schools.columns.tolist())
+
+# 准备数据
+labels = df_schools['所属院系'].tolist()
+sizes = df_schools['Count'].tolist()
+
+# 绘图
+plt.rcParams['font.family'] = ['Heiti TC']  # 确保中文显示
 fig, ax = plt.subplots(figsize=(15, 15))
 ax.pie(sizes, labels=labels, autopct='%1.1f%%')
 
-plt.title(label="2024/9/7 选课院系分布",
+plt.title("2025/9/10 选课院系分布",
           fontsize=20,
           loc="left",
           color="green")
 plt.show()
+
 ```
 
 
 
 运行结果示例：
 
-<img src="https://raw.githubusercontent.com/GMyhf/img/main/img/image-20240910141230439.png" alt="image-20240910141230439" style="zoom:50%;" />
+<img src="https://raw.githubusercontent.com/GMyhf/img/main/img/f4676d751c537b56bf6060a3b1511eb3.png" alt="f4676d751c537b56bf6060a3b1511eb3" style="zoom: 33%;" />
 
 
 

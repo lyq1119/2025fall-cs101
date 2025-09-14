@@ -1,7 +1,8 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-09-09 13:02 GMT+8*  
+*Updated 2025-09-13 21:56 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
+https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
 题解在 
 [2020fall_cs101.openjudge.cn_problems.md](https://github.com/GMyhf/2020fall-cs101/blob/main/2020fall_cs101.openjudge.cn_problems.md),
@@ -19,6 +20,17 @@
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 0914 | 96A. Football                  | implementation, strings              | 900  | http://codeforces.com/problemset/problem/96/A    | 
+| 0914 | 04015: 邮箱验证  | strings   | Medium | http://cs101.openjudge.cn/pctbook/M04015/          |
+| 0913 | 160A. Twins                    | greedy, sortings                     | 900  | https://codeforces.com/problemset/problem/160/A  |
+| 0913 | 01002: 方便记忆的电话号码      | sortings, hash table      | Medium | http://cs101.openjudge.cn/pctbook/M01002/          |
+| 0912 | 1475A. Odd Divisor             | math, number theory                  | 900  | https://codeforces.com/problemset/problem/1475/A | 
+| 0912 | 19944: 这一天星期几  | math  | Medium | http://cs101.openjudge.cn/pctbook/M19944/          |
+|  |       |       | - | 不再放CF 800难度的题目          |
+| 0911 | 151A. Soft Drinking            | implementation, math                 | 800  | https://codeforces.com/problemset/problem/151/A  |
+| 0911 | 03143: 验证“歌德巴赫猜想”  | math | Easy | http://cs101.openjudge.cn/pctbook/E03143/
+| 0910 | 1335A. Candies and Two Sisters | math                                 | 800  | https://codeforces.com/problemset/problem/1335/A | 
+| 0910 | 18223: 24点   | brute force, implementation      | Easy | http://cs101.openjudge.cn/pctbook/E18223/          |
 | 0909 | 1352A. Sum of Round Numbers    | implementation, math                 | 800  | https://codeforces.com/problemset/problem/1352/A | 
 | 0909 | 01218: THE DRUNK JAILER      | math, implementation  | Easy | http://cs101.openjudge.cn/pctbook/E01218/          |
 | 0908 | 1328A. Divisibility Problem    | math                                 | 800  | https://codeforces.com/problemset/problem/1328/A | 
