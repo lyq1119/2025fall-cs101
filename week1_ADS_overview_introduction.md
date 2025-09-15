@@ -701,6 +701,44 @@ raise ValueError("Invalid input!")
 
 
 
+
+
+> 处理不定行输入的常用方法
+> 在 Python 中，处理多行输入有以下几种常见方式：
+>
+> 使用 try...except 捕获输入结束（如 EOFError）
+> 利用 sys.stdin 逐行读取
+> 通过 sys.stdin.read() 一次性读取所有输入
+>
+> 
+>
+> ![3db87da0ae8379f01c708674af44b645](https://raw.githubusercontent.com/GMyhf/img/main/img/3db87da0ae8379f01c708674af44b645.png)
+>
+> 
+>
+> **04015: 邮箱验证**
+>
+> strings, http://cs101.openjudge.cn/practice/04015
+>
+> 这题目输入没有明确结束，需要套在try ...  except里面。测试时候，需要模拟输入结束，看你是window还是mac。If the user hits EOF (*nix: Ctrl-D, Windows: Ctrl-Z+Return), raise EOFError.
+>
+> ```python
+> while True:
+>  try:
+>      s = input()
+>  except EOFError:
+>      break
+> 
+> 		...
+>  print('NO' if q==-1 else 'YES')
+> ```
+>
+> 
+
+
+
+
+
 ### 2.4.5 定义函数
 
 函数是一种过程抽象工具，可以将复杂的计算隐藏在简洁的调用中。
