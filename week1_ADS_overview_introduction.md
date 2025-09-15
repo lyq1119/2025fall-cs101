@@ -1,6 +1,6 @@
 # 202509-Week1-计算概论课程概述
 
-*Updated 2025-09-10 18:14 GMT+8*  
+*Updated 2025-09-15 13:29 GMT+8*  
 *Compiled by Hongfei Yan (2025 Summer)*    
 https://github.com/GMyhf/2025fall-cs101/
 
@@ -534,7 +534,7 @@ Python还为列表提供了丰富的方法（表1-3）：
 | **Operation Name** | **Operator** | **Explanation**      |
 | ------------------ | ------------ | -------------------- |
 | membership         | in           | 判断元素是否在集合中 |
-| union              | `            | `                    |
+| union              | ` | `                    |合并|
 | intersection       | `&`          | 交集                 |
 | difference         | `-`          | 差集                 |
 | subset             | `<=`         | 判断是否为子集       |
@@ -701,6 +701,44 @@ raise ValueError("Invalid input!")
 
 
 
+
+
+> 处理不定行输入的常用方法
+> 在 Python 中，处理多行输入有以下几种常见方式：
+>
+> 使用 try...except 捕获输入结束（如 EOFError）
+> 利用 sys.stdin 逐行读取
+> 通过 sys.stdin.read() 一次性读取所有输入
+>
+> 
+>
+> ![3db87da0ae8379f01c708674af44b645](https://raw.githubusercontent.com/GMyhf/img/main/img/3db87da0ae8379f01c708674af44b645.png)
+>
+> 
+>
+> **04015: 邮箱验证**
+>
+> strings, http://cs101.openjudge.cn/practice/04015
+>
+> 这题目输入没有明确结束，需要套在try ...  except里面。测试时候，需要模拟输入结束，看你是window还是mac。If the user hits EOF (*nix: Ctrl-D, Windows: Ctrl-Z+Return), raise EOFError.
+>
+> ```python
+> while True:
+>  try:
+>      s = input()
+>  except EOFError:
+>      break
+> 
+> 		...
+>  print('NO' if q==-1 else 'YES')
+> ```
+>
+> 
+
+
+
+
+
 ### 2.4.5 定义函数
 
 函数是一种过程抽象工具，可以将复杂的计算隐藏在简洁的调用中。
@@ -721,6 +759,16 @@ print(square(5))  # 输出 25
 ```
 
 通过函数，程序员可以将问题分解为更小的部分，提高代码的可读性与复用性。
+
+
+
+> <img src="https://raw.githubusercontent.com/GMyhf/img/main/img/image-20250304124722908.png" alt="image-20250304124722908" style="zoom: 25%;" />
+
+
+
+> <img src="https://raw.githubusercontent.com/GMyhf/img/main/img/image-20250304124747562.png" alt="image-20250304124747562" style="zoom: 33%;" />
+
+
 
 
 
