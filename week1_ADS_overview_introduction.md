@@ -1,6 +1,6 @@
 # 202509-Week1-计算概论课程概述
 
-*Updated 2025-09-10 18:14 GMT+8*  
+*Updated 2025-09-15 13:29 GMT+8*  
 *Compiled by Hongfei Yan (2025 Summer)*    
 https://github.com/GMyhf/2025fall-cs101/
 
@@ -759,6 +759,16 @@ print(square(5))  # 输出 25
 ```
 
 通过函数，程序员可以将问题分解为更小的部分，提高代码的可读性与复用性。
+
+
+
+> <img src="https://raw.githubusercontent.com/GMyhf/img/main/img/image-20250304124722908.png" alt="image-20250304124722908" style="zoom: 25%;" />
+
+
+
+> <img src="https://raw.githubusercontent.com/GMyhf/img/main/img/image-20250304124747562.png" alt="image-20250304124747562" style="zoom: 33%;" />
+
+
 
 
 
