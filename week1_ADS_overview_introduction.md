@@ -534,7 +534,7 @@ Python还为列表提供了丰富的方法（表1-3）：
 | **Operation Name** | **Operator** | **Explanation**      |
 | ------------------ | ------------ | -------------------- |
 | membership         | in           | 判断元素是否在集合中 |
-| union              | `            | `                    |
+| union              | ` | `                    |合并|
 | intersection       | `&`          | 交集                 |
 | difference         | `-`          | 差集                 |
 | subset             | `<=`         | 判断是否为子集       |
