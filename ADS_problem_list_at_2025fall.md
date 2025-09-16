@@ -20,6 +20,8 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 0917 | 69A. Young Physicist     | implementation, math                       | 1000  | https://codeforces.com/problemset/problem/69/A  |
+| 0917 | 02786: Pell数列  | math, dp       | Medium | http://cs101.openjudge.cn/pctbook/M02786/         |
 | 0916 | 58A. Chat room | greedy, strings   | 1000 | http://codeforces.com/problemset/problem/58/A          |
 | 0916 | 20742: 泰波拿契數   | math, implementation   | Easy | http://cs101.openjudge.cn/pctbook/E20742/          |
 | 0915 | 1879B. Chips on the Board      | constructive algorithms, greedy      | 900  | https://codeforces.com/contest/1879/problem/B    |
