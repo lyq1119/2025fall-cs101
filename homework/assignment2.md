@@ -1,6 +1,6 @@
-# Assignment #1: 自主学习
+# Assignment #2: 语法练习
 
-Updated 1306 GMT+8 Sep 14, 2025
+Updated 1335 GMT+8 Sep 16, 2025
 
 2025 fall, Complied by <mark>同学的姓名、院系</mark>
 
@@ -40,9 +40,34 @@ Updated 1306 GMT+8 Sep 14, 2025
 
 ## 1. 题目
 
-### E02733: 判断闰年
+### 263A. Beautiful Matrix
 
-http://cs101.openjudge.cn/pctbook/E02733/
+implementation, 800, https://codeforces.com/problemset/problem/263/A
+
+
+
+思路：
+
+
+
+代码
+
+```python
+# 
+
+```
+
+
+
+代码运行截图 <mark>（至少包含有"Accepted"）</mark>
+
+
+
+
+
+### 1328A. Divisibility Problem
+
+math, 800, https://codeforces.com/problemset/problem/1328/A
 
 
 
@@ -64,33 +89,9 @@ http://cs101.openjudge.cn/pctbook/E02733/
 
 
 
-### E02750: 鸡兔同笼
+### 427A. Police Recruits
 
-http://cs101.openjudge.cn/pctbook/E02750/
-
-
-
-思路：
-
-
-
-代码
-
-```python
-
-```
-
-
-
-代码运行截图 <mark>（至少包含有"Accepted"）</mark>
-
-
-
-
-
-### 50A. Domino piling
-
-greedy, math, 800, http://codeforces.com/problemset/problem/50/A
+implementation, 800, https://codeforces.com/problemset/problem/427/A
 
 
 
@@ -112,9 +113,33 @@ greedy, math, 800, http://codeforces.com/problemset/problem/50/A
 
 
 
-### 1A. Theatre Square
+### E02808: 校门外的树
 
-math, 1000, https://codeforces.com/problemset/problem/1/A
+implementation, http://cs101.openjudge.cn/pctbook/E02808/
+
+
+思路：
+
+
+
+代码
+
+```python
+# 
+
+```
+
+
+
+代码运行截图 <mark>（至少包含有"Accepted"）</mark>
+
+
+
+
+
+### sy60: 水仙花数II
+
+implementation, https://sunnywhy.com/sfbj/3/1/60
 
 
 
@@ -136,33 +161,9 @@ math, 1000, https://codeforces.com/problemset/problem/1/A
 
 
 
-### 112A. Petya and Strings
+### M01922: Ride to School
 
-implementation, strings, 1000, http://codeforces.com/problemset/problem/112/A
-
-
-
-思路：
-
-
-
-代码
-
-```python
-
-```
-
-
-
-代码运行截图 <mark>（至少包含有"Accepted"）</mark>
-
-
-
-
-
-### 231A. Team
-
-bruteforce, greedy, 800, http://codeforces.com/problemset/problem/231/A
+implementation, http://cs101.openjudge.cn/pctbook/M01922/
 
 
 
