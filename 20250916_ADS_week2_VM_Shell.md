@@ -1,6 +1,6 @@
 #  20250915-Week2-虚拟机 & Shell
 
-*Updated 2025-09-15 22:52 GMT+8*  
+*Updated 2025-09-16 14:29 GMT+8*  
  *Compiled by Hongfei Yan (2025 Fall)*    
 
 https://github.com/GMyhf/2025fall-cs201/
@@ -10,6 +10,15 @@ https://github.com/GMyhf/2025fall-cs201/
 logs：
 
 >  熟练掌握 Linux 系统、Shell 命令、OJ 测试数据处理、Markdown 编写及 GitHub 使用，是必备的基础技能。
+>
+>  
+>
+>  写程序时，通常打开终端（terminal），通过 SSH 登录到服务器，使用 vi 编辑代码，并借助 python/g++/gcc 进行解释、编译和调试。
+>
+>  现在，北京大学为大家提供了这样的实际环境——每位同学和老师都可以领取并使用一台云端虚拟机。该虚拟机配置为 4GB 内存、100GB SSD 硬盘，支持安装 Linux 系统，供大家自由探索和学习。
+>
+>  👉 申请地址：https://clab.pku.edu.cn/
+>  💬 答疑渠道：QQ群 432191140，入群问题答案：linuxclub@pku.edu.cn
 
 
 
@@ -50,7 +59,7 @@ logs：
 
 - **优点**
 
-  - 与 Linux 命令体系接近，学习 Shell 命令几乎可以无缝迁移。
+  - <mark>与 Linux 命令体系接近，学习 Shell 命令几乎可以无缝迁移</mark>。
   - 自带开发工具链（clang、git、ssh、python）。
   - 适合开发 AI/科研项目，M1/M2/M3 芯片性能强劲。
 
@@ -127,13 +136,6 @@ logs：
 **云端虚拟机**
 
 - **clab.pku.edu.cn**：CLab 是服务北大师生的云计算平台。提供基于云的虚拟实验室环境，供学生和研究人员用于教学、学习和科研目的。用户可以通过互联网访问这些虚拟机，执行编程实验、模拟等任务。
-
-  > 写程序时，通常打开终端（terminal），通过 SSH 登录到服务器，使用 vi 编辑代码，并借助 python/g++/gcc 进行解释、编译和调试。
-  >
-  > 现在，北京大学为大家提供了这样的实际环境——每位同学和老师都可以领取并使用一台云端虚拟机。该虚拟机配置为 4GB 内存、100GB SSD 硬盘，支持安装 Linux 系统，供大家自由探索和学习。
-  >
-  > 👉 申请地址：https://clab.pku.edu.cn/
-  > 💬 答疑渠道：QQ群 432191140，入群问题答案：linuxclub@pku.edu.cn
 
 无论是本地还是云端的虚拟机，它们都提供了灵活的计算资源分配方案，帮助用户测试软件、开发新应用或进行研究工作，而无需投资额外的硬件设施。随着云计算技术的发展，越来越多的服务迁移到了云端，使得用户可以从任何地方访问高性能的计算资源。
 
@@ -810,7 +812,13 @@ unzip main.zip
 cd LLMs-from-scratch-main
 ```
 
-------
+> 如果没有wget，可以 sudo dnf install wget 安装
+>
+> 如果网络速度慢，下载不到main.zip，可以从本地机器scp拷贝到云虚拟机。例如：
+>
+> scp LLMs-from-scratch-main.zip rocky@10.129.242.57:~/tmp/
+
+
 
 ### 4.创建虚拟环境
 
