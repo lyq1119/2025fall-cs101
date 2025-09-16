@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-09-15 18:12 GMT+8*
+*Updated 2025-09-16 12:41 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -21,7 +21,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
 | 0916 | 58A. Chat room | greedy, strings   | 1000 | http://codeforces.com/problemset/problem/58/A          |
-| 0916 | 20742: 泰波拿契數   | implementation   | Easy | http://cs101.openjudge.cn/pctbook/E20742/          |
+| 0916 | 20742: 泰波拿契數   | math, implementation   | Easy | http://cs101.openjudge.cn/pctbook/E20742/          |
 | 0915 | 1879B. Chips on the Board      | constructive algorithms, greedy      | 900  | https://codeforces.com/contest/1879/problem/B    |
 | 0915 | 02910: 提取数字   | strings    | Easy | http://cs101.openjudge.cn/pctbook/E02910/          |
 | 0914 | 96A. Football                  | implementation, strings              | 900  | http://codeforces.com/problemset/problem/96/A    | 
