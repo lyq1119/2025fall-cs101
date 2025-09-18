@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-09-16 12:41 GMT+8*
+*Updated 2025-09-18 13:33 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -20,6 +20,8 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 0918 | 122A. Lucky Division | brute forcee, number theory   | 1000       | https://codeforces.com/contest/122/problem/A          |
+| 0918 | 04030: 统计单词数  | string     | Medium | http://cs101.openjudge.cn/pctbook/M04030/           |
 | 0917 | 69A. Young Physicist     | implementation, math                       | 1000  | https://codeforces.com/problemset/problem/69/A  |
 | 0917 | 02786: Pell数列  | math, dp       | Medium | http://cs101.openjudge.cn/pctbook/M02786/         |
 | 0916 | 58A. Chat room | greedy, strings   | 1000 | http://codeforces.com/problemset/problem/58/A          |
