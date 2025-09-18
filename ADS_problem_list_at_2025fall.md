@@ -21,7 +21,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
 | 0919 | 270A. Fancy Fence | geometry, implementation, math   | 1100  | https://codeforces.com/contest/270/problem/A    |
-| 0919 | 02808: 小门外的树 | implementation  | Easy | http://cs101.openjudge.cn/pctbook/E02808/          |
+| 0919 | 02808: 校门外的树 | implementation  | Easy | http://cs101.openjudge.cn/pctbook/E02808/          |
 | 0918 | 122A. Lucky Division | brute forcee, number theory   | 1000       | https://codeforces.com/contest/122/problem/A          |
 | 0918 | 04030: 统计单词数  | string     | Medium | http://cs101.openjudge.cn/pctbook/M04030/           |
 | 0917 | 69A. Young Physicist     | implementation, math                       | 1000  | https://codeforces.com/problemset/problem/69/A  |
