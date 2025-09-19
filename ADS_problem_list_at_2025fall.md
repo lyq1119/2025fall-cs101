@@ -20,9 +20,9 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
-| 0921 | sy60: 水仙花数II | implementation   | E  | https://sunnywhy.com/sfbj/3/1/60    |
+| 0921 | sy60: 水仙花数II | implementation   | Easy  | https://sunnywhy.com/sfbj/3/1/60    |
 | 0921 | 21532: 数学密码   | brute force, implementation  | Medium | http://cs101.openjudge.cn/pctbook/M21532          |
-| 0920 | sy56: 单调递增序列 | implementation   | E  | https://sunnywhy.com/sfbj/3/1/56    |
+| 0920 | sy56: 单调递增序列 | implementation   | Easy  | https://sunnywhy.com/sfbj/3/1/56    |
 | 0920 | 02981: 大整数加法 | implementation | Medium | http://cs101.openjudge.cn/pctbook/M02981/          |
 | 0919 | 270A. Fancy Fence | geometry, implementation, math   | 1100  | https://codeforces.com/contest/270/problem/A    |
 | 0919 | 02808: 校门外的树 | implementation  | Easy | http://cs101.openjudge.cn/pctbook/E02808/          |
