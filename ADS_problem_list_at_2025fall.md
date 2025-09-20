@@ -20,7 +20,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
-| 0922 | sy64: 寻找元素对 | -   | E  | https://sunnywhy.com/sfbj/3/2/64    |
+| 0922 | sy64: 寻找元素对 | -   | Easy  | https://sunnywhy.com/sfbj/3/2/64    |
 | 0922 | 21459: How old are you?  | math  | Easy | http://cs101.openjudge.cn/pctbook/E21459          |
 | 0921 | sy60: 水仙花数II | implementation   | Easy  | https://sunnywhy.com/sfbj/3/1/60    |
 | 0921 | 21532: 数学密码   | brute force, implementation  | Medium | http://cs101.openjudge.cn/pctbook/M21532          |
