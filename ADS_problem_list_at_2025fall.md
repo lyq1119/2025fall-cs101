@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-09-20 18:01 GMT+8*
+*Updated 2025-09-22 23:11 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -20,6 +20,8 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 0923 | 3487.删除后的最大子数组元素和 | implementation  | Easy    | https://leetcode.cn/problems/maximum-unique-subarray-sum-after-deletion/  |
+| 0923 | 23564: 数论      | math  | Easy | http://cs101.openjudge.cn/pctbook/E23564/          |
 | 0922 | sy64: 寻找元素对 | -   | Easy  | https://sunnywhy.com/sfbj/3/2/64    |
 | 0922 | 21459: How old are you?  | math  | Easy | http://cs101.openjudge.cn/pctbook/E21459          |
 | 0921 | sy60: 水仙花数II | implementation   | Easy  | https://sunnywhy.com/sfbj/3/1/60    |
