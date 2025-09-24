@@ -20,6 +20,8 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 0925 | 456A. Laptops | sortings   | 1100  | https://codeforces.com/contest/456/problem/A    |
+| 0925 | 07743: 计算矩阵边缘元素之和  | implementation       | Easy | http://cs101.openjudge.cn/pctbook/E07743/          |
 | 0924 | 1221A. 2048 Game | brute force, greedy, math   | 1000  | https://codeforces.com/problemset/problem/1221/A    |
 | 0924 | 19963: 买学区房  | math, sortings  | Medium | http://cs101.openjudge.cn/pctbook/M19963/          |
 | 0923 | 3487.删除后的最大子数组元素和 | implementation  | Easy    | https://leetcode.cn/problems/maximum-unique-subarray-sum-after-deletion/  |
