@@ -20,8 +20,10 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
-| 0926 | 339B. Xenia and Ringroad     | implementation  | 1000 | https://codeforces.com/problemset/problem/339/B          |
-| 0926 | 35. 搜索插入位置   | binary search   | Easy | https://leetcode.cn/problems/search-insert-position/          |
+| 1001 | 230B. T-primes | binary search, implementation, math, number theory  | 1300 | https://codeforces.com/problemset/problem/230/B          |
+|  |       |       | - |          |
+| 0927 | 339B. Xenia and Ringroad     | implementation  | 1000 | https://codeforces.com/problemset/problem/339/B          |
+| 0927 | 35. 搜索插入位置   | binary search   | Easy | https://leetcode.cn/problems/search-insert-position/          |
 | 0926 | 230A. Dragons | greedy, sortings     | 1000 | https://codeforces.com/contest/230/problem/A          |
 | 0926 | 283. 移动零   | two pointers      | Easy | https://leetcode.cn/problems/move-zeroes/          |
 | 0925 | 456A. Laptops | sortings   | 1100  | https://codeforces.com/contest/456/problem/A    |
