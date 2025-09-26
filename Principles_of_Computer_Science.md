@@ -1,6 +1,6 @@
 # 计算机原理
 
-*Updated 2025-09-23 14:29 GMT+8*  
+*Updated 2025-09-25 22:16 GMT+8*  
  *Compiled by Hongfei Yan (2024 Fall)*    
 
 
@@ -131,6 +131,57 @@ print(chr(uppera))  # 输出: A
 ```
 
 ​	这种位级操作在大小写搜索、比较等场景中非常高效。	
+
+
+
+### 示例：E28674:《黑神话：悟空》之加密
+
+http://cs101.openjudge.cn/pctbook/E28674/
+
+小xu了解后很感兴趣，于是她开始学习了加密解密相关的技术。某一天，她猜测某一段密文只是采用了一种非常简单的加密方法完成加密：每个字母对应的密文是其在字母表中的后 k 个字母，但 **'a' 被视为 'z' 的下一个字母，从而整个字母表形成一个环**。例如，如果 k=3，那么字母 'a' 将被加密为 'd'，'z' 加密为 'c'，依此类推。
+
+现在，请你帮助她按照她的猜测完成对密文的破译（即根据密文得出其对应的明文）。
+
+
+
+**输入**
+
+第一行为一个整数 k，表示加密方法中的偏移量。(1 ≤ k ≤ 108000)
+第二行为一个由字母组成的字符串 s，表示需要解密的文本。(1 ≤ |s| ≤ 342)
+
+**输出**
+
+密文对应的明文。
+
+
+
+```python
+characters=[chr(i) for i in range(65,91)]
+uporlow=[]  
+outstring=''  
+  
+k=int(input())%26  
+instring=input()  
+  
+for i in instring:  
+    if i.isupper():  
+        uporlow.append(1)  
+    if i.islower():  
+        uporlow.append(0)  
+instring=instring.upper()  
+  
+for i in range(len(instring)):  
+    place=characters.index(instring[i])-k  
+    if uporlow[i]==0:  
+        outstring+=characters[place].lower()  
+    if uporlow[i]==1:  
+        outstring+=characters[place]  
+  
+print(outstring)
+
+```
+
+靳熙恒 25 物理学院，在黑神话悟空那道题里初始化的字母表本来是手打的，但之后学了ASCII码，于是可以自动生成字母表了，解放双手！之后还学到可以用 string 库生成字母表。
 
 
 

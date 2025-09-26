@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-09-24 13:42 GMT+8*
+*Updated 2025-09-25 19:33 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -20,13 +20,19 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1001 | 230B. T-primes | binary search, implementation, math, number theory  | 1300 | https://codeforces.com/problemset/problem/230/B          |
+|  |       |       | - |          |
+| 0927 | 339B. Xenia and Ringroad     | implementation  | 1000 | https://codeforces.com/problemset/problem/339/B          |
+| 0927 | 35. 搜索插入位置   | binary search   | Easy | https://leetcode.cn/problems/search-insert-position/          |
+| 0926 | 230A. Dragons | greedy, sortings     | 1000 | https://codeforces.com/contest/230/problem/A          |
+| 0926 | 283. 移动零   | two pointers      | Easy | https://leetcode.cn/problems/move-zeroes/          |
 | 0925 | 456A. Laptops | sortings   | 1100  | https://codeforces.com/contest/456/problem/A    |
 | 0925 | 07743: 计算矩阵边缘元素之和  | implementation       | Easy | http://cs101.openjudge.cn/pctbook/E07743/          |
 | 0924 | 1221A. 2048 Game | brute force, greedy, math   | 1000  | https://codeforces.com/problemset/problem/1221/A    |
 | 0924 | 19963: 买学区房  | math, sortings  | Medium | http://cs101.openjudge.cn/pctbook/M19963/          |
 | 0923 | 3487.删除后的最大子数组元素和 | implementation  | Easy    | https://leetcode.cn/problems/maximum-unique-subarray-sum-after-deletion/  |
 | 0923 | 23564: 数论      | math  | Easy | http://cs101.openjudge.cn/pctbook/E23564/          |
-| 0922 | sy64: 寻找元素对 | -   | Easy  | https://sunnywhy.com/sfbj/3/2/64    |
+| 0922 | sy64: 寻找元素对 | implementation, set   | Easy  | https://sunnywhy.com/sfbj/3/2/64    |
 | 0922 | 21459: How old are you?  | math  | Easy | http://cs101.openjudge.cn/pctbook/E21459          |
 | 0921 | sy60: 水仙花数II | implementation   | Easy  | https://sunnywhy.com/sfbj/3/1/60    |
 | 0921 | 21532: 数学密码   | brute force, implementation  | Medium | http://cs101.openjudge.cn/pctbook/M21532          |
