@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-09-25 19:33 GMT+8*
+*Updated 2025-09-26 19:33 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -22,6 +22,8 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
 | 1001 | 230B. T-primes | binary search, implementation, math, number theory  | 1300 | https://codeforces.com/problemset/problem/230/B          |
 |  |       |       | - |          |
+| 0928 | 20B. Equation | math     | Medium | https://codeforces.com/problemset/problem/20/B          |
+| 0928 | 23563: 多项式时间复杂度      | string, implementation | Easy | http://cs101.openjudge.cn/pctbook/E23563/          |
 | 0927 | 339B. Xenia and Ringroad     | implementation  | 1000 | https://codeforces.com/problemset/problem/339/B          |
 | 0927 | 35. 搜索插入位置   | binary search   | Easy | https://leetcode.cn/problems/search-insert-position/          |
 | 0926 | 230A. Dragons | greedy, sortings     | 1000 | https://codeforces.com/contest/230/problem/A          |
