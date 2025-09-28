@@ -9,7 +9,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 [2020fall_Codeforces](https://github.com/GMyhf/2020fall-cs101/blob/main/2020fall_Codeforces_problems.md),
 [sunnywhy](https://github.com/GMyhf/2024spring-cs201/blob/main/sunnywhy_problems.md),
 [2024fall_LeetCode Easy & Medium](https://github.com/GMyhf/2024fall-cs101/blob/main/2024fall_LeetCode_problems.md)
-[2024fall_LeetCode Tough](https://github.com/GMyhf/2024fall-cs101/blob/main/2024fall_LeetCode_problems_tough.md)
+[2024fall_LeetCode Tough](https://github.com/GMyhf/2024fall-cs101/blob/main/2024fall_LeetCode_tough_problems.md)
 
 <!--
 |  |       |       | - |          |
