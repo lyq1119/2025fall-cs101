@@ -1,14 +1,15 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-09-25 19:33 GMT+8*
+*Updated 2025-09-28 21:24 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
 题解在 
-[2020fall_cs101.openjudge.cn_problems.md](https://github.com/GMyhf/2020fall-cs101/blob/main/2020fall_cs101.openjudge.cn_problems.md),
-[2020fall_Codeforces_problems.md](https://github.com/GMyhf/2020fall-cs101/blob/main/2020fall_Codeforces_problems.md),
-[sunnywhy_problems.md](https://github.com/GMyhf/2024spring-cs201/blob/main/sunnywhy_problems.md),
-[2024fall_LeetCode_problems.md](https://github.com/GMyhf/2024fall-cs101/blob/main/2024fall_LeetCode_problems.md)
+[2020fall_cs101.openjudge.cn](https://github.com/GMyhf/2020fall-cs101/blob/main/2020fall_cs101.openjudge.cn_problems.md),
+[2020fall_Codeforces](https://github.com/GMyhf/2020fall-cs101/blob/main/2020fall_Codeforces_problems.md),
+[sunnywhy](https://github.com/GMyhf/2024spring-cs201/blob/main/sunnywhy_problems.md),
+[2024fall_LeetCode Easy & Medium](https://github.com/GMyhf/2024fall-cs101/blob/main/2024fall_LeetCode_problems.md)
+[2024fall_LeetCode Tough](https://github.com/GMyhf/2024fall-cs101/blob/main/2024fall_LeetCode_tough_problems.md)
 
 <!--
 |  |       |       | - |          |
@@ -22,6 +23,10 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
 | 1001 | 230B. T-primes | binary search, implementation, math, number theory  | 1300 | https://codeforces.com/problemset/problem/230/B          |
 |  |       |       | - |          |
+| 0929 | 313B. Ilya and Queries | dp, implementation   | 1100  | https://codeforces.com/contest/313/problem/B    | 
+| 0929 | 02783: Holiday Hotel  | greedy    | Medium | http://cs101.openjudge.cn/practice/02783          |
+| 0928 | 20B. Equation | math     | Medium | https://codeforces.com/problemset/problem/20/B          |
+| 0928 | 23563: 多项式时间复杂度      | string, implementation | Easy | http://cs101.openjudge.cn/pctbook/E23563/          |
 | 0927 | 339B. Xenia and Ringroad     | implementation  | 1000 | https://codeforces.com/problemset/problem/339/B          |
 | 0927 | 35. 搜索插入位置   | binary search   | Easy | https://leetcode.cn/problems/search-insert-position/          |
 | 0926 | 230A. Dragons | greedy, sortings     | 1000 | https://codeforces.com/contest/230/problem/A          |
