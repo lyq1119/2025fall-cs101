@@ -23,7 +23,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
 | 1001 | 230B. T-primes | binary search, implementation, math, number theory  | 1300 | https://codeforces.com/problemset/problem/230/B          |
 | 0930 | 508A. Pasha and Pixels  | brute force | 1100  | https://codeforces.com/contest/508/problem/A    | 
-| 0930 | 02753: 菲波那契数列       | math, recursion, dp       | Easy |  http://cs101.openjudge.cn/pctbook/M02753         | 
+| 0930 | 02753: 菲波那契数列       | math, recursion, dp       | Easy |  http://cs101.openjudge.cn/pctbook/E02753         | 
 | 0929 | 313B. Ilya and Queries | dp, implementation   | 1100  | https://codeforces.com/contest/313/problem/B    | 
 | 0929 | 02783: Holiday Hotel  | greedy    | Medium | http://cs101.openjudge.cn/practice/02783          |
 | 0928 | 20B. Equation | math     | Medium | https://codeforces.com/problemset/problem/20/B          |
