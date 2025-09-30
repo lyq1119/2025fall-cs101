@@ -1,6 +1,6 @@
 # 20250930-Week4-黎明/My flight
 
-*Updated 2025-09-29 23:48 GMT+8*
+*Updated 2025-09-30 14:41 GMT+8*
  *Compiled by Hongfei Yan (2024 Spring)*
 
 
@@ -2437,7 +2437,7 @@ Python 是一种高级编程语言，具有丰富的库和简洁的语法。然�
 >   # 传统方式
 >   numbers = [1, 2, 3, 4, 5]
 >   squares = list(map(lambda x: x ** 2, numbers))
->                 
+>                   
 >   # 列表推导式
 >   squares = [x ** 2 for x in numbers]
 >   ```
