@@ -23,7 +23,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
 | 1003 |       |       | - |          |
 | 1003 | 02746: 约瑟夫问题 |implementation, queue | Medium | http://cs101.openjudge.cn/pctbook/M02746/ |
-| 1002 | 489B. BerSU Ball | dfs and similar, dp, graph matchings, greedy, sortings, two pointers | 1200  | https://codeforces.com/contest/489/problem/B |
+| 1002 | 489B. BerSU Ball | dfs and similar, dp, graph matchings, greedy, sortings, two pointers | 1200  | https://codeforces.com/problemset/problem/489/B |
 | 1002 | 19942: 二维矩阵上的卷积运算 | matrices  | Easy | http://cs101.openjudge.cn/pctbook/E19942/          |
 | 1001 | 18161: 矩阵运算（先乘再加）      | matrices  | Easy |  http://cs101.openjudge.cn/pctbook/E18161/        |
 | 1001 | 230B. T-primes | binary search, implementation, math, number theory  | 1300 | https://codeforces.com/problemset/problem/230/B          |
