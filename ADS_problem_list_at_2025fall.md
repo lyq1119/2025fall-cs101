@@ -21,6 +21,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1001 | 18161: 矩阵运算（先乘再加）      | matrices  | Easy |  http://cs101.openjudge.cn/pctbook/E18161/        |
 | 1001 | 230B. T-primes | binary search, implementation, math, number theory  | 1300 | https://codeforces.com/problemset/problem/230/B          |
 | 0930 | 508A. Pasha and Pixels  | brute force | 1100  | https://codeforces.com/contest/508/problem/A    | 
 | 0930 | 02753: 菲波那契数列       | math, recursion, dp       | Easy |  http://cs101.openjudge.cn/pctbook/E02753         | 
