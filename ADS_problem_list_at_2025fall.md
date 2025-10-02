@@ -22,12 +22,12 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
 | 1006 | sy570: 三方欢喜   | dict     | Easy | https://sunnywhy.com/sfbj/3/7/570           |
-| 1006 | 1366D. Two Divisors | constructive algorithm, math, number theory   | 2000 | https://codeforces.com/problemset/problem/1366/D          |
+|  |       |       | - |          |
 | 1005 | sy569: 双向喜欢   | set      | 入门 | https://sunnywhy.com/sfbj/3/7/569          |
 | 1005 | 04110: 圣诞老人的礼物 | greedy     | Medium | http://cs101.openjudge.cn/pctbook/M04110/          |
 | 1004 | sy83: 公共前缀    | strings       | Easy | https://sunnywhy.com/sfbj/3/6/83          |
 | 1004 | 23555: 节省存储的矩阵乘法    | matrices      | Easy | https://cs101.openjudge.cn/pctbook/E23555/          |
-| 1003 | 283. 移动零      | two pointers       | Easy | https://leetcode.cn/problems/move-zeroes/          |
+| 1003 | 1366D. Two Divisors | constructive algorithm, math, number theory   | 2000 | https://codeforces.com/problemset/problem/1366/D          |
 | 1003 | 02746: 约瑟夫问题 |implementation, queue | Medium | http://cs101.openjudge.cn/pctbook/M02746/ |
 | 1002 | 489B. BerSU Ball | dfs and similar, dp, graph matchings, greedy, sortings, two pointers | 1200  | https://codeforces.com/problemset/problem/489/B |
 | 1002 | 19942: 二维矩阵上的卷积运算 | matrices  | Easy | http://cs101.openjudge.cn/pctbook/E19942/          |
