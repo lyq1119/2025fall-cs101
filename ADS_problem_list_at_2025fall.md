@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-10-02 09:19 GMT+8*
+*Updated 2025-10-04 10:43 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -21,8 +21,10 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1007 |       |       | - |          |
+| 1007 | 06640: 倒排索引    | data structures, IR | Medium | http://cs101.openjudge.cn/pctbook/M06640   |
 | 1006 | sy570: 三方欢喜   | dict     | Easy | https://sunnywhy.com/sfbj/3/7/570           |
-|  |       |       | - |          |
+| 1006 | 1078.Bigram分词    | two pinters, strings, NLP    | Easy    | https://leetcode.cn/problems/occurrences-after-bigram/
 | 1005 | sy569: 双向喜欢   | set      | 入门 | https://sunnywhy.com/sfbj/3/7/569          |
 | 1005 | 04110: 圣诞老人的礼物 | greedy     | Medium | http://cs101.openjudge.cn/pctbook/M04110/          |
 | 1004 | sy83: 公共前缀    | strings       | Easy | https://sunnywhy.com/sfbj/3/6/83          |
