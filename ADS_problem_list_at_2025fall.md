@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-10-04 10:43 GMT+8*
+*Updated 2025-10-05 17:23 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -21,7 +21,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
-| 1007 |       |       | - |          |
+| 1007 | 3.无重复字符的最长子串 | sliding window     | Medium | https://leetcode.cn/problems/longest-substring-without-repeating-characters/   |
 | 1007 | 06640: 倒排索引    | data structures, IR | Medium | http://cs101.openjudge.cn/pctbook/M06640   |
 | 1006 | sy570: 三方欢喜   | dict     | Easy | https://sunnywhy.com/sfbj/3/7/570           |
 | 1006 | 1078.Bigram分词    | two pinters, strings, NLP    | Easy    | https://leetcode.cn/problems/occurrences-after-bigram/
