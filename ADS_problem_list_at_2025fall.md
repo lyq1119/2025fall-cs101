@@ -21,6 +21,8 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1009 | 2140.Another Divisibility Problem   | constructive algorithms, math, number theory | Medium | https://codeforces.com/problemset/problem/2140/B          |
+| 1009 | 128.最长连续序列      | hash table, union find     | Medium | https://leetcode.cn/problems/longest-consecutive-sequence/          |
 | 1008 | 49.字母异位词分组      | hash table, sorting       | Medium | https://leetcode.cn/problems/group-anagrams/          |
 | 1008 | 1852: Ants  | physics, greedy      | Medium | http://cs101.openjudge.cn/pctbook/M01852          |
 | 1007 | 3.无重复字符的最长子串 | sliding window     | Medium | https://leetcode.cn/problems/longest-substring-without-repeating-characters/   |
