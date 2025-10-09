@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-10-08 01:00 GMT+8*
+*Updated 2025-10-10 00:19 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -21,6 +21,8 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1010 | 189A.Cut Ribbon  | brute force, dp   | 1300 | https://codeforces.com/problemset/problem/189/A          |
+| 1010 | 1781.所有子字符串美丽值之和 | 1781.所有子字符串美丽值之和 | Medium | https://leetcode.cn/problems/sum-of-beauty-of-all-substrings/    |
 | 1009 | 2140.Another Divisibility Problem   | constructive algorithms, math, number theory | 900 | https://codeforces.com/problemset/problem/2140/B          |
 | 1009 | 128.最长连续序列      | hash table, union find     | Medium | https://leetcode.cn/problems/longest-consecutive-sequence/          |
 | 1008 | 49.字母异位词分组      | hash table, sorting       | Medium | https://leetcode.cn/problems/group-anagrams/          |
