@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-10-10 00:19 GMT+8*
+*Updated 2025-10-11 12:45 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -22,7 +22,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
 | 1011 | 2942: 吃糖果  | dp   | Easy | http://cs101.openjudge.cn/pctbook/E02942          |
-| 1011 | 283.零移动    | two pointers | Easy | https://leetcode.cn/problems/move-zeroes/          |
+| 1011 | 29952: 咒语序列    | stack | Medium | http://cs101.openjudge.cn/practice/29952/          |
 | 1010 | 189A.Cut Ribbon  | brute force, dp   | 1300 | https://codeforces.com/problemset/problem/189/A          |
 | 1010 | 1781.所有子字符串美丽值之和 | hash table, string, counting | Medium | https://leetcode.cn/problems/sum-of-beauty-of-all-substrings/    |
 | 1009 | 2140.Another Divisibility Problem   | constructive algorithms, math, number theory | 900 | https://codeforces.com/problemset/problem/2140/B          |
