@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-10-11 21:01 GMT+8*
+*Updated 2025-10-12 23:47 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -21,6 +21,8 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1013 | 20.有效的括号      | stack       | Easy | https://leetcode.cn/problems/valid-parentheses/          |
+| 1013 | 27217: 有多少种合法的出栈顺序  | stack    | Medium | http://cs101.openjudge.cn/practice/27217/          |
 | 1012 | 121.买卖股票的最佳时机 | greedy, dp  | Easy | https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/          |
 | 1012 | 21554: 排队做实验    | greedy      | Medium | http://cs101.openjudge.cn/pctbook/M21554/          |
 | 1011 | 2942: 吃糖果  | dp   | Easy | http://cs101.openjudge.cn/pctbook/E02942          |
