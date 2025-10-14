@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-09-29 21:24 GMT+8*
+*Updated 2025-10-13 23:19 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -21,6 +21,32 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1014 | 12558: 岛屿周长      | matrices       | Medium | http://cs101.openjudge.cn/pctbook/M12558/          |
+| 1014 | 03670: 计算鞍点   | matrices       | Easy | http://cs101.openjudge.cn/pctbook/E03670/          |
+| 1013 | 20.有效的括号      | stack       | Easy | https://leetcode.cn/problems/valid-parentheses/          |
+| 1013 | 27217: 有多少种合法的出栈顺序  | stack    | Medium | http://cs101.openjudge.cn/practice/27217/          |
+| 1012 | 121.买卖股票的最佳时机 | greedy, dp  | Easy | https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/          |
+| 1012 | 21554: 排队做实验    | greedy      | Medium | http://cs101.openjudge.cn/pctbook/M21554/          |
+| 1011 | 2942: 吃糖果  | dp   | Easy | http://cs101.openjudge.cn/pctbook/E02942          |
+| 1011 | 29952: 咒语序列    | stack | Medium | http://cs101.openjudge.cn/practice/29952/          |
+| 1010 | 189A.Cut Ribbon  | brute force, dp   | 1300 | https://codeforces.com/problemset/problem/189/A          |
+| 1010 | 1781.所有子字符串美丽值之和 | hash table, string, counting | Medium | https://leetcode.cn/problems/sum-of-beauty-of-all-substrings/    |
+| 1009 | 2140.Another Divisibility Problem   | constructive algorithms, math, number theory | 900 | https://codeforces.com/problemset/problem/2140/B          |
+| 1009 | 128.最长连续序列      | hash table, union find     | Medium | https://leetcode.cn/problems/longest-consecutive-sequence/          |
+| 1008 | 49.字母异位词分组      | hash table, sorting       | Medium | https://leetcode.cn/problems/group-anagrams/          |
+| 1008 | 1852: Ants  | physics, greedy      | Medium | http://cs101.openjudge.cn/pctbook/M01852          |
+| 1007 | 3.无重复字符的最长子串 | sliding window     | Medium | https://leetcode.cn/problems/longest-substring-without-repeating-characters/   |
+| 1007 | 06640: 倒排索引    | data structures, IR | Medium | http://cs101.openjudge.cn/pctbook/M06640   |
+| 1006 | sy570: 三方欢喜   | dict     | Easy | https://sunnywhy.com/sfbj/3/7/570           |
+| 1006 | 1078.Bigram分词    | two pinters, strings, NLP    | Easy    | https://leetcode.cn/problems/occurrences-after-bigram/
+| 1005 | sy569: 双向喜欢   | set      | 入门 | https://sunnywhy.com/sfbj/3/7/569          |
+| 1005 | 04110: 圣诞老人的礼物 | greedy     | Medium | http://cs101.openjudge.cn/pctbook/M04110/          |
+| 1004 | sy83: 公共前缀    | strings       | Easy | https://sunnywhy.com/sfbj/3/6/83          |
+| 1004 | 23555: 节省存储的矩阵乘法    | matrices      | Easy | https://cs101.openjudge.cn/pctbook/E23555/          |
+| 1003 | 1366D. Two Divisors | constructive algorithm, math, number theory   | 2000 | https://codeforces.com/problemset/problem/1366/D          |
+| 1003 | 02746: 约瑟夫问题 |implementation, queue | Medium | http://cs101.openjudge.cn/pctbook/M02746/ |
+| 1002 | 489B. BerSU Ball | dfs and similar, dp, graph matchings, greedy, sortings, two pointers | 1200  | https://codeforces.com/problemset/problem/489/B |
+| 1002 | 19942: 二维矩阵上的卷积运算 | matrices  | Easy | http://cs101.openjudge.cn/pctbook/E19942/          |
 | 1001 | 18161: 矩阵运算（先乘再加）      | matrices  | Easy |  http://cs101.openjudge.cn/pctbook/E18161/        |
 | 1001 | 230B. T-primes | binary search, implementation, math, number theory  | 1300 | https://codeforces.com/problemset/problem/230/B          |
 | 0930 | 508A. Pasha and Pixels  | brute force | 1100  | https://codeforces.com/contest/508/problem/A    | 
