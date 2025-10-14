@@ -1,6 +1,6 @@
 # 2025/10/14 Week6 贪心和矩阵
 
-*Updated 2025-09-30 14:07 GMT+8*
+*Updated 2025-10-14 14:43 GMT+8*
  *Compiled by Hongfei Yan (2024 Spring)*
 
 
@@ -45,6 +45,12 @@
 >
 > 思路是无论当前的选项是否最优都接受，然后进行比较，如果选择之后不是最优了，则反悔，舍弃掉这个选项；否则，正式接受。如此往复。
 >
+> 1526C1. Potions (Easy Version)
+>
+> greedy, dp, data structures, brute force, *1500, https://codeforces.com/problemset/problem/1526/C1
+>
+> 
+>
 > **与动态规划的区别**
 >
 > 贪心算法与动态规划的不同在于它对每个子问题的解决方案都做出选择，不能回退。动态规划则会保存以前的运算结果，并根据以前的结果对当前进行选择，有回退功能。
@@ -53,7 +59,9 @@
 
 ![image-20231017140409613](https://raw.githubusercontent.com/GMyhf/img/main/img/image-20231017140409613.png)
 
-
+> 优化问题的算法通常会经历一系列步骤，每一步都有若干选择。对于许多优化问题，使用动态规划来确定最佳选择是过度的；更简单、更高效的贪心算法就足够了。贪心算法在每一步总是做出当前看起来最优的选择。也就是说，它**做出局部最优选择，希望这种选择最终能导致全局最优解**。本章探讨那些贪心算法能够提供最优解的优化问题。在阅读本章之前，你应该先阅读第15章关于动态规划的内容，特别是**第15.3节**。
+>
+> **贪心算法并不总能得到最优解，但对于许多问题，它们确实可以得到最优解**。我们将在第16.1节首先考察一个简单但非平凡的问题——活动选择问题，该问题可以通过贪心算法高效地计算出最优解。我们将通过首先考虑动态规划方法，然后证明我们总是可以做出贪心选择以达到最优解，从而得出贪心算法。第16.2节回顾贪心方法的基本要素，并给出一种直接证明贪心算法正确性的方法。第16.3节介绍贪心技术的一个重要应用：设计数据压缩（哈夫曼）编码。在第16.4节中，我们将研究一些称为“拟阵”（matroids）的组合结构背后的理论，这些结构**对于贪心算法总是能产生最优解**。最后，第16.5节将拟阵应用于解决带截止时间和惩罚的单位时间任务调度问题。
 
 
 
@@ -412,22 +420,24 @@ https://github.com/python/cpython/blob/main/Lib/bisect.py
 >
 > **使用 `functools.cmp_to_key` 的示例**
 >
+> <mark>Python 的 `bisect.bisect_left` 函数**从 Python 3.10 版本开始**才支持 `key` 参数。</mark>
+>
 > ```python
 > from bisect import bisect_left
 > from functools import cmp_to_key
 > 
 > def compare_items(x, y):
->     return (x[1] > y[1]) - (x[1] < y[1])
+>  return (x[1] > y[1]) - (x[1] < y[1])
 > 
 > def binary_search_with_key(arr, target, key):
->     # 找到目标值应该插入的位置
->     index = bisect_left(arr, target, key=cmp_to_key(key))
->     
->     # 检查是否找到了目标值
->     if index < len(arr) and key(arr[index], (0, target)) == 0:
->         return index  # 返回目标值的索引
->     else:
->         return -1  # 如果未找到目标值，返回 -1
+>  # 找到目标值应该插入的位置
+>  index = bisect_left(arr, target, key=cmp_to_key(key))
+> 
+>  # 检查是否找到了目标值
+>  if index < len(arr) and key(arr[index], (0, target)) == 0:
+>      return index  # 返回目标值的索引
+>  else:
+>      return -1  # 如果未找到目标值，返回 -1
 > 
 > # 示例
 > arr = [(1, 'a'), (2, 'b'), (3, 'c'), (4, 'd'), (5, 'e')]
@@ -456,7 +466,9 @@ https://github.com/python/cpython/blob/main/Lib/bisect.py
 
 
 
-### CF1221A. 2048 Game
+
+
+### 练习CF1221A. 2048 Game
 
 brute force/greedy/math, 1000, http://codeforces.com/problemset/problem/1221/A
 
@@ -474,7 +486,7 @@ You have to determine if you can win this game.
 
 You have to answer *q* independent queries.
 
-### 01017: 装箱问题
+### 练习01017: 装箱问题
 
 greedy, http://cs101.openjudge.cn/practice/01017
 
@@ -529,7 +541,7 @@ while True:
 
 
 
-### 12559: 最大最小整数 v0.3
+### 练习12559: 最大最小整数 v0.3
 
 greedy, strings, sortings, math http://cs101.openjudge.cn/practice/12559
 
@@ -633,7 +645,7 @@ print(''.join(lt1),''.join(lt))
 
 
 
-### 19948: 因材施教
+### 练习19948: 因材施教
 
 greedy, http://cs101.openjudge.cn/practice/19948
 
@@ -642,7 +654,7 @@ greedy, http://cs101.openjudge.cn/practice/19948
 
 
 
-### 1000B. Light It Up
+### 练习1000B. Light It Up
 
 greedy, 1500, https://codeforces.com/problemset/problem/1000/B
 
@@ -658,7 +670,7 @@ Find such a way to alter the program that the total time when the lamp is lit is
 
 
 
-### 18211: 军备竞赛
+### 练习18211: 军备竞赛
 
 greedy/two pointers, http://cs101.openjudge.cn/practice/18211
 
@@ -675,7 +687,7 @@ greedy/two pointers, http://cs101.openjudge.cn/practice/18211
 
 
 
-### CF1364A. XXXXX
+### 练习CF1364A. XXXXX
 
 brute force/data structures/number theory/two pointers, 1200, https://codeforces.com/problemset/problem/1364/A
 
@@ -1016,7 +1028,7 @@ $$
 
 ### 2.2.1 矩阵乘法运算符
 
-#### E18161: 矩阵运算(先乘再加)
+#### 示例E18161: 矩阵运算(先乘再加)
 
 matrices, http://cs101.openjudge.cn/pctbook/E18161/
 
@@ -1202,7 +1214,7 @@ except ValueError:
 
 ### 2.2.2 保护圈
 
-#### 12560: 生存游戏
+#### 示例12560: 生存游戏
 
 matrices, http://cs101.openjudge.cn/practice/12560/
 
@@ -1255,7 +1267,7 @@ n行，每行m个元素，用空格隔开。
 
 
 
-![image-20231017141049409](https://raw.githubusercontent.com/GMyhf/img/main/img/image-20231017141049409.png)
+<img src="https://raw.githubusercontent.com/GMyhf/img/main/img/image-20231017141049409.png" alt="image-20231017141049409" style="zoom:50%;" />
 
 
 
@@ -1300,7 +1312,7 @@ for row in bn:
 
 
 
-#### 508A. Pasha and Pixels
+#### 练习508A. Pasha and Pixels
 
 brute force, 1100, http://codeforces.com/problemset/problem/508/A
 
@@ -1381,7 +1393,7 @@ output
 
 
 
-![image-20231017141240860](https://raw.githubusercontent.com/GMyhf/img/main/img/image-20231017141240860.png)
+<img src="https://raw.githubusercontent.com/GMyhf/img/main/img/image-20231017141240860.png" alt="image-20231017141240860" style="zoom:50%;" />
 
 
 
@@ -1425,7 +1437,7 @@ else:
 
 
 
-#### 02659:Bomb Game
+#### 练习02659:Bomb Game
 
 matrices, http://cs101.openjudge.cn/practice/02659/
 
@@ -1504,7 +1516,7 @@ print(result)
 
 
 
-#### 04133:垃圾炸弹
+#### 练习04133:垃圾炸弹
 
 matrices, http://cs101.openjudge.cn/practice/04133/
 
@@ -1652,7 +1664,7 @@ https://blog.csdn.net/weixin_43347550/article/details/105158003
 
 
 
-### 04015: 邮箱验证
+### 示例04015: 邮箱验证
 
 strings, http://cs101.openjudge.cn/practice/04015
 
@@ -1763,7 +1775,7 @@ https://regex101.com
 
 
 
-### 24834: 通配符匹配
+### 练习24834: 通配符匹配
 
 http://cs101.openjudge.cn/practice/24834/
 
@@ -1826,7 +1838,7 @@ for i in range(int(input())):
 
 
 
-### 58A. Chat room
+### 练习58A. Chat room
 
 greedy/strings, 1000, http://codeforces.com/problemset/problem/58/A
 
@@ -1879,7 +1891,7 @@ print(['YES', 'NO'][r==None])
 
 
 
-### LeetCode 65. 有效数字
+### 练习LeetCode 65. 有效数字
 
 https://leetcode.cn/problems/valid-number/description/
 
@@ -1941,35 +1953,48 @@ from functools import lru_cache; lru_cache(maxsize = None)
 
 
 
-“Programming” 指的是一种表格法，不是写计算机程序
-
-•Dp应用于自问题重叠的情况，即不同的子问题具有公共的子问题
-
-•Dp对每个子问题只求解一次，并将其解保存在一个表格中，从而无需每次求解一个子问题时都重新计算
-
-
-
-•最优化问题（optimization problems）可以有很多可行解，每个解都有一个值，希望寻找具有最优值（最小值或最大值）的解。
-
-•称这样的解为问题的一个最优解（an optimal solution），而不是最优解（the optimal solution），因为可能有多个解都达到最优值
-
-
-
-•四个步骤来设计一个dp算法：
-
-•刻画一个最优解的结构特征
-
-•递推地定义最优解的值
-
-•计算最优的值，通常采用自底向上的方法
-
-•利用计算出的信息结构构造一个最优解
+> “Programming” 指的是一种表格法，不是写计算机程序
+>
+> •Dp应用于自问题重叠的情况，即不同的子问题具有公共的子问题
+>
+> •Dp对每个子问题只求解一次，并将其解保存在一个表格中，从而无需每次求解一个子问题时都重新计算
+>
+> 
+>
+> •最优化问题（optimization problems）可以有很多可行解，每个解都有一个值，希望寻找具有最优值（最小值或最大值）的解。
+>
+> •称这样的解为问题的一个最优解（an optimal solution），而不是最优解（the optimal solution），因为可能有多个解都达到最优值
+>
+> 
+>
+> •四个步骤来设计一个dp算法：
+>
+> •刻画一个最优解的结构特征
+>
+> •递推地定义最优解的值
+>
+> •计算最优的值，通常采用自底向上的方法
+>
+> •利用计算出的信息结构构造一个最优解
+>
 
 ![image-20231017140722761](https://raw.githubusercontent.com/GMyhf/img/main/img/image-20231017140722761.png)
+
+> 15.3 动态规划的要素
+>
+> 尽管我们刚刚通过两个动态规划方法的例子进行了讲解，你可能仍然在思考这种方法适用的条件。从工程的角度来看，什么时候我们应该寻找一个问题的动态规划解法呢？在本节中，我们将探讨最优问题必须具备的两个关键要素，以便应用动态规划：**最优子结构**和**重叠子问题**。我们还将重新审视并更深入地讨论记忆化（memoization）如何帮助我们在自顶向下的递归方法中利用重叠子问题的特性。
+>
+> **最优子结构**
+>
+> 使用动态规划求解优化问题的第一步是刻画最优解的结构。回忆一下，如果一个问题的最优解包含其子问题的最优解，则称该问题具有**最优子结构**。每当一个问题表现出最优子结构时，我们就有了一个很好的线索，表明动态规划可能适用。（如第16章所述，这也可能意味着贪心策略适用，但情况并非总是如此。）在动态规划中，我们通过子问题的最优解来构建原问题的最优解。因此，必须小心确保我们考虑的子问题范围包括了最优解中所使用的那些子问题。
 
 
 
 ![image-20231017140820148](https://raw.githubusercontent.com/GMyhf/img/main/img/image-20231017140820148.png)
+
+> 重叠子问题
+>
+> 动态规划适用于优化问题的第二个必要条件是：子问题的空间必须“较小”，也就是说，该问题的递归算法会反复求解相同的子问题，而不是总是生成新的子问题。通常情况下，**不同子问题的总数是输入规模的多项式**。当一个递归算法反复访问同一个问题时，我们就说这个优化问题具有**重叠子问题**。相比之下，适合使用分治法的问题通常在递归的每一步都会生成全新的问题。动态规划算法通常通过**每次只解决每个子问题一次，然后将解存储在一个表中，以便在需要时以常数时间进行查找**，从而利用重叠子问题的特性。
 
 
 
@@ -2025,7 +2050,7 @@ print('\n'.join(ans))
 
 1）lru_cache 有作用，时间接近先算好的方法。完美立方，http://cs101.openjudge.cn/practice/02810/  2）今天课件里面用lru_cache的程序没有写对，因为它对函数的参数起缓存作用，所以作用的函数一定要有参数。
 
-![image-20231015122235199](https://raw.githubusercontent.com/GMyhf/img/main/img/image-20231015122235199.png)
+<img src="https://raw.githubusercontent.com/GMyhf/img/main/img/image-20231015122235199.png" alt="image-20231015122235199" style="zoom:50%;" />
 
 
 
@@ -2061,7 +2086,7 @@ https://www.geeksforgeeks.org/heap-queue-or-heapq-in-python/
 
 ## 3.4 程序生成测试数据
 
-### 26971:分发糖果
+### 练习26971:分发糖果
 
 greedy, http://cs101.openjudge.cn/routine/26971/
 
@@ -2163,7 +2188,7 @@ for epoch in range(20):
 
 
 
-### 26976:摆动序列
+### 练习26976:摆动序列
 
 greedy, http://cs101.openjudge.cn/routine/26976/
 
@@ -2276,13 +2301,15 @@ for epoch in range(20):
 
 
 
+### 多解的题目
+
+ tags: constructive algorithms （If there are multiple solutions, you may output any of them. 多解的题目需要spj来处理，special judge）
+
 ![image-20231015123114430](https://raw.githubusercontent.com/GMyhf/img/main/img/image-20231015123114430.png)
 
 
 
-### CF1868A. Fill in the Matrix
-
- tags: constructive algorithms （If there are multiple solutions, you may output any of them. 多解的题目需要spj来处理，special judge）
+### 练习CF1868A. Fill in the Matrix
 
 constructive algorithms, implementation, 1300, https://codeforces.com/problemset/problem/1868/A
 
