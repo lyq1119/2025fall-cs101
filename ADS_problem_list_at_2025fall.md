@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-10-13 23:19 GMT+8*
+*Updated 2025-10-15 08:41 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -21,6 +21,8 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1015 |       |       | - |          |
+| 1015 | 02810: 完美立方       | brute force, hashing  | Medium |  http://cs101.openjudge.cn/pctbook/M02810/    |
 | 1014 | 12558: 岛屿周长      | matrices       | Medium | http://cs101.openjudge.cn/pctbook/M12558/          |
 | 1014 | 03670: 计算鞍点   | matrices       | Easy | http://cs101.openjudge.cn/pctbook/E03670/          |
 | 1013 | 20.有效的括号      | stack       | Easy | https://leetcode.cn/problems/valid-parentheses/          |
