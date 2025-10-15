@@ -21,6 +21,8 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1016 | sy578: 一一相依   | two pointers, sliding window      | Medium | https://sunnywhy.com/sfbj/3/7/578          |
+| 1016 | sy146: 判断八皇后 | matrices, hashing   | Easy | https://sunnywhy.com/sfbj/4/3/146          |
 | 1015 | sy176: 序列合并   | two pointers     | Easy | https://sunnywhy.com/sfbj/4/6/176          |
 | 1015 | 02810: 完美立方       | brute force, hashing  | Medium |  http://cs101.openjudge.cn/pctbook/M02810/    |
 | 1014 | 12558: 岛屿周长      | matrices       | Medium | http://cs101.openjudge.cn/pctbook/M12558/          |
