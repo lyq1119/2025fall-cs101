@@ -99,7 +99,7 @@ implementation, matrices, http://cs101.openjudge.cn/pctbook/E23555
 
 ### M12558: 岛屿周⻓
 
-matices, http://cs101.openjudge.cn/pctbook/M12558
+matrices, http://cs101.openjudge.cn/pctbook/M12558
 
 
 思路：
