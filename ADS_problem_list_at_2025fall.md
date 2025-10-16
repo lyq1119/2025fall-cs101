@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-10-15 08:41 GMT+8*
+*Updated 2025-10-16 22:23 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -21,6 +21,8 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1017 | 12560: 生存游戏      | matrices       | Medium | http://cs101.openjudge.cn/pctbook/M12560/          |
+| 1017 | 19943: 图的拉普拉斯矩阵     | matrices       | Easy | http://cs101.openjudge.cn/pctbook/E19942/          |
 | 1016 | sy578: 一一相依   | two pointers, sliding window      | Medium | https://sunnywhy.com/sfbj/3/7/578          |
 | 1016 | sy146: 判断八皇后 | matrices, hashing   | Easy | https://sunnywhy.com/sfbj/4/3/146          |
 | 1015 | sy176: 序列合并   | two pointers     | Easy | https://sunnywhy.com/sfbj/4/6/176          |
