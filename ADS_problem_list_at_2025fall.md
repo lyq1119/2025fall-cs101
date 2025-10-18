@@ -23,7 +23,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
 | 1020 |       |       | - |          |
 | 1020 | 19757: 萨鲁曼的军队 Saruman's Army      | greedy      | Medium | http://cs101.openjudge.cn/pctbook/M19757          |
-| 1029 | 02899: 矩阵交换行      | matrices       | Easy | http://cs101.openjudge.cn/pctbook/E02899/           |
+| 1019 | 02899: 矩阵交换行      | matrices       | Easy | http://cs101.openjudge.cn/pctbook/E02899/           |
 | 1019 | 04100: 进程检测  | greedy       | Medium | http://cs101.openjudge.cn/practice/04100/          |
 | 1018 | 02692: 假币问题      | brute force       | Medium | http://cs101.openjudge.cn/pctbook/M02692/          |
 | 1018 | 1520D. Same Differences      | data structures, hashing, math       | 1200 | https://codeforces.com/problemset/problem/1520/D          |
