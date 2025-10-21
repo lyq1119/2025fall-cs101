@@ -1,6 +1,6 @@
-# 2025/10/14 Week6 贪心和矩阵
+# Week6~7 贪心和矩阵
 
-*Updated 2025-10-14 14:43 GMT+8*
+*Updated 2025-10-21 13:32 GMT+8*
  *Compiled by Hongfei Yan (2024 Spring)*
 
 
@@ -1221,9 +1221,9 @@ except ValueError:
 
 ### 2.2.2 保护圈
 
-#### 示例12560: 生存游戏
+#### 练习M12560: 生存游戏
 
-matrices, http://cs101.openjudge.cn/practice/12560/
+matrices, http://cs101.openjudge.cn/pctbook/M12560/
 
 有如下生存游戏的规则：
 
@@ -1523,9 +1523,9 @@ print(result)
 
 
 
-#### 练习04133:垃圾炸弹
+#### 练习M04133:垃圾炸弹
 
-matrices, http://cs101.openjudge.cn/practice/04133/
+matrices, http://cs101.openjudge.cn/pctbook/M04133/
 
   2018年俄罗斯世界杯（2018 FIFA World Cup）开踢啦！为了方便球迷观看比赛，莫斯科街道上很多路口都放置了的直播大屏幕，但是人群散去后总会在这些路口留下一堆垃圾。为此俄罗斯政府决定动用一种最新发明——“垃圾炸弹”。这种“炸弹”利用最先进的量子物理技术，爆炸后产生的冲击波可以完全清除波及范围内的所有垃圾，并且不会产生任何其他不良影响。炸弹爆炸后冲击波是以正方形方式扩散的，炸弹威力（扩散距离）以d给出，表示可以传播d条街道。
 
@@ -1599,7 +1599,7 @@ print(res, max_point)
 
 
 
-# 三、其他知识点
+# 三、其他重要知识点
 
 ## 3.1 Regular expression 甜点
 
@@ -1638,12 +1638,15 @@ https://blog.csdn.net/weixin_43347550/article/details/105158003
 >    - `.` 匹配除换行符外的任意字符。
 >    - `^` 表示匹配输入字符串的开始位置。
 >    - `$` 表示匹配输入字符串的结束位置。
->    - `*` 匹配前面的子表达式零次或多次。
->    - `+` 匹配前面的子表达式一次或多次。
+>    - `*` 和{0,}一样，匹配前面的子表达式零次或多次。
+>    - `+` 和{1,}一样，匹配前面的子表达式一次或多次。
+>    - `?`和{0,1}一样，匹配前面的子表达式零次或一次。`
 >    - `{n}` 匹配确定的 `n` 次。
 >    - `[abc]` 字符集，匹配方括号内的任意字符。
 >    - `\d` 匹配一个数字字符，等价于 `[0-9]`。
 >    - `\w` 匹配包括下划线的任何单词字符，等价于 `[A-Za-z0-9_]`。
+>    - `|` 例如：`a|b`匹配a或者b
+>    - `()`匹配括号里面内容
 >
 > **应用场景**
 >
@@ -1841,7 +1844,7 @@ for i in range(int(input())):
 
 .点，匹配除“\n”和"\r"之外的任何单个字符。要匹配包括“\n”和"\r"在内的任何字符，请使用像“[\s\S]”的模式。
 
-\*，匹配前面的子表达式任意次。例如，z*能匹配“z”，也能匹配“zo”以及“zoo”。*等价于{0,}。
+\*，匹配前面的子表达式任意次。例如，`z*`能匹配“z”，也能匹配“zo”以及“zoo”。*等价于{0,}。
 
 
 
@@ -1960,29 +1963,19 @@ from functools import lru_cache; lru_cache(maxsize = None)
 
 
 
-> “Programming” 指的是一种表格法，不是写计算机程序
+> 动态规划与分治方法类似，通过**组合子问题的解**来解决问题。（此处的“编程”指的是**表格化的方法**，而不是编写计算机代码。）分治算法将问题划分为互不重叠的子问题，递归地解决这些子问题，然后合并它们的解以解决原问题。相比之下，当**子问题重叠**——即子问题共享更小的子问题时——才适用动态规划。在这种情况下，分治算法会做不必要的重复工作，反复求解相同的子子问题。而动态规划算法则**只对每个子子问题求解一次，并将其答案保存在表格中**，从而避免每次求解该子子问题时重新计算答案。
 >
-> •Dp应用于自问题重叠的情况，即不同的子问题具有公共的子问题
+> 我们通常将动态规划应用于**最优化问题**。这类问题可能有多种可能的解。每个解都有一个值，我们希望找到一个具有最优（最小或最大）值的解。我们将这种解称为该问题的一个**最优解**，而不是“the optimal solution”，因为可能有多个解能达到最优值。
 >
-> •Dp对每个子问题只求解一次，并将其解保存在一个表格中，从而无需每次求解一个子问题时都重新计算
+> 在设计动态规划算法时，我们遵循以下四个步骤：
 >
+> 1. 描述最优解的结构。
+>2. 递推地定义最优解的值。
+> 3. 按照自底向上的方式计算最优解的值。
+>4. 根据已计算的信息构造一个最优解。
 > 
->
-> •最优化问题（optimization problems）可以有很多可行解，每个解都有一个值，希望寻找具有最优值（最小值或最大值）的解。
->
-> •称这样的解为问题的一个最优解（an optimal solution），而不是最优解（the optimal solution），因为可能有多个解都达到最优值
->
+>**步骤1至3构成了动态规划解法的基础**。如果我们只需要最优解的值，而不需要解本身，就可以省略第4步。当我们执行第4步时，有时会在第3步中维护额外信息，以便能够轻松地构造出一个最优解。
 > 
->
-> •四个步骤来设计一个dp算法：
->
-> •刻画一个最优解的结构特征
->
-> •递推地定义最优解的值
->
-> •计算最优的值，通常采用自底向上的方法
->
-> •利用计算出的信息结构构造一个最优解
 >
 
 ![image-20231017140722761](https://raw.githubusercontent.com/GMyhf/img/main/img/image-20231017140722761.png)
@@ -1999,7 +1992,7 @@ from functools import lru_cache; lru_cache(maxsize = None)
 
 ![image-20231017140820148](https://raw.githubusercontent.com/GMyhf/img/main/img/image-20231017140820148.png)
 
-> 重叠子问题
+> **重叠子问题**
 >
 > 动态规划适用于优化问题的第二个必要条件是：子问题的空间必须“较小”，也就是说，该问题的递归算法会反复求解相同的子问题，而不是总是生成新的子问题。通常情况下，**不同子问题的总数是输入规模的多项式**。当一个递归算法反复访问同一个问题时，我们就说这个优化问题具有**重叠子问题**。相比之下，适合使用分治法的问题通常在递归的每一步都会生成全新的问题。动态规划算法通常通过**每次只解决每个子问题一次，然后将解存储在一个表中，以便在需要时以常数时间进行查找**，从而利用重叠子问题的特性。
 
@@ -2055,7 +2048,7 @@ print('\n'.join(ans))
 
 ### 02810: 完美立方
 
-1）lru_cache 有作用，时间接近先算好的方法。完美立方，http://cs101.openjudge.cn/practice/02810/  2）今天课件里面用lru_cache的程序没有写对，因为它对函数的参数起缓存作用，所以作用的函数一定要有参数。
+1）lru_cache 有作用，时间接近先算好的方法。完美立方，http://cs101.openjudge.cn/practice/02810/  2）它对函数的参数起缓存作用，所以作用的函数一定要有参数。
 
 <img src="https://raw.githubusercontent.com/GMyhf/img/main/img/image-20231015122235199.png" alt="image-20231015122235199" style="zoom:50%;" />
 
@@ -2083,6 +2076,322 @@ https://www.geeksforgeeks.org/queue-in-python/
 
 
 
+##### 示例05902: 双端队列
+
+http://cs101.openjudge.cn/practice/05902/
+
+定义一个双端队列，进队操作与普通队列一样，从队尾进入。出队操作既可以从队头，也可以从队尾。编程实现这个数据结构。
+
+**输入**
+第一行输入一个整数t，代表测试数据的组数。
+每组数据的第一行输入一个整数n，表示操作的次数。
+接着输入n行，每行对应一个操作，首先输入一个整数type。
+当type=1，进队操作，接着输入一个整数x，表示进入队列的元素。
+当type=2，出队操作，接着输入一个整数c，c=0代表从队头出队，c=1代表从队尾出队。
+n <= 1000
+
+**输出**
+对于每组测试数据，输出执行完所有的操作后队列中剩余的元素,元素之间用空格隔开，按队头到队尾的顺序输出，占一行。如果队列中已经没有任何的元素，输出NULL。
+
+样例输入
+
+```
+2
+5
+1 2
+1 3
+1 4
+2 0
+2 1
+6
+1 1
+1 2
+1 3
+2 0
+2 1
+2 0
+```
+
+样例输出
+
+```
+3
+NULL
+```
+
+
+
+```python
+from collections import deque
+
+for _ in range(int(input())):
+    n=int(input())
+    q=deque([])
+    for i in range(n):
+        a,b=map(int,input().split())
+        if a==1:
+            q.append(b)
+        else:
+            if b==0:
+                q.popleft()
+            else:
+                q.pop()
+    if q:
+        print(*q)
+    else:
+        print('NULL')
+```
+
+
+
+
+
+##### 示例04067: 回文数字（Palindrome Number）
+
+http://cs101.openjudge.cn/practice/04067/
+
+给出一系列非负整数，判断是否是一个回文数。回文数指的是正着写和倒着写相等的数。
+
+**输入**
+
+若干行，每行是一个非负整数（不超过99999999）
+
+**输出**
+
+对每行输入，如果其是一个回文数，输出YES。否则输出NO。
+
+样例输入
+
+```
+11
+123
+0
+14277241
+67945497
+```
+
+样例输出
+
+```
+YES
+NO
+YES
+YES
+NO
+```
+
+
+
+Use the deque from the collections module. The is_palindrome function checks if a number is a palindrome by converting it to a string, storing it in a deque, and then comparing the first and last elements until the deque is empty or only contains one element.
+
+```python
+from collections import deque
+
+def is_palindrome(num):
+    num_str = str(num)
+    num_deque = deque(num_str)
+    while len(num_deque) > 1:
+        if num_deque.popleft() != num_deque.pop():
+            return "NO"
+    return "YES"
+
+while True:
+    try:
+        num = int(input())
+        print(is_palindrome(num))
+    except EOFError:
+        break
+```
+
+
+
+
+
+##### 示例04099: 队列和栈
+
+http://cs101.openjudge.cn/practice/04099/
+
+队列和栈是两种重要的数据结构，它们具有push k和pop操作。push k是将数字k加入到队列或栈中，pop则是从队列和栈取一个数出来。队列和栈的区别在于取数的位置是不同的。
+
+队列是先进先出的：把队列看成横向的一个通道，则push k是将k放到队列的最右边，而pop则是从队列的最左边取出一个数。
+
+栈是后进先出的：把栈也看成横向的一个通道，则push k是将k放到栈的最右边，而pop也是从栈的最右边取出一个数。
+
+假设队列和栈当前从左至右都含有1和2两个数，则执行push 5和pop操作示例图如下：
+
+​     push 5     pop
+
+队列 1 2 -------> 1 2 5 ------> 2 5
+
+​     push 5     pop
+
+栈  1 2 -------> 1 2 5 ------> 1 2
+
+现在，假设队列和栈都是空的。给定一系列push k和pop操作之后，输出队列和栈中存的数字。若队列或栈已经空了，仍然接收到pop操作，则输出error。
+
+
+
+**输入**
+
+第一行为m，表示有m组测试输入，m<100。
+每组第一行为n，表示下列有n行push k或pop操作。（n<150）
+接下来n行，每行是push k或者pop，其中k是一个整数。
+（输入保证同时在队列或栈中的数不会超过100个）
+
+**输出**
+
+对每组测试数据输出两行，正常情况下，第一行是队列中从左到右存的数字，第二行是栈中从左到右存的数字。若操作过程中队列或栈已空仍然收到pop，则输出error。输出应该共2*m行。
+
+样例输入
+
+```
+2
+4
+push 1
+push 3
+pop
+push 5
+1
+pop
+```
+
+样例输出
+
+```
+3 5
+1 5
+error
+error
+```
+
+
+
+```python
+from collections import deque
+for _ in range(int(input())):
+    queue = deque()
+    stack = deque()
+    stop = False
+    for _ in range(int(input())):
+        s = input()
+        if s=='pop':
+            try:
+                queue.popleft()
+                stack.pop()
+            except IndexError:
+                stop = True
+        else:
+            a = int(s.split()[1])
+            queue.append(a)
+            stack.append(a)
+    if not stop:
+        print(' '.join(list(map(str,queue))))
+        print(' '.join(list(map(str,stack))))
+    elif stop:
+        print('error')
+        print('error')
+```
+
+
+
+
+
+##### 练习M02746: 约瑟夫问题
+
+implementation, queue, http://cs101.openjudge.cn/pctbook/M02746/
+
+约瑟夫问题：有ｎ只猴子，按顺时针方向围成一圈选大王（编号从１到ｎ），从第１号开始报数，一直数到ｍ，数到ｍ的猴子退出圈外，剩下的猴子再接着从1开始报数。就这样，直到圈内只剩下一只猴子时，这个猴子就是猴王，编程求输入ｎ，ｍ后，输出最后猴王的编号。
+
+**输入**
+
+每行是用空格分开的两个整数，第一个是 n, 第二个是 m ( 0 < m,n <=300)。最后一行是：
+
+0 0
+
+**输出**
+
+对于每行输入数据（最后一行除外)，输出数据也是一行，即最后猴王的编号
+
+样例输入
+
+```
+6 2
+12 4
+8 3
+0 0
+```
+
+样例输出
+
+```
+5
+1
+7
+```
+
+
+
+说明：使用 队列queue 这种数据结构会方便。它有三种实现方式，我们最常用的 list 就支持，说明，https://www.geeksforgeeks.org/queue-in-python/
+
+
+
+用list实现队列，O(n)
+
+```python
+# 先使用pop从列表中取出，如果不符合要求再append回列表，相当于构成了一个圈
+def hot_potato(name_list, num):
+    queue = []
+    for name in name_list:
+        queue.append(name)
+
+    while len(queue) > 1:
+        for i in range(num):
+            queue.append(queue.pop(0))	# O(N)
+        queue.pop(0)										# O(N)
+    return queue.pop(0)									# O(N)
+
+
+while True:
+    n, m = map(int, input().split())
+    if {n,m} == {0}:
+        break
+    monkey = [i for i in range(1, n+1)]
+    print(hot_potato(monkey, m-1))
+
+```
+
+
+
+用内置deque，O(1)
+
+```python
+from collections import deque
+
+# 先使用pop从列表中取出，如果不符合要求再append回列表，相当于构成了一个圈
+def hot_potato(name_list, num):
+    queue = deque()
+    for name in name_list:
+        queue.append(name)
+
+    while len(queue) > 1:
+        for i in range(num):
+            queue.append(queue.popleft()) # O(1)
+        queue.popleft()
+    return queue.popleft()
+
+
+while True:
+    n, m = map(int, input().split())
+    if {n,m} == {0}:
+        break
+    monkey = [i for i in range(1, n+1)]
+    print(hot_potato(monkey, m-1))
+```
+
+
+
+
+
 ### Heap queue (or heapq) in Python
 
 https://www.geeksforgeeks.org/heap-queue-or-heapq-in-python/
@@ -2093,9 +2402,9 @@ https://www.geeksforgeeks.org/heap-queue-or-heapq-in-python/
 
 ## 3.4 程序生成测试数据
 
-### 练习26971:分发糖果
+### 练习T26971:分发糖果
 
-greedy, http://cs101.openjudge.cn/routine/26971/
+greedy, http://cs101.openjudge.cn/pctbook/T26971/
 
 `n` 个孩子站成一排。给你一个整数数组 `ratings` 表示每个孩子的评分。
 
@@ -2195,9 +2504,9 @@ for epoch in range(20):
 
 
 
-### 练习26976:摆动序列
+### 练习M26976:摆动序列
 
-greedy, http://cs101.openjudge.cn/routine/26976/
+greedy, http://cs101.openjudge.cn/pctbook/M26976/
 
 如果连续数字之间的差严格地在正数和负数之间交替，则数字序列称为 **摆动序列 。**第一个差（如果存在的话）可能是正数或负数。仅有一个元素或者含两个不等元素的序列也视作摆动序列。
 
@@ -2409,11 +2718,52 @@ Therefore, 𝑠=MEX(0,5,4,1,3,2)=6.
 
 
 
-## 3.5 testing_code.py
+## 3.5 两种喂数据的方法
+
+> 通过喂数据来测试py程序的两种方法。每个题目的测试数据是zip文件，解开后，看到类似0.in,0.out的文件对。testing_code.py, offlinejudge.zsh, 也可以这里下载 https://github.com/GMyhf/2025fall-cs101/tree/main/code
+
+
+
+在 **mac** 或 **linux** 系统上，如果测试数据所在目录下包含形如 `xx.in`、`xx.out` 的文件，而待测试的代码文件是 `e1.py`，假设 `testing_code.py` 位于上两级目录中，脚本解释器为 `python3`，则可以在终端执行：
+
+```bash
+python3 ../../testing_code.py e1.py
+```
+
+若程序运行正确（如 `ac1.py`），则不会有输出；如果有错误，会直接打印提示信息。
+
+<img src="https://raw.githubusercontent.com/GMyhf/img/main/img/202509190043562.png" alt="5932455ec86aaf5923e3d5080b76085d" style="zoom:50%;" />
+
+
+
+另一种方式是使用评测脚本 **offlinejudge.zsh**。
+ 在 macOS 下执行：
+
+```bash
+zsh ../../offlinejudge.zsh e1.py ./
+```
+
+在 Linux 下执行：
+
+```bash
+bash ../../offlinejudge.zsh e1.py ./
+```
+
+运行后，左侧显示 `e1.py` 的程序输出，右侧显示正确答案，方便对照。
+
+<img src="https://raw.githubusercontent.com/GMyhf/img/main/img/202509190044067.jpg" alt="d96c73937410a3f906c294cb92801fb4" style="zoom:50%;" />
+
+
+
+综上，以上是通过“喂数据”来测试 Python 程序的两种方法。
+ 每个题目的测试数据通常以 zip 文件提供，解压后可得到类似 `0.in`、`0.out` 的数据文件对。
+ 相关脚本 [`testing_code.py`](https://github.com/GMyhf/2025fall-cs101/tree/main/code)、[`offlinejudge.zsh`](https://github.com/GMyhf/2025fall-cs101/tree/main/code) 也可从仓库中下载。
+
+
+
+### 示例testing_code.py源码
 
 https://github.com/GMyhf/2025fall-cs101/blob/main/code/testing_code.py
-
-
 
 ```python
 import subprocess
@@ -2475,5 +2825,16 @@ if __name__ == "__main__":
         if not test_code(script_path, infile, outfile):
             break
 
+```
+
+
+
+### 示例offlinejudge.sh
+
+```shell
+cd $2
+for i in *.in; do
+	diff -y <(python3 "$1" < "$i")  "${i%.*}.out"
+done
 ```
 
