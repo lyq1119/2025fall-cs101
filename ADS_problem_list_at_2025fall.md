@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-10-21 23:10 GMT+8*
+*Updated 2025-10-22 23:28 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -21,6 +21,8 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1023 | 18106: 螺旋矩阵   | matrices       | Medium | https://cs101.openjudge.cn/pctbook/M18106/          |
+| 1023 | 16531: 上机考试   | matrices       | Medium | http://cs101.openjudge.cn/pctbook/M16531/          |
 | 1022 | 02659:Bomb Game      | matrices      | Medium | http://cs101.openjudge.cn/practice/02659/          |
 | 1022 | 24588:后序表达式求值    | stack      | Easy | http://cs101.openjudge.cn/practice/24588/          |
 | 1021 | P5738 歌唱比赛      | matrices       | Easy | https://www.luogu.com.cn/problem/P5738          |
