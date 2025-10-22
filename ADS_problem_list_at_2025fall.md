@@ -21,7 +21,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
-| 1023 | 18106: 螺旋矩阵   | matrices       | Medium | https://cs101.openjudge.cn/pctbook/M18106/          |
+| 1023 | 18106: 螺旋矩阵   | matrices       | Medium | http://cs101.openjudge.cn/pctbook/M18106/          |
 | 1023 | 16531: 上机考试   | matrices       | Medium | http://cs101.openjudge.cn/pctbook/M16531/          |
 | 1022 | 02659:Bomb Game      | matrices      | Medium | http://cs101.openjudge.cn/practice/02659/          |
 | 1022 | 24588:后序表达式求值    | stack      | Easy | http://cs101.openjudge.cn/practice/24588/          |
