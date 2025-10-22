@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-10-13 23:19 GMT+8*
+*Updated 2025-10-21 23:10 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -21,6 +21,22 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1022 | 02659:Bomb Game      | matrices      | Medium | http://cs101.openjudge.cn/practice/02659/          |
+| 1022 | 24588:后序表达式求值    | stack      | Easy | http://cs101.openjudge.cn/practice/24588/          |
+| 1021 | P5738 歌唱比赛      | matrices       | Easy | https://www.luogu.com.cn/problem/P5738          |
+| 1021 | 27104:世界杯只因      | greedy       | Tough | http://cs101.openjudge.cn/pctbook/T27104/          |
+| 1020 | 07207: 神奇的幻方      | matrices       | Medium | http://cs101.openjudge.cn/pctbook/M07207          |
+| 1020 | 19757: 萨鲁曼的军队 Saruman's Army      | greedy      | Medium | http://cs101.openjudge.cn/pctbook/M19757          |
+| 1019 | 02899: 矩阵交换行      | matrices       | Easy | http://cs101.openjudge.cn/pctbook/E02899/           |
+| 1019 | 04100: 进程检测  | greedy       | Medium | http://cs101.openjudge.cn/practice/04100/          |
+| 1018 | 02692: 假币问题      | brute force       | Medium | http://cs101.openjudge.cn/pctbook/M02692/          |
+| 1018 | 1520D. Same Differences      | data structures, hashing, math       | 1200 | https://codeforces.com/problemset/problem/1520/D          |
+| 1017 | 12560: 生存游戏      | matrices       | Medium | http://cs101.openjudge.cn/pctbook/M12560/          |
+| 1017 | 19943: 图的拉普拉斯矩阵     | matrices       | Easy | http://cs101.openjudge.cn/pctbook/E19943/          |
+| 1016 | sy578: 一一相依   | two pointers, sliding window      | Medium | https://sunnywhy.com/sfbj/3/7/578          |
+| 1016 | sy146: 判断八皇后 | matrices, hashing   | Easy | https://sunnywhy.com/sfbj/4/3/146          |
+| 1015 | sy176: 序列合并   | two pointers     | Easy | https://sunnywhy.com/sfbj/4/6/176          |
+| 1015 | 02810: 完美立方       | brute force, hashing  | Medium |  http://cs101.openjudge.cn/pctbook/M02810/    |
 | 1014 | 12558: 岛屿周长      | matrices       | Medium | http://cs101.openjudge.cn/pctbook/M12558/          |
 | 1014 | 03670: 计算鞍点   | matrices       | Easy | http://cs101.openjudge.cn/pctbook/E03670/          |
 | 1013 | 20.有效的括号      | stack       | Easy | https://leetcode.cn/problems/valid-parentheses/          |

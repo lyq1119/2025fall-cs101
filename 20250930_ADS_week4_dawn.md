@@ -2012,12 +2012,12 @@ Additions per second: 45119823
 
 ​	本书使用标签来标识题目主要考察的算法或数据结构。常见标签包括：
 
-- **搜索类**：dfs, bfs, brute force
-- **分治类**：binary search, recursion
+- **搜索类**：dfs and similar
+- **分治类**：binary search, recursion, divide and conquer 
 - **优化类**：dp, greedy
-- **数据结构类**：stack, tree, graph, dict, set
-- **基础类**：implementation, math, strings, matrices, sorting
-- **技巧类**：two pointers, number theory, physics
+- **数据结构类**：data structures (stack, queue, heap, trees, graphs), hashing (dict, set)
+- **基础类**：implementation, brute force, math, strings, matrices, sortings
+- **技巧类**：two pointers, number theory, physics, sliding window, prefix sum
 
 ​	
 
@@ -2437,7 +2437,7 @@ Python 是一种高级编程语言，具有丰富的库和简洁的语法。然�
 >   # 传统方式
 >   numbers = [1, 2, 3, 4, 5]
 >   squares = list(map(lambda x: x ** 2, numbers))
->                   
+>                     
 >   # 列表推导式
 >   squares = [x ** 2 for x in numbers]
 >   ```

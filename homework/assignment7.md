@@ -1,6 +1,6 @@
-# Assignment #6: 矩阵、贪心
+# Assignment #7: 矩阵、队列、贪心
 
-Updated 1432 GMT+8 Oct 14, 2025
+Updated 1315 GMT+8 Oct 21, 2025
 
 2025 fall, Complied by <mark>同学的姓名、院系</mark>
 
@@ -24,36 +24,9 @@ Updated 1432 GMT+8 Oct 14, 2025
 
 ## 1. 题目
 
-### M18211: 军备竞赛
+### M12560: 生存游戏
 
-greedy, two pointers, http://cs101.openjudge.cn/pctbook/M18211
-
-
-
-思路：
-
-
-
-代码
-
-```python
-# 
-
-```
-
-
-
-代码运行截图 <mark>（至少包含有"Accepted"）</mark>
-
-
-
-
-
-### M21554: 排队做实验
-
-greedy, http://cs101.openjudge.cn/pctbook/M21554/
-
-
+matrices, http://cs101.openjudge.cn/pctbook/M12560/
 
 思路：
 
@@ -73,11 +46,9 @@ greedy, http://cs101.openjudge.cn/pctbook/M21554/
 
 
 
-### E23555: 节省存储的矩阵乘法
+### M04133:垃圾炸弹
 
-implementation, matrices, http://cs101.openjudge.cn/pctbook/E23555
-
-
+matrices, http://cs101.openjudge.cn/pctbook/M04133/
 
 思路：
 
@@ -97,10 +68,9 @@ implementation, matrices, http://cs101.openjudge.cn/pctbook/E23555
 
 
 
-### M12558: 岛屿周⻓
+### M02746: 约瑟夫问题
 
-matrices, http://cs101.openjudge.cn/pctbook/M12558
-
+implementation, queue, http://cs101.openjudge.cn/pctbook/M02746/
 
 思路：
 
@@ -109,7 +79,6 @@ matrices, http://cs101.openjudge.cn/pctbook/M12558
 代码
 
 ```python
-# 
 
 ```
 
@@ -121,10 +90,9 @@ matrices, http://cs101.openjudge.cn/pctbook/M12558
 
 
 
-### M01328: Radar Installation
+### M26976:摆动序列
 
-greedy, http://cs101.openjudge.cn/practice/01328/
-
+greedy, http://cs101.openjudge.cn/pctbook/M26976/
 
 
 思路：
@@ -145,11 +113,31 @@ greedy, http://cs101.openjudge.cn/practice/01328/
 
 
 
-### 545C. Woodcutters
+### T26971:分发糖果
 
-dp, greedy, 1500, https://codeforces.com/problemset/problem/545/C
+greedy, http://cs101.openjudge.cn/pctbook/T26971/
+
+思路：
 
 
+
+代码
+
+```python
+
+```
+
+
+
+代码运行截图 <mark>（至少包含有"Accepted"）</mark>
+
+
+
+
+
+### 1868A. Fill in the Matrix
+
+constructive algorithms, implementation, 1300, https://codeforces.com/problemset/problem/1868/A
 
 思路：
 
