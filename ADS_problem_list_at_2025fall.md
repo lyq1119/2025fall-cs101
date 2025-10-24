@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-10-24 00:31 GMT+8*
+*Updated 2025-10-25 00:03 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -21,6 +21,9 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1025 | 4147: 汉诺塔问题(Tower of Hanoi)      | recursion       | Medium | http://cs101.openjudge.cn/pctbook/M04147          |
+| 1025 | sy115: 斐波拉契数列       | recursion       | Easy | https://sunnywhy.com/sfbj/4/3/115          |
+|  |       | recursion begin       |  |          |
 | 1024 | 02734: 十进制到八进制  | stack       | Easy | http://cs101.openjudge.cn/pctbook/E02734/         |
 | 1024 | M21577: 护林员盖房子   | matrices, implementation  | Medium | http://cs101.openjudge.cn/pctbook/M21577/          |
 | 1023 | 18106: 螺旋矩阵   | matrices       | Medium | http://cs101.openjudge.cn/pctbook/M18106/          |
