@@ -21,6 +21,8 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1026 | 02760: 数字三角形     | dp, dfs      | Medium | http://cs101.openjudge.cn/pctbook/M02760/          |
+| 1026 | 1829D. Gold Rush      | brute force, dfs and similar, dp, implementation       | 1000 | https://codeforces.com/problemset/problem/1829/D          |
 | 1025 | 4147: 汉诺塔问题(Tower of Hanoi)      | recursion       | Medium | http://cs101.openjudge.cn/pctbook/M04147          |
 | 1025 | sy893: 斐波拉契数列-大数据       | dp       | Medium | https://sunnywhy.com/problem/893          |
 |  | sy115: 斐波拉契数列       | recursion       | Easy | https://sunnywhy.com/sfbj/4/3/115          |
