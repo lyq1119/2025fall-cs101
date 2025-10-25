@@ -22,7 +22,8 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
 | 1025 | 4147: 汉诺塔问题(Tower of Hanoi)      | recursion       | Medium | http://cs101.openjudge.cn/pctbook/M04147          |
-| 1025 | sy115: 斐波拉契数列       | recursion       | Easy | https://sunnywhy.com/sfbj/4/3/115          |
+| 1025 | sy893: 斐波拉契数列-大数据       | dp       | Medium | https://sunnywhy.com/problem/893          |
+|  | sy115: 斐波拉契数列       | recursion       | Easy | https://sunnywhy.com/sfbj/4/3/115          |
 |  |       | recursion begin       |  |          |
 | 1024 | 02734: 十进制到八进制  | stack       | Easy | http://cs101.openjudge.cn/pctbook/E02734/         |
 | 1024 | M21577: 护林员盖房子   | matrices, implementation  | Medium | http://cs101.openjudge.cn/pctbook/M21577/          |
