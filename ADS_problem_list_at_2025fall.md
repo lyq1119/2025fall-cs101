@@ -22,10 +22,10 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
 | 1027 | 02748: 全排列      | dfs, backtracking       | Medium | http://cs101.openjudge.cn/pctbook/M02748/          |
-| 1027 | 2766: 最大子矩阵      | matrices, kadane      | Medium |  http://cs101.openjudge.cn/pctbook/M02766/        |
+| 1027 | 02766: 最大子矩阵      | matrices, kadane      | Medium |  http://cs101.openjudge.cn/pctbook/M02766/        |
 | 1026 | 02760: 数字三角形     | dp, dfs      | Medium | http://cs101.openjudge.cn/pctbook/M02760/          |
 | 1026 | 1829D. Gold Rush      | brute force, dfs and similar, dp, implementation       | 1000 | https://codeforces.com/problemset/problem/1829/D          |
-| 1025 | 4147: 汉诺塔问题(Tower of Hanoi)      | recursion       | Medium | http://cs101.openjudge.cn/pctbook/M04147          |
+| 1025 | 04147: 汉诺塔问题(Tower of Hanoi)      | recursion       | Medium | http://cs101.openjudge.cn/pctbook/M04147          |
 | 1025 | sy893: 斐波拉契数列-大数据       | dp       | Medium | https://sunnywhy.com/problem/893          |
 |  | sy115: 斐波拉契数列       | recursion       | Easy | https://sunnywhy.com/sfbj/4/3/115          |
 |  |       | recursion begin       |  |          |
@@ -55,7 +55,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 | 1013 | 27217: 有多少种合法的出栈顺序  | stack    | Medium | http://cs101.openjudge.cn/practice/27217/          |
 | 1012 | 121.买卖股票的最佳时机 | greedy, dp  | Easy | https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/          |
 | 1012 | 21554: 排队做实验    | greedy      | Medium | http://cs101.openjudge.cn/pctbook/M21554/          |
-| 1011 | 2942: 吃糖果  | dp   | Easy | http://cs101.openjudge.cn/pctbook/E02942          |
+| 1011 | 02942: 吃糖果  | dp   | Easy | http://cs101.openjudge.cn/pctbook/E02942          |
 | 1011 | 29952: 咒语序列    | stack | Medium | http://cs101.openjudge.cn/practice/29952/          |
 | 1010 | 189A.Cut Ribbon  | brute force, dp   | 1300 | https://codeforces.com/problemset/problem/189/A          |
 | 1010 | 1781.所有子字符串美丽值之和 | hash table, string, counting | Medium | https://leetcode.cn/problems/sum-of-beauty-of-all-substrings/    |
@@ -135,7 +135,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 | 0903 | 231A. Team          | bruteforce, greedy     | 800  | http://codeforces.com/problemset/problem/231/A   | 
 | 0903 | 02712: 细菌繁殖     | math   | Easy | http://cs101.openjudge.cn/pctbook/E02712          |
 | 0902 | 112A. Petya and Strings        | implementation, strings              | 800  | http://codeforces.com/problemset/problem/112/A   |
-| 0902 | 2701: 与7无关的数   | math   | Easy | http://cs101.openjudge.cn/pctbook/E02701          |
+| 0902 | 02701: 与7无关的数   | math   | Easy | http://cs101.openjudge.cn/pctbook/E02701          |
 | 0901 | 158A. Next Round    | *special problem, implementation  | 800 | http://codeforces.com/problemset/problem/158/A          |
 | 0901 | 04067: 回文数字     | two pointers, queue      | Easy | http://cs101.openjudge.cn/pctbook/E04067          |
 | 0831 | 1A. Theatre Square  | math       | 1000 | https://codeforces.com/problemset/problem/1/A          |
