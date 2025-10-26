@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-10-25 00:03 GMT+8*
+*Updated 2025-10-26 23:07 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -21,6 +21,8 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1027 | 02748: 全排列      | dfs, backtracking       | Medium | http://cs101.openjudge.cn/pctbook/M02748/          |
+| 1027 | 2766: 最大子矩阵      | matrices, kadane      | Medium |  http://cs101.openjudge.cn/pctbook/M02766/        |
 | 1026 | 02760: 数字三角形     | dp, dfs      | Medium | http://cs101.openjudge.cn/pctbook/M02760/          |
 | 1026 | 1829D. Gold Rush      | brute force, dfs and similar, dp, implementation       | 1000 | https://codeforces.com/problemset/problem/1829/D          |
 | 1025 | 4147: 汉诺塔问题(Tower of Hanoi)      | recursion       | Medium | http://cs101.openjudge.cn/pctbook/M04147          |
