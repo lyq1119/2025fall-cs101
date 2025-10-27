@@ -21,6 +21,8 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1028 |       |       | - |          |
+| 1028 | 200.岛屿数量      | dfs      | Medium | https://leetcode.cn/problems/number-of-islands/          |
 | 1027 | 02748: 全排列      | dfs, backtracking       | Medium | http://cs101.openjudge.cn/pctbook/M02748/          |
 | 1027 | 02766: 最大子矩阵      | matrices, kadane      | Medium |  http://cs101.openjudge.cn/pctbook/M02766/        |
 | 1026 | 02760: 数字三角形     | dp, dfs      | Medium | http://cs101.openjudge.cn/pctbook/M02760/          |
