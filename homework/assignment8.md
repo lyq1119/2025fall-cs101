@@ -1,4 +1,4 @@
-# Assignment #7: 矩阵、队列、贪心
+# Assignment #8: 递归
 
 Updated 1315 GMT+8 Oct 21, 2025
 
@@ -24,31 +24,9 @@ Updated 1315 GMT+8 Oct 21, 2025
 
 ## 1. 题目
 
-### M12560: 生存游戏
+### M04147汉诺塔问题(Tower of Hanoi)
 
-matrices, http://cs101.openjudge.cn/pctbook/M12560/
-
-思路：
-
-
-
-代码
-
-```python
-
-```
-
-
-
-代码运行截图 <mark>（至少包含有"Accepted"）</mark>
-
-
-
-
-
-### M04133:垃圾炸弹
-
-matrices, http://cs101.openjudge.cn/pctbook/M04133/
+dfs, http://cs101.openjudge.cn/pctbook/M04147
 
 思路：
 
@@ -68,32 +46,9 @@ matrices, http://cs101.openjudge.cn/pctbook/M04133/
 
 
 
-### M02746: 约瑟夫问题
+### M05585: 晶矿的个数
 
-implementation, queue, http://cs101.openjudge.cn/pctbook/M02746/
-
-思路：
-
-
-
-代码
-
-```python
-
-```
-
-
-
-代码运行截图 <mark>（至少包含有"Accepted"）</mark>
-
-
-
-
-
-### M26976:摆动序列
-
-greedy,dp, http://cs101.openjudge.cn/pctbook/M26976/
-
+matrices, dfs similar, http://cs101.openjudge.cn/pctbook/M05585
 
 思路：
 
@@ -113,9 +68,9 @@ greedy,dp, http://cs101.openjudge.cn/pctbook/M26976/
 
 
 
-### T26971:分发糖果
+### M02786: Pell数列
 
-greedy, http://cs101.openjudge.cn/pctbook/T26971/
+dfs, dp, http://cs101.openjudge.cn/pctbook/M02786/
 
 思路：
 
@@ -135,9 +90,54 @@ greedy, http://cs101.openjudge.cn/pctbook/T26971/
 
 
 
-### 1868A. Fill in the Matrix
+### M46.全排列
 
-constructive algorithms, implementation, 1300, https://codeforces.com/problemset/problem/1868/A
+backtracking, https://leetcode.cn/problems/permutations/
+
+
+思路：
+
+
+
+代码
+
+```python
+
+```
+
+
+
+代码运行截图 <mark>（至少包含有"Accepted"）</mark>
+
+
+
+
+
+### T02754: 八皇后
+
+dfs and similar, http://cs101.openjudge.cn/pctbook/T02754
+
+思路：
+
+
+
+代码
+
+```python
+
+```
+
+
+
+代码运行截图 <mark>（至少包含有"Accepted"）</mark>
+
+
+
+
+
+### T01958 Strange Towers of Hanoi
+
+http://cs101.openjudge.cn/practice/01958/
 
 思路：
 
