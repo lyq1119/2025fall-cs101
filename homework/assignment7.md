@@ -92,7 +92,7 @@ implementation, queue, http://cs101.openjudge.cn/pctbook/M02746/
 
 ### M26976:摆动序列
 
-greedy, http://cs101.openjudge.cn/pctbook/M26976/
+greedy,dp, http://cs101.openjudge.cn/pctbook/M26976/
 
 
 思路：
