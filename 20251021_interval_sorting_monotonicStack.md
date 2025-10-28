@@ -1,12 +1,12 @@
-# 2025/10/21 区间、排序、单调栈
+# 2025/10/21 编程技巧与算法实战：区间处理、排序、单调栈与动态规划
 
-Updated 1440 GMT+8 Oct 21, 2025
+Updated 1310 GMT+8 Oct 28, 2025
 
 2024 fall, Complied by Hongfei Yan
 
 
 
-> Log:
+> Log:  扩充了 滑动窗口最大值、前缀和、Kadane算法
 >
 
 # 一、调试程序
@@ -1507,3 +1507,561 @@ height = [0,1,0,2,1,0,1,3,2,1,2,1]
 
 
 
+# 五、「滑动窗口最大值」三者合一
+
+
+**「滑动窗口最大值」问题** ——这是三者（双指针 + 滑动窗口 + deque）完美结合的代表。
+
+------
+
+## 1 问题描述
+
+给你一个数组 `nums` 和一个整数 `k`，请输出每个长度为 `k` 的子数组的最大值。
+
+例如：
+
+```python
+nums = [1,3,-1,-3,5,3,6,7]
+k = 3
+输出: [3,3,5,5,6,7]
+```
+
+------
+
+## 2 解法分层讲解
+
+**第一层：双指针思路**
+
+希望用两个指针维护一个区间 `[left, right)`：
+
+- `right` 向右扩展窗口；
+- `left` 根据需要右移缩小窗口；
+- 每次窗口大小为 `k` 时，输出最大值。
+
+但**暴力求最大值会 O(k)**，所以我们要想办法优化最大值维护。
+
+------
+
+**第二层：滑动窗口结构**
+
+窗口的定义：
+在任意时刻，`nums[left:right]` 就是当前窗口。
+
+目标：
+在每次窗口滑动一步时，**高效地** 得到最大值。
+于是引入一个辅助结构来维护窗口内的最大值——这时 **`deque` 派上用场**。
+
+------
+
+**第三层：`deque` 维护单调性**
+
+用一个 **单调递减队列**（里面放的是下标，不是值）：
+
+- 当右端加入新元素时，**把所有比它小的元素都弹出**（因为它们永远不会再成为最大值）；
+- 当左端元素滑出窗口时，如果它正好是队首，就把它弹出。
+
+这样，队首元素始终是当前窗口的最大值。
+
+------
+
+## 3 最终代码示例
+
+```python
+from collections import deque
+
+def maxSlidingWindow(nums, k):
+    dq = deque()  # 存下标，保证对应值递减
+    res = []
+    for right, x in enumerate(nums):
+        # step 1: 窗口右扩，保持单调递减
+        while dq and nums[dq[-1]] <= x:
+            dq.pop()
+        dq.append(right)
+
+        # step 2: 移除滑出窗口的左端元素
+        if dq[0] <= right - k:
+            dq.popleft()
+
+        # step 3: 当窗口形成（长度 >= k）时，记录最大值
+        if right >= k - 1:
+            res.append(nums[dq[0]])
+    return res
+
+# ✅ 测试
+print(maxSlidingWindow([1,3,-1,-3,5,3,6,7], 3))
+# 输出: [3, 3, 5, 5, 6, 7]
+```
+
+------
+
+## 4 三者关系图
+
+```
+          ┌──────────────┐
+          │ 双指针思想   │ ←——— 两端遍历、定位区间
+          └──────┬───────┘
+                 │
+                 ▼
+          ┌──────────────┐
+          │ 滑动窗口框架 │ ←——— 维护[left, right)
+          └──────┬───────┘
+                 │
+                 ▼
+          ┌──────────────┐
+          │ deque结构辅助 │ ←——— 高效维护窗口最值
+          └──────────────┘
+```
+
+------
+
+
+
+✅ **一句话总结：**
+
+> 在「滑动窗口最大值」中，
+> **双指针**定义窗口边界，
+> **滑动窗口**描述窗口动态，
+> **deque**维护窗口内部的最优状态。
+
+
+
+# 六、前缀和优化区域统计
+
+**前缀和**（Prefix Sum）是一种用于高效计算数组区间和的预处理技术。
+
+## 1 一维前缀和
+
+给定数组 `A[0..n-1]`，其前缀和数组 `P` 定义为：
+
+- `P[0] = 0`
+- `P[i] = A[0] + A[1] + ... + A[i-1]`
+
+这样，区间 `[l, r]` 的和可以快速计算为：`P[r+1] - P[l]`
+
+## 2 二维前缀和
+
+对于二维数组，前缀和扩展为**二维前缀和**。`prefix[i][j]` 表示从 `(0,0)` 到 `(i-1,j-1)` 矩形区域的元素和。
+
+核心公式：
+
+```
+prefix[i][j] = matrix[i-1][j-1] + prefix[i-1][j] + prefix[i][j-1] - prefix[i-1][j-1]
+```
+
+查询矩形区域 `(x1,y1)` 到 `(x2,y2)` 的和：
+
+```
+sum = prefix[x2+1][y2+1] - prefix[x1][y2+1] - prefix[x2+1][y1] + prefix[x1][y1]
+```
+
+
+
+## 3 编程题目
+
+### 练习M04133: 垃圾炸弹
+
+matrices, http://cs101.openjudge.cn/pctbook/M04133/
+
+2018年俄罗斯世界杯（2018 FIFA World Cup）开踢啦！为了方便球迷观看比赛，莫斯科街道上很多路口都放置了的直播大屏幕，但是人群散去后总会在这些路口留下一堆垃圾。为此俄罗斯政府决定动用一种最新发明——“垃圾炸弹”。这种“炸弹”利用最先进的量子物理技术，爆炸后产生的冲击波可以完全清除波及范围内的所有垃圾，并且不会产生任何其他不良影响。炸弹爆炸后冲击波是以正方形方式扩散的，炸弹威力（扩散距离）以d给出，表示可以传播d条街道。
+
+例如下图是一个d=1的“垃圾炸弹”爆炸后的波及范围。
+
+![img](https://raw.githubusercontent.com/GMyhf/img/main/img/1403230629.jpg)
+
+假设莫斯科的布局为严格的1025*1025的网格状，由于财政问题市政府只买得起一枚“垃圾炸弹”，希望你帮他们找到合适的投放地点，使得一次清除的垃圾总量最多（假设垃圾数量可以用一个非负整数表示，并且除设置大屏幕的路口以外的地点没有垃圾）。
+
+**输入**
+
+第一行给出“炸弹”威力d(1 <= d <= 50)。第二行给出一个数组n(1 <= n <= 20)表示设置了大屏幕(有垃圾)的路口数目。接下来n行每行给出三个数字x, y, i, 分别代表路口的坐标(x, y)以及垃圾数量i. 点坐标(x, y)保证是有效的（区间在0到1024之间），同一坐标只会给出一次。
+
+**输出**
+
+输出能清理垃圾最多的投放点数目，以及能够清除的垃圾总量。
+
+样例输入
+
+```
+1
+2
+4 4 10
+6 6 20
+```
+
+样例输出
+
+```
+1 30
+```
+
+
+
+
+
+【夏子涵 元培学院】思路：用二维前缀和数组避免多次暴力循环
+
+> 这是一个典型的“用前缀和优化区域统计”问题，适合练习二维前缀和的应用。
+
+```python
+def main():
+    d = int(input().strip())
+    n = int(input().strip())
+
+    # 使用字典存储垃圾点，节省空间（稀疏数据时特别有效）
+    moskow = {}
+    max_coord = 1024
+    min_coord = 0
+
+    for _ in range(n):
+        x, y, weight = map(int, input().strip().split())
+        if (x, y) not in moskow:
+            moskow[(x, y)] = 0
+        moskow[(x, y)] += weight
+
+    # 构建二维前缀和数组（只构建 [0..1024] 范围）
+    size = max_coord + 1
+    prefix = [[0] * (size + 1) for _ in range(size + 1)]  # prefix[0..1024+1][0..1024+1]
+
+    for i in range(1, size + 1):
+        for j in range(1, size + 1):
+            # 注意：prefix[i][j] 对应坐标 (i-1, j-1)
+            val = moskow.get((i - 1, j - 1), 0)
+            prefix[i][j] = val + prefix[i - 1][j] + prefix[i][j - 1] - prefix[i - 1][j - 1]
+
+    max_total = 0
+    count = 0
+
+    # 遍历所有可能的爆炸中心 (i, j)，范围 [0, 1024]
+    for i in range(min_coord, max_coord + 1):
+        for j in range(min_coord, max_coord + 1):
+            # 计算爆炸影响区域 [x1, x2] × [y1, y2]
+            x1 = max(min_coord, i - d)
+            y1 = max(min_coord, j - d)
+            x2 = min(max_coord, i + d)
+            y2 = min(max_coord, j + d)
+
+            # 查询前缀和：注意 prefix 是 1-indexed
+            total = prefix[x2 + 1][y2 + 1] \
+                    - prefix[x1][y2 + 1] \
+                    - prefix[x2 + 1][y1] \
+                    + prefix[x1][y1]
+
+            if total > max_total:
+                max_total = total
+                count = 1
+            elif total == max_total:
+                count += 1
+
+    print(count, max_total)
+
+
+if __name__ == '__main__':
+    main()
+```
+
+
+
+# 七、Kadane算法
+
+## 1 理解 Kadane 算法（一维最大子数组和）
+
+Kadane 算法用于解决“**最大子数组和**”问题，即在一个整数数组中找到连续子数组的最大和。
+
+**算法思想：**
+
+- `curr_max`：以当前元素结尾的最大连续和
+- `total_max`：全局最大和
+
+Python 实现：
+
+```python
+def kadane(arr):
+    curr_max = total_max = arr[0]
+    for x in arr[1:]:
+        curr_max = max(x, curr_max + x)  # 要么重新开始，要么接上前面
+        total_max = max(total_max, curr_max)
+    return total_max
+```
+
+✅ 例子：`[-2, 1, -3, 4, -1, 2, 1, -5, 4]` → 最大子数组 `[4,-1,2,1]`，和为 `6`
+
+------
+
+## 2 扩展到二维 —— 最大子矩阵
+
+将 Kadane 算法的思想扩展到二维：
+
+**总体策略：**
+
+1. 枚举所有可能的**上边界 `top`**
+2. 对每个 `top`，枚举所有 `bottom >= top`
+3. 对每一对 `(top, bottom)`，计算从第 `top` 行到第 `bottom` 行的**每列的累加和**，形成一个一维数组 `col_sum`
+4. 在 `col_sum` 上运行 Kadane 算法，得到当前上下边界下的最大子矩阵和
+5. 更新全局最大值
+
+📊 **举例说明**
+
+原矩阵：
+
+```
+0 -2 -7  0
+9  2 -6  2   ← top=1
+-4 1 -4  1
+-1 8  0 -2   ← bottom=3
+```
+
+固定 `top=1`, `bottom=3`，计算每列的和：
+
+- 第0列：9 + (-4) + (-1) = 4
+- 第1列：2 + 1 + 8 = 11
+- 第2列：-6 + (-4) + 0 = -10
+- 第3列：2 + 1 + (-2) = 1
+
+得到一维数组：`[4, 11, -10, 1]`
+
+运行 Kadane：
+
+- 最大子数组：`[4, 11]` 或 `[11]` → 和为 `15`
+
+✅ 正好对应样例答案！
+
+
+
+## 3 编程题目
+
+### 练习M02766: 最大子矩阵
+
+matrices, kadane, http://cs101.openjudge.cn/pctbook/M02766/
+
+已知矩阵的大小定义为矩阵中所有元素的和。给定一个矩阵，你的任务是找到最大的非空(大小至少是1 * 1)子矩阵。
+
+比如，如下4 * 4的矩阵
+
+0 -2 -7 0
+9 2 -6 2
+-4 1 -4 1
+-1 8 0 -2
+
+的最大子矩阵是
+
+9 2
+-4 1
+-1 8
+
+这个子矩阵的大小是15。
+
+**输入**
+
+输入是一个N * N的矩阵。输入的第一行给出N (0 < N <= 100)。再后面的若干行中，依次（首先从左到右给出第一行的N个整数，再从左到右给出第二行的N个整数……）给出矩阵中的N2个整数，整数之间由空白字符分隔（空格或者空行）。已知矩阵中整数的范围都在[-127, 127]。
+
+**输出**
+
+输出最大子矩阵的大小。
+
+样例输入
+
+```
+4
+0 -2 -7 0 9 2 -6 2
+-4 1 -4  1 -1
+
+8  0 -2
+```
+
+样例输出
+
+```
+15
+```
+
+来源：翻译自 Greater New York 2001 的试题
+
+
+
+
+
+```python
+def kadane(s):
+    curr_max = total_max = s[0]
+    for x in s[1:]:
+        curr_max = max(x, curr_max + x)
+        total_max = max(total_max, curr_max)
+    return total_max
+
+def max_sum_matrix(mat):
+    max_sum = -float('inf')
+    row, col = len(mat), len(mat[0])
+    for top in range(row):
+        col_sum = [0] * col
+        for bottom in range(top, row):
+            for c in range(col):
+                col_sum[c] += mat[bottom][c]
+            max_sum = max(max_sum, kadane(col_sum))
+    return max_sum
+
+n = int(input())
+nums = []
+while len(nums) < n**2:
+    nums.extend(input().split())
+mat = [list(map(int, nums[i*n:(i+1)*n])) for i in range(n)]
+print(max_sum_matrix(mat))
+```
+
+> 一、算法原理
+>
+> 二维最大子矩阵问题，可以通过「行压缩 + 一维 Kadane」解决。
+>
+> #### 思想：
+>
+> - 固定子矩阵的上边界 `top`
+> - 固定子矩阵的下边界 `bottom`
+> - 对每一列求“从 top 到 bottom 行的列和”
+>   - 得到一个**一维数组 `col_sum`**
+> - 对 `col_sum` 使用 **Kadane** 算法，求最大子数组和（相当于固定上下边界后，在列方向找到左右边界）
+>
+> #### 举例：
+>
+> ```
+> 0 -2 -7 0
+> 9  2 -6 2
+> -4 1 -4 1
+> -1 8  0 -2
+> ```
+>
+> 比如 top=1, bottom=3，则
+> col_sum = [9-4-1, 2+1+8, -6-4+0, 2+1-2] = [4, 11, -10, 1]
+> → Kadane(col_sum) = 15，对应矩阵正是样例输出。
+>
+> ------
+>
+> 二、核心代码结构分析
+>
+> ```python
+> def kadane(s):
+>     curr_max = total_max = s[0]
+>     for x in s[1:]:
+>         curr_max = max(x, curr_max + x)
+>         total_max = max(total_max, curr_max)
+>     return total_max
+> ```
+>
+> 一维 Kadane：
+>
+> - `curr_max` 表示“以当前元素结尾的最大连续和”；
+> - `total_max` 表示“全局最大和”。
+>
+> ------
+>
+> ```python
+> def max_sum_matrix(mat):
+>     max_sum = -float('inf')
+>     row, col = len(mat), len(mat[0])
+>     for top in range(row):
+>         col_sum = [0] * col
+>         for bottom in range(top, row):
+>             for c in range(col):
+>                 col_sum[c] += mat[bottom][c]
+>             max_sum = max(max_sum, kadane(col_sum))
+>     return max_sum
+> ```
+>
+> 外层 `top` 和 `bottom` 控制上下边界（O(n²)）；
+> 内层 Kadane 处理列方向（O(n)）；
+> 整体时间复杂度 **O(n³)**，适用于 N ≤ 100 的题目。
+>
+> ------
+>
+> 三、输入处理逻辑说明
+>
+> OJ 给的输入可能有空格和换行混合，所以正确做法是——
+>
+> > 不要逐行严格读取，而是一直读取直到获取 N² 个整数。
+>
+> ```python
+> n = int(input())
+> nums = []
+> while len(nums) < n**2:
+>     nums.extend(input().split())
+> mat = [list(map(int, nums[i*n:(i+1)*n])) for i in range(n)]
+> print(max_sum_matrix(mat))
+> ```
+>
+> 四、扩展思考（可选优化）
+>
+> 1. **前缀和加速列和计算**
+>    - 可以预先构建行方向前缀和 `prefix[r][c]`
+>    - 使得 `col_sum[c] = prefix[bottom][c] - prefix[top-1][c]`
+>    - 时间复杂度仍然 O(n³)，但常数项更小。
+> 2. **全负数矩阵**
+>    - Kadane 已正确处理（返回最大单个元素）。
+> 3. **空间复杂度**
+>    - O(n)，仅用到 `col_sum`。
+
+
+
+这个问题是一个经典的“最大子矩阵和”问题，属于二维动态规划的应用场景。解决的核心思想是将二维问题降为多个一维的“最大子段和”问题（Kadane 算法），从而降低复杂度。
+
+------
+
+✅ 解题思路（二维 Kadane 变种）
+
+1. 固定两个行索引 `top` 和 `bottom`，将这两行之间（包含）的矩阵压缩成一个一维数组 `temp_col_sum`，其中每个元素是这几行中该列的和。
+2. 在这个一维数组上应用“最大子段和”算法（Kadane）求出最大和。
+3. 枚举所有可能的 `top` 和 `bottom` 组合，更新全局最大值。
+
+------
+
+✅ 代码实现（Python）
+
+```python
+'''
+为了找到最大的非空子矩阵，可以使用动态规划中的Kadane算法进行扩展来处理二维矩阵。
+基本思路是将二维问题转化为一维问题：可以计算出从第i行到第j行的列的累计和，
+这样就得到了一个一维数组。然后对这个一维数组应用Kadane算法，找到最大的子数组和。
+通过遍历所有可能的行组合，我们可以找到最大的子矩阵。
+'''
+def max_submatrix(matrix, n):
+    def kadane(arr):
+      	# max_ending_here 用于追踪到当前元素为止包含当前元素的最大子数组和。
+        # max_so_far 用于存储迄今为止遇到的最大子数组和。
+        max_end_here = max_so_far = arr[0]
+        for x in arr[1:]:
+          	# 对于每个新元素，我们决定是开始一个新的子数组（仅包含当前元素 x），
+            # 还是将当前元素添加到现有的子数组中。这一步是 Kadane 算法的核心。
+            max_end_here = max(x, max_end_here + x)
+            max_so_far = max(max_so_far, max_end_here)
+        return max_so_far
+
+    max_sum = float('-inf')
+
+    for top in range(n):
+        temp_col_num = [0] * n
+        for bottom in range(top, n):
+            for col in range(n):
+                temp_col_num[col] += matrix[bottom][col]
+            max_sum = max(max_sum, kadane(temp_col_num))
+    return max_sum
+
+# 输入处理
+import sys
+data = sys.stdin.read().split()
+n = int(data[0])
+numbers = list(map(int, data[1:]))
+matrix = [numbers[i * n:(i + 1) * n] for i in range(n)]
+
+max_sum = max_submatrix(matrix, n)
+print(max_sum)
+```
+
+------
+
+✅ 时间复杂度分析
+
+- 外层双重循环（`top` 和 `bottom`）：O(n²)
+- 内层 Kadane：O(n)
+- 总体时间复杂度：**O(n³)**，对于 `n <= 100` 是可接受的。
+
+
+
+
+
+# End
