@@ -21,7 +21,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
-| 1031 |       |       | - |          |
+| 1031 | 131.分割回文串   | dp, backtracking  | Medium | https://leetcode.cn/problems/palindrome-partitioning/          |
 | 1030 | 79.单词搜索      | backtracking   | Medium | https://leetcode.cn/problems/word-search/          |
 | 1030 | 200.岛屿数量     | dfs similar    | Medium | https://leetcode.cn/problems/number-of-islands/          |
 | 1029 | 39.组合总和      | backtracking      | Medium | https://leetcode.cn/problems/combination-sum/          |
