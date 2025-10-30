@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-10-27 23:07 GMT+8*
+*Updated 2025-10-30 22:20 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -21,6 +21,8 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1031 | 51.N皇后      | backtracking      | Tough | https://leetcode.cn/problems/n-queens/           |
+| 1031 | 22.括号生成      | backtracking   | Medium | https://leetcode.cn/problems/generate-parentheses/          |
 | 1030 | 79.单词搜索      | backtracking   | Medium | https://leetcode.cn/problems/word-search/          |
 | 1030 | 131.分割回文串   | dp, backtracking  | Medium | https://leetcode.cn/problems/palindrome-partitioning/          |
 | 1029 | 39.组合总和      | backtracking      | Medium | https://leetcode.cn/problems/combination-sum/          |
