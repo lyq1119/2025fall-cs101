@@ -485,7 +485,7 @@ The stack frames also provide a scope for the variables used by the function. Ev
 
 ### 3.2 函数参数是可变、不可变对象
 
-参数是可变，还是不可变对象，是不一样的，前者在被调用者栈帧中，后者在调用者栈帧中。
+参数是可变，还是不可变对象，是不一样的。
 
 > 在 Python 中，参数传递的方式取决于参数的类型：
 >
@@ -1799,7 +1799,7 @@ print(fibonacci(35))  # 现在会非常快
 >
 >    ```python
 >    from functools import lru_cache
->                                        
+>                                           
 >    @lru_cache(maxsize=None)
 >    def fibonacci(n):
 >        if n == 0:
