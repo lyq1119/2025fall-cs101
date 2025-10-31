@@ -22,7 +22,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
 | 1101 | 2811.熄灯问题 | brute force      | Tough | http://cs101.openjudge.cn/pctbook/T02811/          |
-|  |       |       | one problem per day |          |
+|  |       | one problem per day |  |        |
 | 1031 | 51.N皇后      | backtracking      | Tough | https://leetcode.cn/problems/n-queens/           |
 | 1031 | 22.括号生成      | backtracking   | Medium | https://leetcode.cn/problems/generate-parentheses/          |
 | 1030 | 79.单词搜索      | backtracking   | Medium | https://leetcode.cn/problems/word-search/          |
