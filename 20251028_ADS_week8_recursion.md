@@ -1,4 +1,4 @@
-# 2025/10/28 递归
+# 2025/10/28 递归、回溯
 
 *Updated 2025-10-28 14:35 GMT+8*  
  *Compiled by Hongfei Yan (2024 Fall)*  
@@ -1799,7 +1799,7 @@ print(fibonacci(35))  # 现在会非常快
 >
 >    ```python
 >    from functools import lru_cache
->                                           
+>                                              
 >    @lru_cache(maxsize=None)
 >    def fibonacci(n):
 >        if n == 0:
@@ -2228,4 +2228,497 @@ for ans in arrange(l):
 > - **易于使用**：生成器可以像普通迭代器一样使用，可以很容易地集成到现有的代码中，如 for 循环等。
 >
 > 综上所述，`yield` 提供了一种强大的机制，用于处理那些需要逐步生成或处理大量数据的情况，同时保持代码的简洁性和高效性。
+
+
+
+# 四、递归回溯
+
+全排列、子集、分割回文串、N皇后 四个题目，给出了状态树（树形图示）帮助理解。全排列、子集、N皇后还有视频讲解。
+
+**必须掌握**：递归与回溯是算法中的核心思想之一，尤其在解决组合、排列、子集等问题时至关重要。如果你目前尚未完全理解其原理，建议先**熟记经典模板**，通过反复运行代码、调试过程、结合视频讲解来逐步深入理解。
+
+> “递归是思想，回溯是技巧；先走到底，再退回来。”
+
+掌握经典问题，你就迈出了通向回溯算法的第一步！
+
+
+
+## 示例且练习M46.全排列
+
+backtracking, https://leetcode.cn/problems/permutations/
+
+给定一个不含重复数字的数组 `nums` ，返回其 *所有可能的全排列* 。你可以 **按任意顺序** 返回答案。
+
+ 
+
+**示例 1：**
+
+```
+输入：nums = [1,2,3]
+输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+```
+
+**示例 2：**
+
+```
+输入：nums = [0,1]
+输出：[[0,1],[1,0]]
+```
+
+**示例 3：**
+
+```
+输入：nums = [1]
+输出：[[1]]
+```
+
+ 
+
+**提示：**
+
+- `1 <= nums.length <= 6`
+- `-10 <= nums[i] <= 10`
+- `nums` 中的所有整数 **互不相同**
+
+
+
+思路：递归 + 回溯
+
+使用一个临时路径 `sol` 记录当前排列，通过遍历原数组并跳过已选元素的方式进行搜索。当路径长度等于数组长度时，将当前排列加入结果集。
+
+<img src="https://raw.githubusercontent.com/GMyhf/img/main/img/202511011249184.jpg" alt="44ca1d68ef935d2b871239b2d188ba22" style="zoom: 15%;" />
+
+
+
+```python
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        n = len(nums)
+        ans, sol = [], []
+        
+        def backtrack():
+            # 终止条件：当前排列已满
+            if len(sol) == n:
+                ans.append(sol[:])  # 深拷贝
+                return
+            
+            # 尝试每个未被使用的数
+            for x in nums:
+                if x not in sol:        # 剪枝：避免重复使用
+                    sol.append(x)       # 选择
+                    backtrack()         # 递归
+                    sol.pop()           # 回溯
+        
+        backtrack()
+        return ans
+```
+
+全排列视频讲解：https://pku.instructuremedia.com/embed/c76751c9-bc0e-49f1-8a99-624b955de668
+
+
+
+## 示例且练习M78.子集
+
+backtracking, https://leetcode.cn/problems/subsets/
+
+给你一个整数数组 `nums` ，数组中的元素 **互不相同** 。返回该数组所有可能的子集（幂集）。
+
+解集 **不能** 包含重复的子集。你可以按 **任意顺序** 返回解集。
+
+ 
+
+**示例 1：**
+
+```
+输入：nums = [1,2,3]
+输出：[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+```
+
+**示例 2：**
+
+```
+输入：nums = [0]
+输出：[[],[0]]
+```
+
+ 
+
+**提示：**
+
+- `1 <= nums.length <= 10`
+- `-10 <= nums[i] <= 10`
+- `nums` 中的所有元素 **互不相同**
+
+
+
+思路：递归回溯（选或不选）
+
+对每个元素有两种选择：**选入子集** 或 **不选入子集**。递归遍历所有位置，到达末尾时将当前路径加入结果。
+
+<img src="https://raw.githubusercontent.com/GMyhf/img/main/img/202511011249848.jpg" alt="915e44223ee7989e9ade44ac04b93086" style="zoom:15%;" />
+
+
+
+```python
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        n = len(nums)
+        ans, sol = [], []
+        
+        def backtrack(i):
+            # 终止条件：处理完所有元素
+            if i == n:
+                ans.append(sol[:])
+                return
+            
+            # 分支1：不选择 nums[i]
+            backtrack(i + 1)
+            
+            # 分支2：选择 nums[i]
+            sol.append(nums[i])
+            backtrack(i + 1)
+            sol.pop()  # 回溯
+        
+        backtrack(0)
+        return ans
+```
+
+子集视频讲解：https://pku.instructuremedia.com/embed/d8ccd717-3664-41bc-85d2-7170f348327b
+
+
+
+**总结对比**
+
+| 问题   | 决策方式         | 终止条件         | 是否需要去重       | 时间复杂度        |
+| ------ | ---------------- | ---------------- | ------------------ | ----------------- |
+| 全排列 | 从剩余元素中选择 | 路径长度 = n     | 是（避免重复使用） | $O(n \times n!)$  |
+| 子集   | 每个元素选/不选  | 索引到达数组末尾 | 否（天然无重）     | $O(2^n \times n)$ |
+
+> ⚠️ 注意：由于每次添加路径都需要复制 `sol[:]`，因此总时间复杂度中乘以 `n`。
+
+
+
+## 示例且练习M131.分割回文串
+
+dp, backtracking, https://leetcode.cn/problems/palindrome-partitioning/
+
+给你一个字符串 `s`，请你将 `s` 分割成一些子串，使每个子串都是 **回文串**。返回 `s` 所有可能的分割方案。回文串是指向前和向后读都相同的字符串。
+
+
+
+**示例 1：**
+
+```
+输入：s = "aab"
+输出：[["a","a","b"],["aa","b"]]
+```
+
+**示例 2：**
+
+```
+输入：s = "a"
+输出：[["a"]]
+```
+
+ 
+
+**提示：**
+
+- `1 <= s.length <= 16`
+- `s` 仅由小写英文字母组成
+
+
+
+【陈林鑫 物理学院】思路：
+
+<img src="https://raw.githubusercontent.com/GMyhf/img/main/img/202511011253995.png" alt="49be582f81c0905453e4f3f697217f96" style="zoom: 50%;" />
+
+如图所示，对于一个字符串s，依次判断从i=1到i=len(s)+1，s[0:i]是否为回文串，如果是，则在i处分割，前半部分为回文串，将它计入这条递归的列表resi中，剩下的部分s[i:]则继续分割。如果剩下的字符串s[i:]长度为0，则说明分割完毕，返回resi。for循环可以遍历所有情形。
+
+如果字符串较长，可以使用 **LRU 缓存递归判断**（不建 DP 表）
+
+```python
+from functools import lru_cache
+
+class Solution:
+    def partition(self, s: str) -> List[List[str]]:
+        n = len(s)
+        ans = []
+        @lru_cache(None)
+        def is_pal(i, j):
+            return i >= j or (s[i] == s[j] and is_pal(i + 1, j - 1))
+
+        def dfs(start, path):
+            if start == n:
+                ans.append(path[:])
+                return
+            for end in range(start, n):
+                if is_pal(start, end):
+                    path.append(s[start:end + 1])
+                    dfs(end + 1, path)
+                    path.pop()
+        dfs(0, [])
+        return ans
+
+```
+
+
+
+## 示例且练习T51.N皇后
+
+backtracking, https://leetcode.cn/problems/n-queens/
+
+按照国际象棋的规则，皇后可以攻击与之处在同一行或同一列或同一斜线上的棋子。
+
+**n 皇后问题** 研究的是如何将 `n` 个皇后放置在 `n×n` 的棋盘上，并且使皇后彼此之间不能相互攻击。
+
+给你一个整数 `n` ，返回所有不同的 **n 皇后问题** 的解决方案。
+
+每一种解法包含一个不同的 **n 皇后问题** 的棋子放置方案，该方案中 `'Q'` 和 `'.'` 分别代表了皇后和空位。
+
+ 
+
+**示例 1：**
+
+<img src="https://assets.leetcode.com/uploads/2020/11/13/queens.jpg" alt="img" style="zoom:67%;" />
+
+```
+输入：n = 4
+输出：[[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+解释：如上图所示，4 皇后问题存在两个不同的解法。
+```
+
+**示例 2：**
+
+```
+输入：n = 1
+输出：[["Q"]]
+```
+
+ 
+
+**提示：**
+
+- `1 <= n <= 9`
+
+
+
+**思路：递归 + 回溯**
+
+逐行放置皇后，每行只能放一个。
+对每一行，我们尝试在每一列放皇后，要求：
+
+- 该列没有皇后；
+- 主对角线（row - col）没有皇后；
+- 副对角线（row + col）没有皇后。
+
+若当前行放置成功，则递归到下一行。
+若到达最后一行，则将当前棋盘状态加入答案。
+
+
+
+<img src="https://raw.githubusercontent.com/GMyhf/img/main/img/image-20251102215157455.png" alt="image-20251102215157455" style="zoom:50%;" />
+
+
+
+```python
+class Solution:
+    def solveNQueens(self, n: int) -> List[List[str]]:
+        ans = []              # 存放所有解
+        sol = []              # 当前棋盘布局（每行的列索引）
+        cols = set()          # 已占用的列
+        diag1 = set()         # 已占用的主对角线（r - c）
+        diag2 = set()         # 已占用的副对角线（r + c）
+        
+        def backtrack(row):
+            # 终止条件：所有行均已放置完毕
+            if row == n:
+                board = []
+                for c in sol:
+                    board.append('.' * c + 'Q' + '.' * (n - c - 1))
+                ans.append(board[:])
+                return
+            
+            # 尝试每一列
+            for col in range(n):
+                if col in cols or (row - col) in diag1 or (row + col) in diag2:
+                    continue  # 剪枝：冲突
+                
+                # 选择
+                sol.append(col)
+                cols.add(col)
+                diag1.add(row - col)
+                diag2.add(row + col)
+                
+                # 递归
+                backtrack(row + 1)
+                
+                # 回溯
+                sol.pop()
+                cols.remove(col)
+                diag1.remove(row - col)
+                diag2.remove(row + col)
+        
+        backtrack(0)
+        return ans
+```
+
+
+
+八皇后视频讲解（oj02754八皇后_TA胡扬-哔哩哔哩） https://b23.tv/s933Y5c
+
+```python
+class Solution:
+    def solveNQueens(self, n: int) -> List[List[str]]:
+        solutions = []
+        def queens(row: int, cols: List[int], ldiags: Set[int], rdiags: Set[int]) -> None:
+            if row == n:
+                solutions.append(["".join("Q" if j == cols[i] else "." for j in range(n)) for i in range(n)])
+                return
+            for j in range(n):
+                if j not in cols and row + j not in ldiags and row - j not in rdiags:
+                    queens(row + 1, cols + [j], ldiags | {row + j}, rdiags | {row - j})
+
+        queens(0, [], set(), set())
+        return solutions
+```
+
+
+
+
+
+
+
+**复杂度分析**
+
+| 项目       | 含义    | 复杂度               |
+| ---------- | ------- | -------------------- |
+| 状态树深度 | 行数 n  | —                    |
+| 分支数     | 最多 n  | —                    |
+| 时间复杂度 | $O(n!)$ | 尝试所有排列并剪枝   |
+| 空间复杂度 | $O(n)$  | 递归栈深度与辅助集合 |
+
+------
+
+✅ **模板对比总结**
+
+| 问题       | 状态含义 | 决策方式        | 剪枝              | 终止条件        |
+| ---------- | -------- | --------------- | ----------------- | --------------- |
+| 全排列     | 当前路径 | 选未使用数      | `if x not in sol` | 路径长度 = n    |
+| 子集       | 当前索引 | 选/不选当前元素 | 无                | i == n          |
+| 分割回文串 | 当前起点 | 枚举每个回文段  | is_pal 判断       | start == len(s) |
+| 八皇后     | 当前行号 | 尝试每列放皇后  | 列与对角线冲突    | row == n        |
+
+
+
+
+
+> **“主对角线”为什么叫主**。我们来一步步讲清楚它的**定义、命名来源与几何直观意义**。
+>
+> ------
+>
+> 🧮 一、数学定义（源自线性代数）
+>
+> 在一个 $ n \times n $ 矩阵中：
+>
+> > **主对角线（main diagonal）** 是所有满足 **行号 = 列号** 的元素连成的那条线。
+>
+> 也就是：
+> $
+> a_{00}, a_{11}, a_{22}, \ldots, a_{n-1,n-1}
+> $
+>
+> **例如：**
+>
+> 主对角线就是：
+>
+>
+> $$
+> \left[
+> \matrix{
+> 	a_{00} & a_{01} & a_{02} \\
+> 	a_{10} & a_{11} & a_{12} \\
+> 	a_{20} & a_{21} & a_{22}
+> }
+> 
+> \right]
+> $$
+>
+> 
+>
+>
+> ------
+>
+> 🟦 二、几何解释
+>
+> 把矩阵画在坐标平面上（左上角是原点）：
+>
+> | 坐标  | 行号 | 列号 | 是否在主对角线上 |
+> | ----- | ---- | ---- | ---------------- |
+> | (0,0) | 0    | 0    | ✅                |
+> | (1,1) | 1    | 1    | ✅                |
+> | (2,2) | 2    | 2    | ✅                |
+>
+> 可以看到这些点在一条**从左上到右下的斜线上**。
+> 它满足 `row == col`，也就是：
+>
+> > ✅ 主对角线 ↘ ：从左上角 (0,0) 贯穿到右下角 (n-1,n-1)。
+>
+> ------
+>
+> 🟥 三、副对角线（secondary diagonal）
+>
+> 副对角线又称“反对角线”、“次对角线”，它与主对角线方向相反：
+>
+> > **副对角线** 是所有满足 **行号 + 列号 = n - 1** 的元素连成的那条线。
+>
+> 例如：
+> [
+> a_{02}, a_{11}, a_{20}
+> ]
+> （对 (3\times3) 矩阵）
+>
+> 它对应的是：
+>
+> > ✅ 副对角线 ↙ ：从右上角 (0, n-1) 贯穿到左下角 (n-1, 0)。
+>
+> ------
+>
+> 🧭 四、命名由来
+>
+> 主对角线（main diagonal）的“主”有两个历史原因：
+>
+> 1. **矩阵主元素都在这条线上**
+>    在线性代数中，一个矩阵的“迹”（trace）是主对角线元素之和：
+>    [
+>    \text{tr}(A) = a_{00} + a_{11} + \cdots + a_{n-1,n-1}
+>    ]
+>    所以它是矩阵最重要的一条线。
+> 2. **几何直观中方向一致**
+>    主对角线方向与坐标轴增长方向一致：
+>    行号和列号都“同时增大”。
+>    因此称为 **“主”**（main 或 principal）。
+>
+> 相反，副对角线方向与坐标轴增减相反（一个增一个减），所以是“副”。
+>
+> ------
+>
+> 🎯 五、在八皇后问题中如何利用
+>
+> | 对角线     | 方向      | 代数规律         | 检查条件             | 示例              |
+> | ---------- | --------- | ---------------- | -------------------- | ----------------- |
+> | 主对角线 ↘ | 左上→右下 | `row - col` 相同 | `(r - c)` 是否已出现 | (0,0),(1,1),(2,2) |
+> | 副对角线 ↙ | 右上→左下 | `row + col` 相同 | `(r + c)` 是否已出现 | (0,2),(1,1),(2,0) |
+>
+> ------
+>
+> 记忆口诀
+>
+> > **主对角线 ↘ ：行号 = 列号，同增同减；**
+> > **副对角线 ↙ ：行号 + 列号 = 常数，一增一减。**
+>
+> ------
+>
+> 如果你希望我帮你**画一个 n=4 棋盘图**，标出主对角线、副对角线及它们的 `(row,col)` 与公式（比如带箭头标注 ↘ ↙），我可以生成一张直观示意图，帮你彻底搞懂这一节。
+> 是否要我生成这张图？
 
