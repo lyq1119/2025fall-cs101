@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-10-31 23:20 GMT+8*
+*Updated 2025-11-02 22:41 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -21,6 +21,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1103 | 04123:马走日   | backtracking    | Medium | http://cs101.openjudge.cn/pctbook/M04123/          |
 | 1102 | 01833:排列     | two pointers, cantor expansion   | Tough |  http://cs101.openjudge.cn/pctbook/T01833        |
 | 1101 | 02811:熄灯问题 | brute force      | Tough | http://cs101.openjudge.cn/pctbook/T02811/          |
 |  |       | one problem per day |  |        |
