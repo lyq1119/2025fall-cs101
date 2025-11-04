@@ -1,6 +1,6 @@
-# Week8~9 递归、回溯
+# Week8~9 递归、回溯、并查集
 
-*Updated 2025-11-04 14:21 GMT+8*  
+*Updated 2025-11-04 23:21 GMT+8*  
  *Compiled by Hongfei Yan (2024 Fall)*  
 
 
