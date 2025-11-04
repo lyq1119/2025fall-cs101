@@ -1,6 +1,6 @@
-# 2025/10/28 递归
+# Week8~9 递归、回溯
 
-*Updated 2025-10-28 14:35 GMT+8*  
+*Updated 2025-11-04 14:21 GMT+8*  
  *Compiled by Hongfei Yan (2024 Fall)*  
 
 
@@ -485,7 +485,7 @@ The stack frames also provide a scope for the variables used by the function. Ev
 
 ### 3.2 函数参数是可变、不可变对象
 
-参数是可变，还是不可变对象，是不一样的，前者在被调用者栈帧中，后者在调用者栈帧中。
+参数是可变，还是不可变对象，是不一样的。
 
 > 在 Python 中，参数传递的方式取决于参数的类型：
 >
@@ -984,24 +984,60 @@ TUD Programming Contest 2002, Darmstadt, Germany
 
 <img src="https://raw.githubusercontent.com/GMyhf/img/main/img/image-20231030195445757.png" alt="image-20231030195445757" style="zoom:50%;" />
 
-圆盘个数增加后需要增加移动步数，如果每次都计算将是很庞大的计算量，所以需要使用DP(Dynamic Programming，动态规划法)求解。
+> 
+>
+> 思路：我们先将3塔的情况递推出来，用d[i] 表示有i个盘的时候的最小移动次数，d[1] = 1
+>
+> https://blog.csdn.net/qq_45432665/article/details/104825847
+>
+> 
+>
+> <img src="https://raw.githubusercontent.com/GMyhf/img/main/img/image-20231030200714441.png" alt="image-20231030200714441" style="zoom:50%;" />
+>
+> 当有4塔时，也是一样的思路，f[1] = 1
+>
+> <img src="https://raw.githubusercontent.com/GMyhf/img/main/img/image-20231030200853087.png" alt="image-20231030200853087" style="zoom:50%;" />
+>
+> 
 
-```python
-d = [0] * 15
-f = [float('inf')] * 15
 
-d[1] = 1
-for i in range(2, 13):
-    d[i] = d[i - 1] * 2 + 1
 
-f[1] = 1
-for i in range(2, 13):
-    for j in range(1, i):
-        f[i] = min(f[i], f[i - j] * 2 + d[j])
 
-for i in range(1, 13):
-    print(f[i])
+
+**背景理解：四塔汉诺塔问题**
+
+三塔汉诺塔的最小移动次数公式是：
+
+$d[n]=2^n−1$
+
+例如：
+1 → 1次
+2 → 3次
+3 → 7次
+4 → 15次
+依次倍增。
+这在代码中体现为：
+
 ```
+d[i] = d[i - 1] * 2 + 1
+```
+
+------
+
+但**四塔汉诺塔**不同：
+因为有一根额外的辅助杆，所以我们不一定要像三塔那样“全搬到辅助再搬回来”。
+`k` 表示先用 **四柱搬走的部分（上面 k 个盘子）**，那么剩下的 (n-k) 个盘子要用三柱搬。步骤：
+
+- 先用4根柱子把上面的 k 个小盘子搬到一根辅助杆上；
+- 然后用 **3塔方法** 把下面的 n−k 个大盘子搬到目标；
+- 最后再用4根柱子把那 k 个小盘子从辅助杆搬到目标。
+
+公式就变为：
+$
+f[n] = \min_{1 \le k < n} (2 \times f[k] + d[n-k])
+$
+
+
 
 
 
@@ -1028,19 +1064,27 @@ for n in range(1, 13):
 
 
 
-POJ - 1958 Strange Towers of Hanoi 汉诺塔递推问题（4塔），
+圆盘个数增加后需要增加移动步数，如果每次都计算将是很庞大的计算量，所以需要使用DP(Dynamic Programming，动态规划法)求解。
 
-https://blog.csdn.net/qq_45432665/article/details/104825847
+```python
+d = [0] * 15
+f = [float('inf')] * 15
 
-思路：我们先将3塔的情况递推出来，用d[i] 表示有i个盘的时候的最小移动次数，d[1] = 1
+# 三塔最优移动次数
+d[1] = 1
+for i in range(2, 13):
+    d[i] = d[i - 1] * 2 + 1   # d[i] = 2^i - 1
 
+# 四塔最优移动次数
+f[1] = 1
+for n in range(2, 13):        # 盘子总数
+    for k in range(1, n):     # 先用四柱搬走上面 k 个盘子
+        f[n] = min(f[n], 2 * f[k] + d[n - k])
 
-
-<img src="https://raw.githubusercontent.com/GMyhf/img/main/img/image-20231030200714441.png" alt="image-20231030200714441" style="zoom:50%;" />
-
-当有4塔时，也是一样的思路，f[1] = 1
-
-<img src="https://raw.githubusercontent.com/GMyhf/img/main/img/image-20231030200853087.png" alt="image-20231030200853087" style="zoom:50%;" />
+# 输出结果
+for i in range(1, 13):
+    print(f[i])
+```
 
 
 
@@ -1295,9 +1339,9 @@ if __name__ == "__main__":
 
 
 
-### 练习01661: Help Jimmy（选做）
+### 练习T01661: Help Jimmy（选做）
 
-dfs/dp, http://cs101.openjudge.cn/practice/01661
+dfs, dp, http://cs101.openjudge.cn/practice/01661
 
 "Help Jimmy" 是在下图所示的场景上完成的游戏：
 ![img](https://raw.githubusercontent.com/GMyhf/img/main/img/2978_1-20230915145941944.jpg)
@@ -1454,9 +1498,9 @@ print(cnt)
 
 
 
-### 练习05585: 晶矿的个数
+### 练习M05585: 晶矿的个数
 
-matrices/dfs similar, http://cs101.openjudge.cn/practice/05585
+matrices, dfs similar, http://cs101.openjudge.cn/pctbook/M05585
 
 在某个区域发现了一些晶矿，已经探明这些晶矿总共有分为两类，为红晶矿和黑晶矿。现在要统计该区域内红晶矿和黑晶矿的个数。假设可以用二维地图m[][]来描述该区域，若`m[i][j]`为#表示该地点是非晶矿地点，若`m[i][j]`为r表示该地点是红晶矿地点，若`m[i][j]`为b表示该地点是黑晶矿地点。一个晶矿是由相同类型的并且上下左右相通的晶矿点组成。现在给你该区域的地图，求红晶矿和黑晶矿的个数。
 
@@ -1529,9 +1573,9 @@ for _ in range(int(input())):
 
 
 
-### 练习02786: Pell数列
+### 练习M02786: Pell数列
 
-dp, http://cs101.openjudge.cn/practice/02786/
+dp, http://cs101.openjudge.cn/pctbook/M02786/
 
 Pell数列a1, a2, a3, ...的定义是这样的，a1 = 1, a2 = 2, ... , an = 2 * an − 1 + an - 2 (n > 2)。
 给出一个正整数k，要求Pell数列的第k项模上32767是多少。
@@ -1587,7 +1631,7 @@ for _ in range(n):
 
 ### 练习02754: 八皇后
 
-dfs and similar, http://cs101.openjudge.cn/practice/02754
+dfs and similar, http://cs101.openjudge.cn/pctbook/T02754
 
 描述：会下国际象棋的人都很清楚：皇后可以在横、竖、斜线上不限步数地吃掉其他棋子。如何将8个皇后放在棋盘上（有8 * 8个方格），使它们谁也不能被吃掉！这就是著名的八皇后问题。
 		对于某个满足要求的8皇后的摆放方法，定义一个皇后串a与之对应，即$a=b_1b_2...b_8~$,其中$b_i$为相应摆法中第i行皇后所处的列数。已经知道8皇后问题一共有92组解（即92个不同的皇后串）。
@@ -1799,7 +1843,7 @@ print(fibonacci(35))  # 现在会非常快
 >
 >    ```python
 >    from functools import lru_cache
->                                        
+>                                                 
 >    @lru_cache(maxsize=None)
 >    def fibonacci(n):
 >        if n == 0:
@@ -2228,4 +2272,1557 @@ for ans in arrange(l):
 > - **易于使用**：生成器可以像普通迭代器一样使用，可以很容易地集成到现有的代码中，如 for 循环等。
 >
 > 综上所述，`yield` 提供了一种强大的机制，用于处理那些需要逐步生成或处理大量数据的情况，同时保持代码的简洁性和高效性。
+
+
+
+# 四、递归回溯
+
+全排列、子集、分割回文串、N皇后 四个题目，给出了状态树（树形图示）帮助理解。全排列、子集、N皇后还有视频讲解。
+
+**必须掌握**：递归与回溯是算法中的核心思想之一，尤其在解决组合、排列、子集等问题时至关重要。如果你目前尚未完全理解其原理，建议先**熟记经典模板**，通过反复运行代码、调试过程、结合视频讲解来逐步深入理解。
+
+> “递归是思想，回溯是技巧；先走到底，再退回来。”
+
+掌握经典问题，你就迈出了通向回溯算法的第一步！
+
+
+
+## 示例且练习M46.全排列
+
+backtracking, https://leetcode.cn/problems/permutations/
+
+给定一个不含重复数字的数组 `nums` ，返回其 *所有可能的全排列* 。你可以 **按任意顺序** 返回答案。
+
+ 
+
+**示例 1：**
+
+```
+输入：nums = [1,2,3]
+输出：[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]
+```
+
+**示例 2：**
+
+```
+输入：nums = [0,1]
+输出：[[0,1],[1,0]]
+```
+
+**示例 3：**
+
+```
+输入：nums = [1]
+输出：[[1]]
+```
+
+ 
+
+**提示：**
+
+- `1 <= nums.length <= 6`
+- `-10 <= nums[i] <= 10`
+- `nums` 中的所有整数 **互不相同**
+
+
+
+思路：递归 + 回溯
+
+使用一个临时路径 `sol` 记录当前排列，通过遍历原数组并跳过已选元素的方式进行搜索。当路径长度等于数组长度时，将当前排列加入结果集。
+
+<img src="https://raw.githubusercontent.com/GMyhf/img/main/img/202511011249184.jpg" alt="44ca1d68ef935d2b871239b2d188ba22" style="zoom: 15%;" />
+
+
+
+```python
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        n = len(nums)
+        ans, sol = [], []
+        
+        def backtrack():
+            # 终止条件：当前排列已满
+            if len(sol) == n:
+                ans.append(sol[:])  # 深拷贝
+                return
+            
+            # 尝试每个未被使用的数
+            for x in nums:
+                if x not in sol:        # 剪枝：避免重复使用
+                    sol.append(x)       # 选择
+                    backtrack()         # 递归
+                    sol.pop()           # 回溯
+        
+        backtrack()
+        return ans
+```
+
+全排列视频讲解：https://pku.instructuremedia.com/embed/c76751c9-bc0e-49f1-8a99-624b955de668
+
+
+
+## 示例且练习M78.子集
+
+backtracking, https://leetcode.cn/problems/subsets/
+
+给你一个整数数组 `nums` ，数组中的元素 **互不相同** 。返回该数组所有可能的子集（幂集）。
+
+解集 **不能** 包含重复的子集。你可以按 **任意顺序** 返回解集。
+
+ 
+
+**示例 1：**
+
+```
+输入：nums = [1,2,3]
+输出：[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+```
+
+**示例 2：**
+
+```
+输入：nums = [0]
+输出：[[],[0]]
+```
+
+ 
+
+**提示：**
+
+- `1 <= nums.length <= 10`
+- `-10 <= nums[i] <= 10`
+- `nums` 中的所有元素 **互不相同**
+
+
+
+思路：递归回溯（选或不选）
+
+对每个元素有两种选择：**选入子集** 或 **不选入子集**。递归遍历所有位置，到达末尾时将当前路径加入结果。
+
+<img src="https://raw.githubusercontent.com/GMyhf/img/main/img/202511011249848.jpg" alt="915e44223ee7989e9ade44ac04b93086" style="zoom:15%;" />
+
+
+
+```python
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        n = len(nums)
+        ans, sol = [], []
+        
+        def backtrack(i):
+            # 终止条件：处理完所有元素
+            if i == n:
+                ans.append(sol[:])
+                return
+            
+            # 分支1：不选择 nums[i]
+            backtrack(i + 1)
+            
+            # 分支2：选择 nums[i]
+            sol.append(nums[i])
+            backtrack(i + 1)
+            sol.pop()  # 回溯
+        
+        backtrack(0)
+        return ans
+```
+
+子集视频讲解：https://pku.instructuremedia.com/embed/d8ccd717-3664-41bc-85d2-7170f348327b
+
+
+
+**总结对比**
+
+| 问题   | 决策方式         | 终止条件         | 是否需要去重       | 时间复杂度        |
+| ------ | ---------------- | ---------------- | ------------------ | ----------------- |
+| 全排列 | 从剩余元素中选择 | 路径长度 = n     | 是（避免重复使用） | $O(n \times n!)$  |
+| 子集   | 每个元素选/不选  | 索引到达数组末尾 | 否（天然无重）     | $O(2^n \times n)$ |
+
+> ⚠️ 注意：由于每次添加路径都需要复制 `sol[:]`，因此总时间复杂度中乘以 `n`。
+
+
+
+## 示例且练习M131.分割回文串
+
+dp, backtracking, https://leetcode.cn/problems/palindrome-partitioning/
+
+给你一个字符串 `s`，请你将 `s` 分割成一些子串，使每个子串都是 **回文串**。返回 `s` 所有可能的分割方案。回文串是指向前和向后读都相同的字符串。
+
+
+
+**示例 1：**
+
+```
+输入：s = "aab"
+输出：[["a","a","b"],["aa","b"]]
+```
+
+**示例 2：**
+
+```
+输入：s = "a"
+输出：[["a"]]
+```
+
+ 
+
+**提示：**
+
+- `1 <= s.length <= 16`
+- `s` 仅由小写英文字母组成
+
+
+
+【陈林鑫 物理学院】思路：
+
+<img src="https://raw.githubusercontent.com/GMyhf/img/main/img/202511011253995.png" alt="49be582f81c0905453e4f3f697217f96" style="zoom: 50%;" />
+
+如图所示，对于一个字符串s，依次判断从i=1到i=len(s)+1，s[0:i]是否为回文串，如果是，则在i处分割，前半部分为回文串，将它计入这条递归的列表resi中，剩下的部分s[i:]则继续分割。如果剩下的字符串s[i:]长度为0，则说明分割完毕，返回resi。for循环可以遍历所有情形。
+
+如果字符串较长，可以使用 **LRU 缓存递归判断**（不建 DP 表）
+
+```python
+from functools import lru_cache
+
+class Solution:
+    def partition(self, s: str) -> List[List[str]]:
+        n = len(s)
+        ans = []
+        @lru_cache(None)
+        def is_pal(i, j):
+            return i >= j or (s[i] == s[j] and is_pal(i + 1, j - 1))
+
+        def dfs(start, path):
+            if start == n:
+                ans.append(path[:])
+                return
+            for end in range(start, n):
+                if is_pal(start, end):
+                    path.append(s[start:end + 1])
+                    dfs(end + 1, path)
+                    path.pop()
+        dfs(0, [])
+        return ans
+
+```
+
+
+
+## 示例且练习T51.N皇后
+
+backtracking, https://leetcode.cn/problems/n-queens/
+
+按照国际象棋的规则，皇后可以攻击与之处在同一行或同一列或同一斜线上的棋子。
+
+**n 皇后问题** 研究的是如何将 `n` 个皇后放置在 `n×n` 的棋盘上，并且使皇后彼此之间不能相互攻击。
+
+给你一个整数 `n` ，返回所有不同的 **n 皇后问题** 的解决方案。
+
+每一种解法包含一个不同的 **n 皇后问题** 的棋子放置方案，该方案中 `'Q'` 和 `'.'` 分别代表了皇后和空位。
+
+ 
+
+**示例 1：**
+
+<img src="https://assets.leetcode.com/uploads/2020/11/13/queens.jpg" alt="img" style="zoom:67%;" />
+
+```
+输入：n = 4
+输出：[[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+解释：如上图所示，4 皇后问题存在两个不同的解法。
+```
+
+**示例 2：**
+
+```
+输入：n = 1
+输出：[["Q"]]
+```
+
+ 
+
+**提示：**
+
+- `1 <= n <= 9`
+
+
+
+**思路：递归 + 回溯**
+
+逐行放置皇后，每行只能放一个。
+对每一行，我们尝试在每一列放皇后，要求：
+
+- 该列没有皇后；
+- 主对角线（row - col）没有皇后；
+- 副对角线（row + col）没有皇后。
+
+若当前行放置成功，则递归到下一行。
+若到达最后一行，则将当前棋盘状态加入答案。
+
+
+
+<img src="https://raw.githubusercontent.com/GMyhf/img/main/img/image-20251102215157455.png" alt="image-20251102215157455" style="zoom:50%;" />
+
+
+
+```python
+class Solution:
+    def solveNQueens(self, n: int) -> List[List[str]]:
+        ans = []              # 存放所有解
+        sol = []              # 当前棋盘布局（每行的列索引）
+        cols = set()          # 已占用的列
+        diag1 = set()         # 已占用的主对角线（r - c）
+        diag2 = set()         # 已占用的副对角线（r + c）
+        
+        def backtrack(row):
+            # 终止条件：所有行均已放置完毕
+            if row == n:
+                board = []
+                for c in sol:
+                    board.append('.' * c + 'Q' + '.' * (n - c - 1))
+                ans.append(board[:])
+                return
+            
+            # 尝试每一列
+            for col in range(n):
+                if col in cols or (row - col) in diag1 or (row + col) in diag2:
+                    continue  # 剪枝：冲突
+                
+                # 选择
+                sol.append(col)
+                cols.add(col)
+                diag1.add(row - col)
+                diag2.add(row + col)
+                
+                # 递归
+                backtrack(row + 1)
+                
+                # 回溯
+                sol.pop()
+                cols.remove(col)
+                diag1.remove(row - col)
+                diag2.remove(row + col)
+        
+        backtrack(0)
+        return ans
+```
+
+
+
+八皇后视频讲解（oj02754八皇后_TA胡扬-哔哩哔哩） https://b23.tv/s933Y5c
+
+```python
+class Solution:
+    def solveNQueens(self, n: int) -> List[List[str]]:
+        solutions = []
+        def queens(row: int, cols: List[int], ldiags: Set[int], rdiags: Set[int]) -> None:
+            if row == n:
+                solutions.append(["".join("Q" if j == cols[i] else "." for j in range(n)) for i in range(n)])
+                return
+            for j in range(n):
+                if j not in cols and row + j not in ldiags and row - j not in rdiags:
+                    queens(row + 1, cols + [j], ldiags | {row + j}, rdiags | {row - j})
+
+        queens(0, [], set(), set())
+        return solutions
+```
+
+
+
+
+
+
+
+**复杂度分析**
+
+| 项目       | 含义    | 复杂度               |
+| ---------- | ------- | -------------------- |
+| 状态树深度 | 行数 n  | —                    |
+| 分支数     | 最多 n  | —                    |
+| 时间复杂度 | $O(n!)$ | 尝试所有排列并剪枝   |
+| 空间复杂度 | $O(n)$  | 递归栈深度与辅助集合 |
+
+------
+
+✅ **模板对比总结**
+
+| 问题       | 状态含义 | 决策方式        | 剪枝              | 终止条件        |
+| ---------- | -------- | --------------- | ----------------- | --------------- |
+| 全排列     | 当前路径 | 选未使用数      | `if x not in sol` | 路径长度 = n    |
+| 子集       | 当前索引 | 选/不选当前元素 | 无                | i == n          |
+| 分割回文串 | 当前起点 | 枚举每个回文段  | is_pal 判断       | start == len(s) |
+| 八皇后     | 当前行号 | 尝试每列放皇后  | 列与对角线冲突    | row == n        |
+
+
+
+
+
+> **“主对角线”为什么叫主**。我们来一步步讲清楚它的**定义、命名来源与几何直观意义**。
+>
+> ------
+>
+> 🧮 一、数学定义（源自线性代数）
+>
+> 在一个 $ n \times n $ 矩阵中：
+>
+> > **主对角线（main diagonal）** 是所有满足 **行号 = 列号** 的元素连成的那条线。
+>
+> 也就是：
+> $
+> a_{00}, a_{11}, a_{22}, \ldots, a_{n-1,n-1}
+> $
+>
+> **例如：**
+>
+> 主对角线就是：
+>
+>
+> $$
+> \left[
+> \matrix{
+> 	a_{00} & a_{01} & a_{02} \\
+> 	a_{10} & a_{11} & a_{12} \\
+> 	a_{20} & a_{21} & a_{22}
+> }
+> 
+> \right]
+> $$
+>
+> 
+>
+>
+> ------
+>
+> 🟦 二、几何解释
+>
+> 把矩阵画在坐标平面上（左上角是原点）：
+>
+> | 坐标  | 行号 | 列号 | 是否在主对角线上 |
+> | ----- | ---- | ---- | ---------------- |
+> | (0,0) | 0    | 0    | ✅                |
+> | (1,1) | 1    | 1    | ✅                |
+> | (2,2) | 2    | 2    | ✅                |
+>
+> 可以看到这些点在一条**从左上到右下的斜线上**。
+> 它满足 `row == col`，也就是：
+>
+> > ✅ 主对角线 ↘ ：从左上角 (0,0) 贯穿到右下角 (n-1,n-1)。
+>
+> ------
+>
+> 🟥 三、副对角线（secondary diagonal）
+>
+> 副对角线又称“反对角线”、“次对角线”，它与主对角线方向相反：
+>
+> > **副对角线** 是所有满足 **行号 + 列号 = n - 1** 的元素连成的那条线。
+>
+> 例如：
+> [
+> a_{02}, a_{11}, a_{20}
+> ]
+> （对 (3\times3) 矩阵）
+>
+> 它对应的是：
+>
+> > ✅ 副对角线 ↙ ：从右上角 (0, n-1) 贯穿到左下角 (n-1, 0)。
+>
+> ------
+>
+> 🧭 四、命名由来
+>
+> 主对角线（main diagonal）的“主”有两个历史原因：
+>
+> 1. **矩阵主元素都在这条线上**
+>    在线性代数中，一个矩阵的“迹”（trace）是主对角线元素之和：
+>    [
+>    \text{tr}(A) = a_{00} + a_{11} + \cdots + a_{n-1,n-1}
+>    ]
+>    所以它是矩阵最重要的一条线。
+> 2. **几何直观中方向一致**
+>    主对角线方向与坐标轴增长方向一致：
+>    行号和列号都“同时增大”。
+>    因此称为 **“主”**（main 或 principal）。
+>
+> 相反，副对角线方向与坐标轴增减相反（一个增一个减），所以是“副”。
+>
+> ------
+>
+> 🎯 五、在八皇后问题中如何利用
+>
+> | 对角线     | 方向      | 代数规律         | 检查条件             | 示例              |
+> | ---------- | --------- | ---------------- | -------------------- | ----------------- |
+> | 主对角线 ↘ | 左上→右下 | `row - col` 相同 | `(r - c)` 是否已出现 | (0,0),(1,1),(2,2) |
+> | 副对角线 ↙ | 右上→左下 | `row + col` 相同 | `(r + c)` 是否已出现 | (0,2),(1,1),(2,0) |
+>
+> ------
+>
+> 记忆口诀
+>
+> > **主对角线 ↘ ：行号 = 列号，同增同减；**
+> > **副对角线 ↙ ：行号 + 列号 = 常数，一增一减。**
+>
+> ------
+>
+> 如果你希望我帮你**画一个 n=4 棋盘图**，标出主对角线、副对角线及它们的 `(row,col)` 与公式（比如带箭头标注 ↘ ↙），我可以生成一张直观示意图，帮你彻底搞懂这一节。
+> 是否要我生成这张图？
+
+
+
+# 五 并查集（Disjoint Set）
+
+> 通常情况下，使用邻接表来表示并查集（Disjoint Set）和前缀树（Trie Tree）是比较常见的做法。
+>
+> 1. **并查集（Disjoint Set）**：在并查集中，每个元素都属于一个集合，并且这些集合之间是不相交的。为了高效地实现并查集操作，通常会使用<mark>树形结构</mark>来表示集合之间的关系。<mark>每个集合可以用一个树表示，其中树的根节点是集合的代表元素</mark>。使用邻接表来表示这种树形结构是一种常见的做法，其中每个节点存储其父节点的指针。
+>
+> 2. **前缀树（Trie Tree）**：前缀树是一种用于存储字符串集合的数据结构，通常用于快速地进行字符串匹配和搜索。在前缀树中，<mark>每个节点代表一个字符，从根节点到叶子节点的路径表示一个字符串</mark>。为了表示字符串的结构，通常会使用邻接表来表示前缀树，其中每个节点存储一个字符以及指向子节点的指针列表。
+>
+> 使用邻接表表示并查集和前缀树可以高效地支持各种操作，如并查集的合并和查找操作，以及前缀树的插入、搜索和删除操作。同时，邻接表也能够比较直观地表示数据结构之间的关系，便于理解和实现。
+
+
+
+Disjoint Set (Union-Find Algorithm)
+
+https://www.geeksforgeeks.org/introduction-to-disjoint-set-data-structure-or-union-find-algorithm/
+
+**What is a Disjoint set data structure?**
+
+> Two sets are called **disjoint sets** if they don’t have any element in common, the intersection of sets is a null set.
+
+一种存储非重叠或不相交子集的数据结构被称为**不相交集合数据结构**（Disjoint Set Data Structure）。不相交集合数据结构支持以下操作：
+
+- 向不相交集合中**添加新集合**。
+- 使用**Union（合并）**操作将不相交集合合并为一个集合。
+- 使用**Find（查找）**操作找到不相交集合的代表元素。
+- 检查两个集合是否为不相交。
+
+考虑一个包含若干人的情景，并需要对他们执行以下任务：
+
+- 添加**新的朋友关系**，即一个人 `x`  成为另一个人 ` y ` 的朋友（即将新元素添加到集合中）。
+- 查找个体 ` x ` 是否是个体 ` y ` 的朋友（直接或间接的朋友）。
+
+> A data structure that stores non overlapping or disjoint subset of elements is called disjoint set data structure. The disjoint set data structure supports following operations:
+>
+> - Adding new sets to the disjoint set.
+> - Merging disjoint sets to a single disjoint set using **Union** operation.
+> - Finding representative of a disjoint set using **Find** operation.
+> - Check if two sets are disjoint or not. 
+>
+> Consider a situation with a number of persons and the following tasks to be performed on them:
+>
+> - Add a **new friendship relation**, i.e. a person x becomes the friend of another person y i.e adding new element to a set.
+> - Find whether individual **x is a friend of individual y** (direct or indirect friend)
+
+**Examples:** 
+
+> We are given 10 individuals say, a, b, c, d, e, f, g, h, i, j
+>
+> Following are relationships to be added:
+> a <-> b  
+> b <-> d
+> c <-> f
+> c <-> i
+> j <-> e
+> g <-> j
+>
+> Given queries like whether a is a friend of d or not. We basically need to create following 4 groups and maintain a quickly accessible connection among group items:
+> G1 = {a, b, d}
+> G2 = {c, f, i}
+> G3 = {e, g, j}
+> G4 = {h}
+
+
+
+**查找 `x ` 和 ` y ` 是否属于同一组，即判断 ` x ` 和 ` y ` 是否为直接或间接朋友。**
+
+根据他们所属的群体对个体进行划分。这种方法被称为**不相交集合并（Disjoint Set Union）**，它维护了一个**不相交集合**的集合，每个集合由其一个成员表示。
+
+**要回答上述问题，需要考虑两个关键点：**
+
+- **如何确定集合？** 最初，所有元素都属于不同的集合。在处理给定的关系之后，我们选择一个成员作为**代表**。选择代表的方式有多种，一种简单的方法是选择具有最大索引的成员。
+- **检查两个人是否在同一组中？** 如果两个人的代表相同，则说明他们是朋友。
+
+
+
+> **Find whether x and y belong to the same group or not, i.e. to find if x and y are direct/indirect friends.**
+>
+> Partitioning the individuals into different sets according to the groups in which they fall. This method is known as a **Disjoint set Union** which maintains a collection of **Disjoint sets** and each set is represented by one of its members.
+>
+> **To answer the above question two key points to be considered are:**
+>
+> - **How to Resolve sets?** Initially, all elements belong to different sets. After working on the given relations, we select a member as a **representative**. There can be many ways to select a representative, a simple one is to select with the biggest index.
+> - **Check if 2 persons are in the same group?** If representatives of two individuals are the same, then they’ll become friends.
+
+
+
+**使用到的数据结构包括：**
+
+**数组：** 一个名为**Parent[]**的整数数组。如果我们处理的是**N**项，数组的第i个元素代表第i项。更具体地说，Parent[]数组的第i个元素是第i项的父节点。这些关系创建了一个或多个虚拟树。
+
+**树：** 它是一个**不相交集**。如果两个元素位于同一棵树中，则它们位于同一个**不相交集**中。每棵树的根节点（或最顶部的节点）被称为该集合的**代表**。每个集合总是有一个唯一的代表。识别代表的一个简单规则是，如果‘i’是某个集合的代表，则**Parent[i] = i**。如果‘i’不是他所在集合的代表，则可以通过沿树向上遍历直到找到代表为止。
+
+<mark>这种结构允许有效地执行诸如合并集合和查找代表等操作</mark>，适用于需要动态管理分组的问题，如社交网络中的朋友关系追踪。通过这种方式，可以快速判断两个人是否是朋友（直接或间接），即使这个关系链可能很长。
+
+> **Data Structures used are:** 
+>
+> **Array:** An array of integers is called **Parent[]**. If we are dealing with **N** items, i’th element of the array represents the i’th item. More precisely, the i’th element of the Parent[] array is the parent of the i’th item. These relationships create one or more virtual trees.
+>
+> **Tree:** It is a **Disjoint set**. If two elements are in the same tree, then they are in the same **Disjoint set**. The root node (or the topmost node) of each tree is called the **representative** of the set. There is always a single **unique representative** of each set. A simple rule to identify a representative is if ‘i’ is the representative of a set, then **Parent[i] = i**. If i is not the representative of his set, then it can be found by traveling up the tree until we find the representative.
+
+
+
+本质：管理不相交集合的数据结构，用于判断元素间的连通性。
+
+- `find(x)`: 查找根节点（路径压缩优化）
+- `union(x, y)`: 合并两个集合
+- 应用场景：分组问题、连通性判断（如宗教信仰统计，http://cs101.openjudge.cn/pctbook/M02524/）
+
+并查集不只是模版，而是“动态维护等价关系”的工具。
+
+
+
+## 5.1 Operations on Disjoint Set
+
+操作包括 Find 和 Union。
+
+### 5.1.1 Find
+
+可以通过递归遍历父节点数组来实现，直到我们遇到一个节点，该节点是其自身的父节点为止。
+
+> Can be implemented by recursively traversing the parent array until we hit a node that is the parent of itself.
+
+
+
+```python
+# Finds the representative of the set
+# that i is an element of
+
+def find(i):
+
+	# If i is the parent of itself
+	if (parent[i] == i):
+
+		# Then i is the representative of
+		# this set
+		return i
+	else:
+
+		# Else if i is not the parent of
+		# itself, then i is not the
+		# representative of his set. So we
+		# recursively call Find on its parent
+		return find(parent[i])
+
+# The code is contributed by Nidhi goel
+
+```
+
+
+
+**Time complexity**: This approach is inefficient and can take O(n) time in worst case.
+
+
+
+#### 9.1.2 Union 
+
+它接受**两个元素**作为输入，使用**Find（查找）**操作找到它们所在集合的代表，最后将其中一棵树（代表一个集合）置于另一棵树的根节点之下。
+
+> It takes **two elements** as input and finds the representatives of their sets using the **Find** operation, and finally puts either one of the trees (representing the set) under the root node of the other tree.
+
+```python
+# Unites the set that includes i
+# and the set that includes j
+
+def union(parent, rank, i, j):
+	# Find the representatives
+	# (or the root nodes) for the set
+	# that includes i
+	irep = find(parent, i)
+	
+	# And do the same for the set
+	# that includes j
+	jrep = find(parent, j)
+	
+	# Make the parent of i’s representative
+	# be j’s representative effectively
+	# moving all of i’s set into j’s set)
+	
+	parent[irep] = jrep
+
+```
+
+**Time complexity**: This approach is inefficient and could lead to tree of length O(n) in worst case.
+
+
+
+## 5.2 Optimizations (Union by Rank/Size and Path Compression)
+
+效率很大程度上取决于哪棵树被连接到另一棵树上。这可以通过两种方式实现：<mark>第一种是按秩合并（Union by Rank），它将树的高度作为考虑因素；第二种是按大小合并（Union by Size），它将树的大小作为考虑因素来决定如何将一棵树连接到另一棵树。</mark> 这种方法结合路径压缩（Path Compression）可以使操作的时间复杂度接近常数时间。
+
+> The efficiency depends heavily on which tree get attached to the other. There are 2 ways in which it can be done. <mark>First is Union by Rank, which considers height of the tree as the factor and Second is Union by Size, which considers size of the tree as the factor while attaching one tree to the other .</mark> This method along with Path Compression gives complexity of nearly constant time.
+
+
+
+### 5.2.1 Path Compression
+
+对 **Find** 操作的改进：
+
+它通过**压缩树的高度**来加速数据结构的运行。这可以通过在 **Find** 操作中引入一个小型缓存机制来实现。更多细节可以查看代码：
+
+> Modifications to Find():
+>
+> It speeds up the data structure by **compressing the height** of the trees. It can be achieved by inserting a small caching mechanism into the **Find** operation. Take a look at the code for more details:
+
+```python
+# Finds the representative of the set that i
+# is an element of.
+
+
+def find(i):
+
+	# If i is the parent of itself
+	if Parent[i] == i:
+
+		# Then i is the representative 
+		return i
+	else:
+
+		# Recursively find the representative.
+		result = find(Parent[i])
+
+		# We cache the result by moving i’s node 
+		# directly under the representative of this
+		# set
+		Parent[i] = result
+	
+		# And then we return the result
+		return result
+
+# The code is contributed by Arushi Jindal. 
+
+```
+
+
+
+**Time Complexity**: O(log n) on average per call.
+
+
+
+### 5.2.2 Union by Rank
+
+首先，我们需要一个新的整数数组，称为 **rank[]**。该数组的大小与父数组 **Parent[]** 相同。如果 **i** 是某个集合的代表，则 **rank[i]** 表示代表该集合的树的高度。
+
+现在回想一下，在 **Union（合并）** 操作中，将哪一棵树移到另一棵树下并不重要。我们现在希望做的是**最小化结果树的高度**。如果我们正在合并两棵树（或集合），我们称它们为 **left** 和 **right**，那么这完全取决于 **left 的秩** 和 **right 的秩**。
+
+- 如果 **left 的秩** 小于 **right 的秩**，那么最好将 **left 移到 right 下方**，因为这样不会改变 **right 的秩**（而将 **right 移到 left 下方** 会增加高度）。同样地，如果 **right 的秩** 小于 **left 的秩**，那么我们应该将 **right 移到 left 下方**。
+- 如果两者的秩相等，那么无论哪棵树移到另一棵树下都没有关系，但结果的秩总是比原来的秩大 1。
+
+> First of all, we need a new array of integers called **rank[]**. The size of this array is the same as the parent array **Parent[]**. If i is a representative of a set, **rank[i]** is the height of the tree representing the set. 
+> Now recall that in the Union operation, it doesn’t matter which of the two trees is moved under the other. Now what we want to do is minimize the height of the resulting tree. If we are uniting two trees (or sets), let’s call them left and right, then it all depends on the **rank of left** and the **rank of right**. 
+>
+> - If the rank of **left** is less than the rank of **right**, then it’s best to move **left under right**, because that won’t change the rank of right (while moving right under left would increase the height). In the same way, if the rank of right is less than the rank of left, then we should move right under left.
+> - If the ranks are equal, it doesn’t matter which tree goes under the other, but the rank of the result will always be one greater than the rank of the trees.
+
+
+
+### 5.2.3 Path compression and union by rank
+
+Below is the complete implementation of disjoint set with path compression and union by rank.
+
+```python
+class DisjSet:
+	def __init__(self, n):
+		# Constructor to create and initialize sets of n items
+		self.rank = [1] * n
+		self.parent = [i for i in range(n)]
+
+
+	# Finds set of given item x
+	def find(self, x):
+		
+		# Finds the representative of the set that x is an element of
+		if (self.parent[x] != x):
+			
+			# if x is not the parent of itself
+			# Then x is not the representative of its set
+			self.parent[x] = self.find(self.parent[x])
+			
+			# so we recursively call Find on its parent
+			# and move i's node directly under the
+			# representative of this set
+
+		return self.parent[x]
+
+
+	# Do union of two sets represented by x and y.
+	def Union(self, x, y):
+		
+		# Find current sets of x and y
+		xset = self.find(x)
+		yset = self.find(y)
+
+		# If they are already in same set
+		if xset == yset:
+			return
+
+		# Put smaller ranked item under
+		# bigger ranked item if ranks are different
+		if self.rank[xset] < self.rank[yset]:
+			self.parent[xset] = yset
+
+		elif self.rank[xset] > self.rank[yset]:
+			self.parent[yset] = xset
+
+		# If ranks are same, then move y under x (doesn't matter
+    # which one goes where) and increment rank of x's tree
+		else:
+			self.parent[yset] = xset
+			self.rank[xset] = self.rank[xset] + 1
+
+# Driver code
+obj = DisjSet(5)
+obj.Union(0, 2)
+obj.Union(4, 2)
+obj.Union(3, 1)
+if obj.find(4) == obj.find(0):
+	print('Yes')
+else:
+	print('No')
+if obj.find(1) == obj.find(0):
+	print('Yes')
+else:
+	print('No')
+
+
+"""
+Yes
+No
+"""
+```
+
+
+
+**Time complexity**: O(n) for creating n single item sets . The two techniques -path compression with the union by rank/size, the time complexity will reach nearly constant time. It turns out, that the final[ amortized time complexity](https://www.geeksforgeeks.org/introduction-to-amortized-analysis/) is O(α(n)), where α(n) is the inverse Ackermann function, which grows very steadily (it does not even exceed for $n<10^{600}$  approximately).
+
+**Space complexity:** O(n) because we need to store n elements in the Disjoint Set Data Structure.
+
+
+
+### 5.2.4 Union by Size
+
+同样，我们需要一个新的整数数组，称为 **size[]**。该数组的大小与父数组 **Parent[]** 相同。如果 **i** 是某个集合的代表，则 **size[i]** 表示代表该集合的树中元素的数量。
+
+现在我们要合并两棵树（或集合），我们称它们为 **left** 和 **right**，在这种情况下，这完全取决于 **left 的大小** 和 **right 的大小**（即树或集合中的元素数量）。
+
+- 如果 **left 的大小** 小于 **right 的大小**，那么最好将 **left 移到 right 下方**，并将 **right 的大小** 增加 **left 的大小**。同样地，如果 **right 的大小** 小于 **left 的大小**，那么我们应该将 **right 移到 left 下方**，并将 **left 的大小** 增加 **right 的大小**。
+- 如果两者的大小相等，那么无论哪棵树移到另一棵树下都没有关系。
+
+> Again, we need a new array of integers called **size[]**. The size of this array is the same as the parent array **Parent[]**. If i is a representative of a set, **size[i]** is the number of the elements in the tree representing the set. 
+> Now we are uniting two trees (or sets), let’s call them left and right, then in this case it all depends on the **size of left** and the **size of right** tree (or set).
+>
+> - If the size of **left** is less than the size of **right**, then it’s best to move **left under right** and increase size of right by size of left. In the same way, if the size of right is less than the size of left, then we should move right under left. and increase size of left by size of right.
+> - If the sizes are equal, it doesn’t matter which tree goes under the other.
+
+```python
+class UnionFind:
+	def __init__(self, n):
+		self.Parent = list(range(n))
+		self.Size = [1] * n
+
+	# Function to find the representative (or the root node) for the set that includes i
+	def find(self, i):
+		if self.Parent[i] != i:
+			# Path compression: Make the parent of i the root of the set
+			self.Parent[i] = self.find(self.Parent[i])
+		return self.Parent[i]
+
+	# Unites the set that includes i and the set that includes j by size
+	def unionBySize(self, i, j):
+		# Find the representatives (or the root nodes) for the set that includes i
+		irep = self.find(i)
+
+		# And do the same for the set that includes j
+		jrep = self.find(j)
+
+		# Elements are in the same set, no need to unite anything.
+		if irep == jrep:
+			return
+
+		# Get the size of i’s tree
+		isize = self.Size[irep]
+
+		# Get the size of j’s tree
+		jsize = self.Size[jrep]
+
+		# If i’s size is less than j’s size
+		if isize < jsize:
+			# Then move i under j
+			self.Parent[irep] = jrep
+
+			# Increment j's size by i's size
+			self.Size[jrep] += self.Size[irep]
+		# Else if j’s size is less than i’s size
+		else:
+			# Then move j under i
+			self.Parent[jrep] = irep
+
+			# Increment i's size by j's size
+			self.Size[irep] += self.Size[jrep]
+
+# Example usage
+n = 5
+unionFind = UnionFind(n)
+
+# Perform union operations
+unionFind.unionBySize(0, 1)
+unionFind.unionBySize(2, 3)
+unionFind.unionBySize(0, 4)
+
+# Print the representative of each element after unions
+for i in range(n):
+	print("Element {}: Representative = {}".format(i, unionFind.find(i)))
+
+# This code is contributed by Susobhan Akhuli
+
+"""
+Element 0: Representative = 0
+Element 1: Representative = 0
+Element 2: Representative = 2
+Element 3: Representative = 2
+Element 4: Representative = 0
+"""
+```
+
+
+
+**Time complexity**: O(log n) without Path Compression.
+
+
+
+
+
+## 5.3 编程题目
+
+### 晴问9.6.1 学校的班级个数（1）
+
+https://sunnywhy.com/sfbj/9/6/360
+
+现有一个学校，学校中有若干个班级，每个班级中有若干个学生，每个学生只会存在于一个班级中。如果学生`A`和学生`B`处于一个班级，学生`B`和学生`C`处于一个班级，那么我们称学生`A`和学生`C`也处于一个班级。
+
+现已知学校中共 n 个学生（编号为从`1`到`n`），并给出 m 组学生关系（指定两个学生处于一个班级），问总共有多少个班级。
+
+**输入**
+
+第一行两个整数 $m、n (1 \le n \le 100, 1 \le m \le 100)$，分别表示学生个数、学生关系个数；
+
+接下来 m 行，每行两个整数 a 和 b $ (1 \le a \le n, 1 \le b \le n, a \ne b)$，表示编号为`a`的学生和编号为`b`的学生处于一个班级。
+
+**输出**
+
+输出一个整数，表示班级个数。
+
+样例1
+
+输入
+
+```
+5 3
+4 2
+1 3
+2 5
+```
+
+输出
+
+```
+2
+```
+
+解释
+
+编号`2`、`4`、`5`的学生在同一个班级，编号`1`、`3`的学生在同一个班级，因此共有两个班级。
+
+
+
+To solve this problem, you can use the concept of disjoint sets (also known as union-find). Each student is initially in their own set (or class). When a relationship between two students is given, you unite their sets. The number of disjoint sets at the end will be the number of classes.
+
+Here is a step-by-step plan:
+
+1. Initialize an array `parent` of size `n+1` where `parent[i]` is initially `i`. This means each student is in their own class.
+2. For each student relationship, unite their sets using the union operation.
+3. Count the number of unique parents. This will be the number of classes.
+
+Here is the Python code that implements this plan:
+
+```python
+def find(x):
+    if parent[x] != x: # 如果不是根结点，继续循环
+        parent[x] = find(parent[x])
+    return parent[x]
+
+def union(x, y):
+    parent[find(x)] = find(y)
+
+n, m = map(int, input().split())
+parent = list(range(n + 1))	# parent[i] == i，则说明元素i是该集合的根结点
+
+for _ in range(m):
+    a, b = map(int, input().split())
+    union(a, b)
+
+classes = set(find(x) for x in range(1, n + 1))
+print(len(classes))
+```
+
+This code reads the number of students and relationships from the input, initializes each student to be in their own class, unites the classes of each pair of students that have a relationship, and then counts and prints the number of unique classes.
+
+
+
+
+
+### 晴问9.6.2 学校的班级人数（2）
+
+https://sunnywhy.com/sfbj/9/6/361
+
+现有一个学校，学校中有若干个班级，每个班级中有若干个学生，每个学生只会存在于一个班级中。如果学生`A`和学生`B`处于一个班级，学生`B`和学生`C`处于一个班级，那么我们称学生`A`和学生`C`也处于一个班级。
+
+现已知学校中共 n 个学生（编号为从`1`到`n`），并给出 m 组学生关系（指定两个学生处于一个班级），问总共有多少个班级，并按降序给出每个班级的人数。
+
+输入
+
+第一行两个整数 $m、n (1 \le n \le 100, 1 \le m \le 100)$，分别表示学生个数、学生关系个数；
+
+接下来 m 行，每行两个整数 a 和 b $ (1 \le a \le n, 1 \le b \le n, a \ne b)$，表示编号为`a`的学生和编号为`b`的学生处于一个班级。
+
+输出
+
+第一行输出一个整数，表示班级个数；
+
+第二行若干个整数，按降序给出每个班级的人数。整数之间用空格隔开，行末不允许有多余的空格。
+
+样例1
+
+输入
+
+```
+5 3
+4 2
+1 3
+2 5
+```
+
+输出
+
+```
+2
+3 2
+```
+
+解释
+
+编号`2`、`4`、`5`的学生在同一个班级，编号`1`、`3`的学生在同一个班级，因此共有两个班级，人数分别是`3`和`2`。
+
+
+
+
+
+To solve this problem, you can use the concept of disjoint sets (also known as union-find). Each student is initially in their own set (or class). When a relationship between two students is given, you unite their sets. The number of disjoint sets at the end will be the number of classes. You can also maintain a count of the number of students in each class.
+
+Here is a step-by-step plan:
+
+1. Initialize an array `parent` of size `n+1` where `parent[i]` is initially `i`. This means each student is in their own class.
+2. Initialize an array `size` of size `n+1` where `size[i]` is initially `1`. This means each class initially has one student.
+3. For each student relationship, unite their sets using the union operation and update the size of the new set.
+4. Count the number of unique parents. This will be the number of classes.
+5. Print the sizes of the classes in descending order.
+
+Here is the Python code that implements this plan:
+
+```python
+def find(x):
+    if parent[x] != x:
+        parent[x] = find(parent[x])
+    return parent[x]
+
+def union(x, y):
+    root_x = find(x)
+    root_y = find(y)
+    if root_x != root_y:
+        parent[root_x] = root_y
+        size[root_y] += size[root_x]
+
+n, m = map(int, input().split())
+parent = list(range(n + 1))
+size = [1] * (n + 1)
+
+for _ in range(m):
+    a, b = map(int, input().split())
+    union(a, b)
+
+#classes = [size[find(x)] for x in range(1, n + 1) if x == parent[x]]
+classes = [size[x] for x in range(1, n + 1) if x == parent[x]]
+print(len(classes))
+print(' '.join(map(str, sorted(classes, reverse=True))))
+```
+
+This code reads the number of students and relationships from the input, initializes each student to be in their own class, unites the classes of each pair of students that have a relationship, counts and prints the number of unique classes, and prints the sizes of the classes in descending order.
+
+
+
+
+
+### 晴问9.6.3 是否相同班级
+
+https://sunnywhy.com/sfbj/9/6/362
+
+现有一个学校，学校中有若干个班级，每个班级中有若干个学生，每个学生只会存在于一个班级中。如果学生`A`和学生`B`处于一个班级，学生`B`和学生`C`处于一个班级，那么我们称学生`A`和学生`C`也处于一个班级。
+
+现已知学校中共 n 个学生（编号为从`1`到`n`），并给出 m 组学生关系（指定两个学生处于一个班级）。然后给出 k 个查询，每个查询询问两个学生是否在同一个班级。
+
+**输入**
+
+第一行两个整数 $n、m (1 \le n \le 10^5, 1 \le m \le 10^5)$，分别表示学生个数、学生关系个数；
+
+接下来 m 行，每行两个整数 a 和 b $ (1 \le a \le n, 1 \le b \le n, a \ne b)$，表示编号为`a`的学生和编号为`b`的学生处于一个班级。
+
+然后一个整数 $k (1 \le k \le 10^3)$，表示查询个数；
+
+接下来 k 行，每行两个整数 a 和 b $ (1 \le a \le n, 1 \le b \le n)$，表示询问编号为`a`的学生和编号为`b`的学生是否在同一个班级。
+
+**输出**
+
+每个查询输出一行，如果在同一个班级，那么输出`Yes`，否则输出`No`。
+
+样例1
+
+输入
+
+```
+5 3
+4 2
+1 3
+2 5
+2
+4 5
+1 2
+```
+
+输出
+
+```
+Yes
+No
+```
+
+解释
+
+编号`2`、`4`、`5`的学生在同一个班级，编号`1`、`3`的学生在同一个班级，因此编号`4`和`5`的学生在同一个班级，编号`1`和`2`的学生不在同一个班级。
+
+
+
+
+
+To solve this problem, you can use the concept of disjoint sets (also known as union-find). Each student is initially in their own set (or class). When a relationship between two students is given, you unite their sets. For each query, you check if the two students are in the same set.
+
+Here is a step-by-step plan:
+
+1. Initialize an array `parent` of size `n+1` where `parent[i]` is initially `i`. This means each student is in their own class.
+2. For each student relationship, unite their sets using the union operation.
+3. For each query, check if the two students are in the same set using the find operation.
+
+Here is the Python code that implements this plan:
+
+```python
+def find(x):
+    if parent[x] != x:
+        parent[x] = find(parent[x])
+    return parent[x]
+
+def union(x, y):
+    parent[find(x)] = find(y)
+
+n, m = map(int, input().split())
+parent = list(range(n + 1))
+
+for _ in range(m):
+    a, b = map(int, input().split())
+    union(a, b)
+
+k = int(input())
+for _ in range(k):
+    a, b = map(int, input().split())
+    if find(a) == find(b):
+        print('Yes')
+    else:
+        print('No')
+```
+
+This code reads the number of students and relationships from the input, initializes each student to be in their own class, unites the classes of each pair of students that have a relationship, and then for each query, checks and prints whether the two students are in the same class.
+
+
+
+### 晴问9.6.4 迷宫连通性
+
+https://sunnywhy.com/sfbj/9/6/363
+
+现有一个迷宫，迷宫中有 n 个房间（编号为从`1`到`n`），房间与房间之间可能连通。如果房间`A`和房间`B`连通，房间`B`和房间`C`连通，那么我们称房间`A`和房间`C`也连通。给定 m 组连通关系（指定两个房间连通），问迷宫中的所有房间是否连通。
+
+**输入**
+
+第一行两个整数$n、m (1 \le n \le 100, 1 \le m \le 100)$，分别表示房间个数、连通关系个数；
+
+接下来行，每行两个整数 a 和 b $ (1 \le a \le n, 1 \le b \le n)$，表示编号为`a`的房间和编号为`b`的房间是连通的。
+
+**输出**
+
+如果所有房间连通，那么输出`Yes`，否则输出`No`。
+
+样例1
+
+输入
+
+```
+5 4
+4 2
+1 3
+2 5
+1 5
+```
+
+输出
+
+```
+Yes
+```
+
+解释
+
+所有房间都连通，因此输出`Yes`。
+
+样例2
+
+输入
+
+```
+5 3
+4 2
+1 3
+2 5
+```
+
+输出
+
+```
+No
+```
+
+解释
+
+编号`2`、`4`、`5`的房间互相连通，编号`1`、`3`的房间互相连通，因此没有全部互相连通，输出`No`。
+
+
+
+To solve this problem, you can use the concept of disjoint sets (also known as union-find). Each room is initially in its own set. When a connection between two rooms is given, you unite their sets. If at the end there is only one set, then all rooms are connected.
+
+Here is a step-by-step plan:
+
+1. Initialize an array `parent` of size `n+1` where `parent[i]` is initially `i`. This means each room is in its own set.
+2. For each connection, unite their sets using the union operation.
+3. Check if all rooms are in the same set.
+
+Here is the Python code that implements this plan:
+
+```python
+def find(x):
+    if parent[x] != x:
+        parent[x] = find(parent[x])
+    return parent[x]
+
+def union(x, y):
+    parent[find(x)] = find(y)
+
+n, m = map(int, input().split())
+parent = list(range(n + 1))
+
+for _ in range(m):
+    a, b = map(int, input().split())
+    union(a, b)
+
+sets = set(find(x) for x in range(1, n + 1))
+if len(sets) == 1:
+    print('Yes')
+else:
+    print('No')
+```
+
+This code reads the number of rooms and connections from the input, initializes each room to be in its own set, unites the sets of each pair of rooms that have a connection, and then checks and prints whether all rooms are in the same set.
+
+
+
+
+
+### 晴问9.6.5 班级最高分
+
+https://sunnywhy.com/sfbj/9/6/364
+
+现有一个学校，学校中有若干个班级，每个班级中有若干个学生，每个学生只会存在于一个班级中。如果学生`A`和学生`B`处于一个班级，学生`B`和学生`C`处于一个班级，那么我们称学生`A`和学生`C`也处于一个班级。
+
+现已知学校中共 n 个学生（编号为从`1`到`n`），每个学生有一个考试分数，再给出 m 组学生关系（指定两个学生处于一个班级），问总共有多少个班级，并按降序给出每个班级的最高考试分数。
+
+**输入**
+
+第一行两个整数 $n、m (1 \le n \le 100, 1 \le m \le 100)$，分别表示学生个数、学生关系个数；
+
+第二行为用空格隔开的 n 个整数（$0 \le 每个整数 \le 100$），表示个学生的考试分数；
+
+接下来 m 行，每行两个整数 a 和 b $ (1 \le a \le n, 1 \le b \le n)$，表示编号为`a`的学生和编号为`b`的学生处于一个班级。
+
+**输出**
+
+第一行输出一个整数，表示班级个数；
+
+第二行若干个整数，按降序给出每个班级的最高考试分数。整数之间用空格隔开，行末不允许有多余的空格。
+
+样例1
+
+输入
+
+
+
+```
+5 3
+88 90 86 92 95
+4 2
+1 3
+2 5
+```
+
+输出
+
+```
+2
+95 88
+```
+
+解释
+
+编号`2`、`4`、`5`的学生在同一个班级，编号`1`、`3`的学生在同一个班级，因此共有两个班级，最高分数分别是编号`1`的学生的`88`分、编号`5`的学生的`95`分。
+
+
+
+To solve this problem, you can use the concept of disjoint sets (also known as union-find). Each student is initially in their own set (or class). When a relationship between two students is given, you unite their sets. The number of disjoint sets at the end will be the number of classes. You can also maintain a list of scores for each class and find the maximum score for each class.
+
+Here is a step-by-step plan:
+
+1. Initialize an array `parent` of size `n+1` where `parent[i]` is initially `i`. This means each student is in their own class.
+2. Initialize an array `scores` of size `n+1` to store the scores of each student.
+3. For each student relationship, unite their sets using the union operation.
+4. For each class, find the maximum score.
+5. Count the number of unique parents. This will be the number of classes.
+6. Print the maximum scores of the classes in descending order.
+
+Here is the Python code that implements this plan:
+
+```python
+def find(x):
+    if parent[x] != x:
+        parent[x] = find(parent[x])
+    return parent[x]
+
+def union(x, y):
+    root_x = find(x)
+    root_y = find(y)
+    if root_x != root_y:
+        parent[root_x] = root_y
+        scores[root_y] = max(scores[root_y], scores[root_x])
+
+n, m = map(int, input().split())
+parent = list(range(n + 1))
+scores = list(map(int, input().split()))
+scores.insert(0, 0)  # to make the scores 1-indexed
+
+for _ in range(m):
+    a, b = map(int, input().split())
+    union(a, b)
+
+classes_scores = [scores[find(x)] for x in range(1, n + 1) if x == parent[x]]
+print(len(classes_scores))
+print(' '.join(map(str, sorted(classes_scores, reverse=True))))
+```
+
+This code reads the number of students and relationships from the input, initializes each student to be in their own class, unites the classes of each pair of students that have a relationship, finds the maximum score for each class, counts and prints the number of unique classes, and prints the maximum scores of the classes in descending order.
+
+
+
+
+
+### 练习T01182: 食物链
+
+并查集, http://cs101.openjudge.cn/practice/01182
+
+动物王国中有三类动物A,B,C，这三类动物的食物链构成了有趣的环形。A吃B， B吃C，C吃A。
+现有N个动物，以1－N编号。每个动物都是A,B,C中的一种，但是我们并不知道它到底是哪一种。
+有人用两种说法对这N个动物所构成的食物链关系进行描述：
+第一种说法是"1 X Y"，表示X和Y是同类。
+第二种说法是"2 X Y"，表示X吃Y。
+此人对N个动物，用上述两种说法，一句接一句地说出K句话，这K句话有的是真的，有的是假的。当一句话满足下列三条之一时，这句话就是假话，否则就是真话。
+1） 当前的话与前面的某些真的话冲突，就是假话；
+2） 当前的话中X或Y比N大，就是假话；
+3） 当前的话表示X吃X，就是假话。
+你的任务是根据给定的N（1 <= N <= 50,000）和K句话（0 <= K <= 100,000），输出假话的总数。
+
+**输入**
+
+第一行是两个整数N和K，以一个空格分隔。
+以下K行每行是三个正整数 D，X，Y，两数之间用一个空格隔开，其中D表示说法的种类。
+若D=1，则表示X和Y是同类。
+若D=2，则表示X吃Y。
+
+**输出**
+
+只有一个整数，表示假话的数目。
+
+样例输入
+
+```
+100 7
+1 101 1 
+2 1 2
+2 2 3 
+2 3 3 
+1 1 3 
+2 3 1 
+1 5 5
+```
+
+样例输出
+
+```
+3
+```
+
+来源: Noi 01
+
+
+
+```python
+class DisjointSet:
+    def __init__(self, n):
+        #设[1,n] 区间表示同类，[n+1,2*n]表示x吃的动物，[2*n+1,3*n]表示吃x的动物。
+        self.parent = [i for i in range(3 * n + 1)] # 每个动物有三种可能的类型，用 3 * n 来表示每种类型的并查集
+        self.rank = [0] * (3 * n + 1)
+
+    def find(self, u):
+        if self.parent[u] != u:
+            self.parent[u] = self.find(self.parent[u])
+        return self.parent[u]
+
+    def union(self, u, v):
+        pu, pv = self.find(u), self.find(v)
+        if pu == pv:
+            return False
+        if self.rank[pu] > self.rank[pv]:
+            self.parent[pv] = pu
+        elif self.rank[pu] < self.rank[pv]:
+            self.parent[pu] = pv
+        else:
+            self.parent[pv] = pu
+            self.rank[pu] += 1
+        return True
+
+
+def is_valid(n, k, statements):
+    dsu = DisjointSet(n)
+
+    def find_disjoint_set(x):
+        if x > n:
+            return False
+        return True
+
+    false_count = 0
+    for d, x, y in statements:
+        if not find_disjoint_set(x) or not find_disjoint_set(y):
+            false_count += 1
+            continue
+        if d == 1:  # X and Y are of the same type
+            if dsu.find(x) == dsu.find(y + n) or dsu.find(x) == dsu.find(y + 2 * n):
+                false_count += 1
+            else:
+                dsu.union(x, y)
+                dsu.union(x + n, y + n)
+                dsu.union(x + 2 * n, y + 2 * n)
+        else:  # X eats Y
+            if dsu.find(x) == dsu.find(y) or dsu.find(x + 2*n) == dsu.find(y):
+                false_count += 1
+            else: #[1,n] 区间表示同类，[n+1,2*n]表示x吃的动物，[2*n+1,3*n]表示吃x的动物
+                dsu.union(x + n, y)
+                dsu.union(x, y + 2 * n)
+                dsu.union(x + 2 * n, y + n)
+
+    return false_count
+
+
+if __name__ == "__main__":
+    N, K = map(int, input().split())
+    statements = []
+    for _ in range(K):
+        D, X, Y = map(int, input().split())
+        statements.append((D, X, Y))
+    result = is_valid(N, K, statements)
+    print(result)
+
+```
+
+
+
+《挑战程序设计竞赛（第2版）》的2.4.4并查集，也有讲到。
+
+```python
+# 并查集，https://zhuanlan.zhihu.com/p/93647900/
+'''
+我们设[0,n)区间表示同类，[n,2*n)区间表示x吃的动物，[2*n,3*n)表示吃x的动物。
+
+如果是关系1：
+　　将y和x合并。将y吃的与x吃的合并。将吃y的和吃x的合并。
+如果是关系2：
+　　将y和x吃的合并。将吃y的与x合并。将y吃的与吃x的合并。
+原文链接：https://blog.csdn.net/qq_34594236/article/details/72587829
+'''
+# p = [0]*150001
+
+def find(x):	# 并查集查询
+    if p[x] == x:
+        return x
+    else:
+        p[x] = find(p[x])	# 父节点设为根节点。目的是路径压缩。
+        return p[x]
+
+n,k = map(int, input().split())
+
+p = [0]*(3*n + 1)
+for i in range(3*n+1):	#并查集初始化
+    p[i] = i
+
+ans = 0
+for _ in range(k):
+    a,x,y = map(int, input().split())
+    if x>n or y>n:
+        ans += 1; continue
+    
+    if a==1:
+        if find(x+n)==find(y) or find(y+n)==find(x):
+            ans += 1; continue
+        
+        # 合并
+        p[find(x)] = find(y)				
+        p[find(x+n)] = find(y+n)
+        p[find(x+2*n)] = find(y+2*n)
+    else:
+        if find(x)==find(y) or find(y+n)==find(x):
+            ans += 1; continue
+        p[find(x+n)] = find(y)
+        p[find(y+2*n)] = find(x)
+        p[find(x+2*n)] = find(y+n)
+
+print(ans)
+```
 
