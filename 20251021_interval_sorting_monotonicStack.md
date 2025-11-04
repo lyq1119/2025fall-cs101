@@ -1,6 +1,6 @@
-# 2025/10/21 编程技巧与算法实战：区间处理、排序、单调栈与动态规划
+# 2025/10/21 编程技巧与算法实战：区间问题、排序、单调栈与动态规划
 
-Updated 1310 GMT+8 Oct 28, 2025
+Updated 1443 GMT+8 Nov 04, 2025
 
 2024 fall, Complied by Hongfei Yan
 
@@ -149,6 +149,75 @@ class Solution:
 
 - `-sys.maxsize` 用于表示最小整数值。
 - 类型注解（如 `List[List[int]]`）是可选的，但有助于提高代码的可读性和类型检查工具的效率。
+
+
+
+### M29947:校门外的树又来了
+
+greedy, interval merging, stack, http://cs101.openjudge.cn/practice/29947/
+
+某校大门外长度为L的马路上有一排树，每两棵相邻的树之间的间隔都是1米。我们可以把马路看成一个数轴，马路的一端在数轴0的位置，另一端在L的位置；数轴上的每个整数点，即0，1，2，……，L，都种有一棵树。 马路上有一些区域要用来建地铁，这些区域用它们在数轴上的起始点和终止点表示。已知任一区域的起始点和终止点的坐标都是整数，区域之间可能有重合的部分。现在要把这些区域中的树（包括区域端点处的两棵树）移走。你的任务是计算将这些树都移走后，马路上还有多少棵树。
+
+**输入**
+
+输入的第一行有两个整数L（1 <= L <= 10^9）和 M（1 <= M <= 100），L代表马路的长度，M代表区域的数目，L和M之间用一个空格隔开。接下来的M行每行包含两个不同的整数，用一个空格隔开，表示一个区域的起始点和终止点的坐标。
+
+**输出**
+
+输出包括一行，这一行只包含一个整数，表示马路上剩余的树的数目。
+
+样例输入
+
+```
+500 3
+150 300
+100 200
+470 471
+```
+
+样例输出
+
+```
+298
+```
+
+来源
+
+yan
+
+
+
+思路：区间合并。排序是为了保证取交集的方向唯一，这种单向关系可以避免分类讨论。
+
+```python
+L, M = map(int, input().split())
+intervals = []
+
+for _ in range(M):
+    s, e = map(int, input().split())
+    if s > e:
+        s, e = e, s
+    intervals.append((s, e))
+
+# 按起点排序
+intervals.sort()
+
+# 合并区间
+merged = []
+for s, e in intervals:
+    if not merged or s > merged[-1][1] + 1:
+        merged.append([s, e])
+    else:
+        merged[-1][1] = max(merged[-1][1], e)
+
+# 计算被砍掉的树总数
+cut = sum(e - s + 1 for s, e in merged)
+remain = (L + 1) - cut
+
+print(remain)
+```
+
+
 
 
 
@@ -382,6 +451,105 @@ class Solution:
 假设右端点最大的区间是第$i$个区间，右端点为 $r_i$。
 
 最后将目标区间的start更新成$r_i$
+
+
+
+### M01328: Radar Installation
+
+greedy, http://cs101.openjudge.cn/pctbook/M01328/
+
+Assume the coasting is an infinite straight line. Land is in one side of coasting, sea in the other. Each small island is a point locating in the sea side. And any radar installation, locating on the coasting, can only cover d distance, so an island in the sea can be covered by a radius installation, if the distance between them is at most d.
+
+We use Cartesian coordinate system, defining the coasting is the x-axis. The sea side is above x-axis, and the land side below. Given the position of each island in the sea, and given the distance of the coverage of the radar installation, your task is to write a program to find the minimal number of radar installations to cover all the islands. Note that the position of an island is represented by its x-y coordinates.
+![image-20231021115237439](https://raw.githubusercontent.com/GMyhf/img/main/img/image-20231021115237439.png)
+Figure A Sample Input of Radar Installations
+
+**输入**
+
+The input consists of several test cases. The first line of each case contains two integers n (1<=n<=1000) and d, where n is the number of islands in the sea and d is the distance of coverage of the radar installation. This is followed by n lines each containing two integers representing the coordinate of the position of each island. Then a blank line follows to separate the cases.
+
+The input is terminated by a line containing pair of zeros
+
+**输出**
+
+For each test case output one line consisting of the test case number followed by the minimal number of radar installations needed. "-1" installation means no solution for that case.
+
+样例输入
+
+```
+3 2
+1 2
+-3 1
+2 1
+
+1 2
+0 2
+
+0 0
+```
+
+样例输出
+
+```
+Case 1: 2
+Case 2: 1
+```
+
+来源: Beijing 2002
+
+
+
+映射到x轴，排序，左右端点互相看看。程序逻辑解释：
+
+1. **计算岛屿的覆盖区间**：对于每个岛屿，先根据其x和y坐标计算出在x轴上的区间范围。这是通过$\sqrt{d^2 - y^2}$来确定的。
+2. **排序**：将所有岛屿的区间按照右端点进行排序，目的是尽可能让新的雷达覆盖更多的岛屿。
+3. **更新覆盖范围**：逐个岛屿进行遍历，尝试更新当前雷达能够覆盖的最远点。如果当前岛屿的左端点在已经覆盖的区间之外，则必须增加一个新的雷达，并将新的覆盖范围设为当前岛屿的区间。
+
+```python
+import math
+
+def solve(n, d, islands):
+    if d < 0:
+        return -1
+
+    ranges = []
+    for x, y in islands:
+        if y > d:
+            return -1
+        delta = math.sqrt(d * d - y * y)
+        ranges.append((x - delta, x + delta))
+
+    if not ranges:
+        return -1
+
+    ranges.sort(key=lambda x:x[1])
+
+    number = 1
+    r = ranges[0][1]
+    for start, end in ranges[1:]:
+        if r < start:
+            r = end
+            number += 1
+
+    return number
+
+case_number = 0
+while True:
+    n, d = map(int, input().split())
+    if n == 0 and d == 0:
+        break
+
+    case_number += 1
+    islands = []
+    for _ in range(n):
+        islands.append(tuple(map(int, input().split())))
+
+    result = solve(n, d, islands)
+    print(f"Case {case_number}: {result}")
+    input()
+```
+
+
 
 
 
