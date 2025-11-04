@@ -21,6 +21,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1105 | 02524: 宗教信仰  | disjoint set  | Medium | http://cs101.openjudge.cn/pctbook/M02524/          |
 | 1104 | 02694:波兰表达式 | recursion, stack    | Medium | http://cs101.openjudge.cn/pctbook/M02694/          |
 | 1103 | 04123:马走日   | backtracking    | Medium | http://cs101.openjudge.cn/pctbook/M04123/          |
 | 1102 | 01833:排列     | two pointers, cantor expansion   | Tough |  http://cs101.openjudge.cn/pctbook/T01833        |
