@@ -1843,7 +1843,7 @@ print(fibonacci(35))  # 现在会非常快
 >
 >    ```python
 >    from functools import lru_cache
->                                                 
+>                                                    
 >    @lru_cache(maxsize=None)
 >    def fibonacci(n):
 >        if n == 0:
@@ -2768,7 +2768,7 @@ class Solution:
 
 
 
-# 五 并查集（Disjoint Set）
+# 五、并查集（Disjoint Set）
 
 > 通常情况下，使用邻接表来表示并查集（Disjoint Set）和前缀树（Trie Tree）是比较常见的做法。
 >
