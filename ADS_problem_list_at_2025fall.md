@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-11-07 20:04 GMT+8*
+*Updated 2025-11-09 00:00 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -21,6 +21,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1109 | 02787: 算24   | recursion       | Tough | http://cs101.openjudge.cn/practice/02787          |
 | 1108 | 01042: Gone Fishing     | greedy       | Tough | http://cs101.openjudge.cn/practice/01042/          |
 | 1107 | 03468: 电池的寿命  | greedy       | Tough | http://cs101.openjudge.cn/practice/03468/          |
 | 1106 | 04117: 简单的整数划分问题  | dfs, dp       | Tough | http://cs101.openjudge.cn/pctbook/T04117          |
