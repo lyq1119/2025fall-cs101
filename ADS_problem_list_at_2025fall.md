@@ -21,6 +21,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1113 | 01182:食物链     | disjoint set      | Tough | http://cs101.openjudge.cn/pctbook/T01182/          |
 | 1112 | 27306:植物观察   | disjoint set      | Medium | http://cs101.openjudge.cn/pctbook/M27306/          |
 | 1111 | 85.最大矩阵      | monotonic stack, dp    | Tough | https://leetcode.cn/problems/maximal-rectangle/description/          |
 | 1110 | 84.柱状图中最大的矩形  | monotonic stack  | Tough | https://leetcode.cn/problems/largest-rectangle-in-histogram/description/          |
