@@ -1,6 +1,6 @@
 # Week8~9 递归、回溯、并查集
 
-*Updated 2025-11-05 21:53 GMT+8*  
+*Updated 2025-11-09 14:11 GMT+8*  
  *Compiled by Hongfei Yan (2024 Fall)*  
 
 
@@ -1023,7 +1023,7 @@ if __name__ == "__main__":
 > 
 
 
-#### 练习: 01958 Strange Towers of Hanoi（选做）
+#### 练习: T01958 Strange Towers of Hanoi
 
 http://cs101.openjudge.cn/practice/01958/
 
@@ -1162,6 +1162,13 @@ $
 f[n] = \min_{1 \le k < n} (2 \times f[k] + d[n-k])
 $
 
+> [!NOTE]
+> Frame–Stewart 的核心思想是 **分治 + 利用多余柱子减少移动次数**：
+> 
+> - 把问题拆成两部分：先移走一小部分盘子（利用所有柱子），再移动剩下的大盘（受限柱子数），最后把小盘移回来。
+> - 通过枚举分割点 k，取最小值，实现递推优化。
+> 
+> 尽管该算法未被严格证明对所有 p≥4 都是最优的，但它在实践中表现极佳，且是目前公认的最优策略。
 
 
 
