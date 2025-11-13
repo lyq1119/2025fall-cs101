@@ -1,6 +1,6 @@
-# 2025/10/21 编程技巧与算法实战：区间问题、排序、单调栈与动态规划
+# 2025/10/21～11/11 编程技巧与算法实战：区间问题、排序、单调栈与动态规划
 
-Updated 1443 GMT+8 Nov 04, 2025
+Updated 2041 GMT+8 Nov 11, 2025
 
 2024 fall, Complied by Hongfei Yan
 
@@ -46,6 +46,8 @@ debug运行后，停在设置了短点的语句，变量中的值都显示出来
 # 二、常见区间问题
 
 一文读懂五类常见区间问题，https://zhuanlan.zhihu.com/p/446371757
+
+增加了6 覆盖连续区间
 
 > 练习网址，https://leetcode.cn 。leetcode只需要完成核心代码就可以，不用写输入输出部分。
 >
@@ -228,6 +230,8 @@ print(remain)
 **选择不相交区间问题**大概题意就是：
 
 给出一堆区间，要求选择**尽量多**的区间，使得这些区间**互不相交**，求可选取的区间的**最大数量**。这里端点相同也算有重复。
+
+> **优先保留结束早的区间**，这样能为后续留下更多空间，从而保留更多区间。
 
 如下图所示：
 
@@ -428,32 +432,6 @@ class Solution:
 
 
 
-## 4 区间覆盖问题
-
-### 4.1 题意描述
-
-**区间覆盖问题**大概题意就是：
-
-给出一堆区间和一个目标区间，问最少选择多少区间可以**覆盖**掉题中给出的这段目标区间。
-
-如下图所示： 
-
-![img](https://pic3.zhimg.com/80/v2-66041d9941667482fc51adeb4a616f64_1440w.webp)
-
-<center>区间覆盖问题示例，最终至少选择2个区间才能覆盖目标区间</center>
-
-### 4.2. 解题步骤
-
-【**步骤一**】：按照区间左端点从小到大排序。
-
-**步骤二**】：**从前往后**依次枚举每个区间，在所有能覆盖当前目标区间起始位置start的区间之中，选择**右端点**最大的区间。
-
-假设右端点最大的区间是第$i$个区间，右端点为 $r_i$。
-
-最后将目标区间的start更新成$r_i$
-
-
-
 ### M01328: Radar Installation
 
 greedy, http://cs101.openjudge.cn/pctbook/M01328/
@@ -548,6 +526,34 @@ while True:
     print(f"Case {case_number}: {result}")
     input()
 ```
+
+
+
+
+
+## 4 区间覆盖问题
+
+### 4.1 题意描述
+
+**区间覆盖问题**大概题意就是：
+
+给出一堆区间和一个目标区间，问最少选择多少区间可以**覆盖**掉题中给出的这段目标区间。
+
+如下图所示： 
+
+![img](https://pic3.zhimg.com/80/v2-66041d9941667482fc51adeb4a616f64_1440w.webp)
+
+<center>区间覆盖问题示例，最终至少选择2个区间才能覆盖目标区间</center>
+
+### 4.2. 解题步骤
+
+【**步骤一**】：按照区间左端点从小到大排序。
+
+**步骤二**】：**从前往后**依次枚举每个区间，在所有能覆盖当前目标区间起始位置start的区间之中，选择**右端点**最大的区间。
+
+假设右端点最大的区间是第$i$个区间，右端点为 $r_i$。
+
+最后将目标区间的start更新成$r_i$
 
 
 
@@ -1028,6 +1034,172 @@ class Solution:
                 res=count
         return res
 ```
+
+
+
+## 6 覆盖连续区间
+
+
+
+### M29896:购物
+
+greedy, http://cs101.openjudge.cn/practice/29896/
+
+
+
+你就要去购物了，现在你手上有 N 种不同面值的硬币，每种硬币有无限多个。为了方便购物，你希望带尽量少的硬币，但要能组合出 1 到 X 之间的任意值。
+
+**输入**
+
+第一行两个数 X, N，以下 N 个数，表示每种硬币的面值。
+
+**输出**
+
+最少需要携带的硬币个数，如果无解输出-1。
+
+样例输入
+
+```
+20 4
+1 2 5 10
+```
+
+样例输出
+
+```
+5
+```
+
+提示
+
+N <= 10, X <= 10000 (tag:greedy)
+
+来源
+
+https://www.luogu.com.cn/problem/P1658(TA-hhy)
+
+
+
+
+
+**目标是：**在给定若干种硬币面值（每种无限供应）的前提下，选出最少数量的硬币，使得它们的组合能够表示出从 **1 到 X** 的所有整数值。
+
+如果无法做到（比如没有面值为 1 的硬币，那连 1 都凑不出来），就输出 `-1`。
+
+
+
+这是一个典型的“**覆盖连续区间**”问题。可以维护一个当前能表示的最大连续值 `max_reach`（初始为 0），然后不断选择硬币来扩展这个范围。思路：
+
+1. **必须包含面值 1**，否则无法组成 1 → 无解，输出 -1。
+
+2. 将硬币面值从小到大排序。
+
+3. 维护当前能组成的最大连续值 `max_val`（初始为 0）。
+
+4. 同时维护一个“候选池”：所有 ≤ `max_val + 1` 的硬币中，选最大的那个（因为加它能让 `max_val` 增加最多）。
+
+   - 但实际上，由于硬币可重复使用，更优策略是：
+
+     > 每次在所有满足 `coin <= max_val + 1` 的硬币中，选择**面值最大的**，然后带一枚它，更新 `max_val += coin`，计数器 +1。
+
+5. 重复直到 `max_val >= X`。
+
+但注意：因为硬币可以多次使用，其实我们可以**多次使用同一个硬币**来快速扩展。
+
+
+
+```python
+def solve():
+    import sys
+    input = sys.stdin.read
+    data = input().split()
+    
+    X = int(data[0])
+    N = int(data[1])
+    coins = list(map(int, data[2:2+N]))
+    
+    # 去除大于 X 的硬币（无用）
+    coins = [c for c in coins if c <= X]
+    if not coins:
+        if X == 0:
+            return 0
+        else:
+            return -1
+    
+    # 排序
+    coins.sort()
+    
+    # 必须要有 1，否则无法覆盖 1
+    if coins[0] > 1:
+        return -1
+    
+    max_reach = 0  # 当前能覆盖 [1, max_reach]
+    count = 0      # 使用的硬币数量
+    
+    while max_reach < X:
+        # 选择满足 coin <= max_reach + 1 的最大面值硬币
+        candidate = -1
+        for coin in coins:
+            if coin <= max_reach + 1:
+                candidate = coin
+            else:
+                break  # 因为已排序，后面的更大
+        
+        if candidate == -1:
+            return -1  # 无法扩展
+        
+        max_reach += candidate
+        count += 1
+        
+        if max_reach >= X:
+            break
+    
+    return count
+
+# 主程序
+print(solve())
+```
+
+
+
+```python
+import bisect
+
+def solve():
+    X, N = map(int, input().split())
+    coins = list(map(int, input().split()))
+    coins.sort()
+    
+    # 如果最小面值 > 1，无法凑出 1
+    if coins[0] > 1:
+        print(-1)
+        return
+
+    reach = 0
+    ans = 0
+
+    # 可以重复使用同一个面值多次，所以不移除
+    while reach < X:
+        target = reach + 1
+        # 找 coins 中最大且 <= target
+        idx = bisect.bisect_right(coins, target) - 1
+        if idx < 0:
+            print(-1)
+            return
+        c = coins[idx]
+        reach += c
+        ans += 1
+
+    print(ans)
+
+if __name__ == "__main__":
+    solve()
+```
+
+算法复杂度
+
+- 先对面值排序：`O(N log N)`
+- 每一步用二分查找找到最大 `≤ reach+1`：`O(log N)`，循环次数等于答案（最多约 `O(X/min_coin)`），总体可接受（X ≤ 10000, N ≤ 10）。
 
 
 

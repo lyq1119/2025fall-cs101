@@ -1,6 +1,6 @@
-# Week8~9 递归、回溯
+# Week8~9 递归、回溯、并查集
 
-*Updated 2025-11-04 14:21 GMT+8*  
+*Updated 2025-11-09 14:11 GMT+8*  
  *Compiled by Hongfei Yan (2024 Fall)*  
 
 
@@ -895,10 +895,135 @@ move(int(n), a, b, c)
 ```
 
 
+```python
+def hanoi_iterative(n, a, b, c):
+    stack = [(n, a, b, c, False)]
+    while stack:
+        n, s, aux, t, left_done = stack.pop()
+        if n == 1:
+            yield f"1:{s}->{t}"
+        elif not left_done:
+            stack.append((n, s, aux, t, True))      # 标记“左子任务”完成后再回来
+            stack.append((n - 1, s, t, aux, False)) # 左子任务
+        else:
+            yield f"{n}:{s}->{t}"                   # 中间动作
+            stack.append((n - 1, aux, s, t, False)) # 右子任务
+
+if __name__ == "__main__":
+    n, a, b, c = input().split()
+    n = int(n)
+    print("\n".join(hanoi_iterative(n, a, b, c)))
+```
+
+ 
+
+> “左子任务”，其实是借助树形递归结构来形象地理解汉诺塔递归过程的。  
+> 
+> **一、递归函数树结构**
+> 
+> 递归 `hanoi(n, a, b, c)` 的执行逻辑是：
+> 
+> ```python
+> if n == 1:
+>     print(f"1:{a}->{c}")
+> else:
+>     hanoi(n-1, a, c, b)   # 第一步：把上面的 n-1 个盘从 a 移到 b
+>     print(f"{n}:{a}->{c}") # 第二步：把最大的盘从 a 移到 c
+>     hanoi(n-1, b, a, c)   # 第三步：再把那 n-1 个盘从 b 移到 c
+> ```
+> 
+> 从“函数调用树”的角度看，这其实是个**二叉递归结构**：
+> 
+> ```
+>                     hanoi(3, A, B, C)
+>                    /                \
+>       hanoi(2, A, C, B)           hanoi(2, B, A, C)
+> ```
+> 
+> 每个节点：
+> 
+> - 左边调用是 “把上面 n-1 个盘移到辅助柱”；
+>     
+> - 中间是 “把最大的盘移到目标柱”；
+>     
+> - 右边调用是 “再把那 n-1 个盘移到目标柱”。
+>     
+> 
+> 因此我们常把：
+> 
+> - `hanoi(n-1, a, c, b)` 称为 **左子任务**；
+>     
+> - `hanoi(n-1, b, a, c)` 称为 **右子任务**。
+>     
+> 
+> ---
+> 
+> 二、在栈模拟中，“左子任务”指的是什么？
+> 
+> 在这段代码里：
+> 
+> ```python
+> elif not visited:
+>     stack.append((num, s, aux, t, True))        # 当前任务(标记左子任务完成后回来)
+>     stack.append((num - 1, s, t, aux, False))   # 左子任务：把 n-1 从 s -> aux
+> ```
+> 
+> 含义如下：
+> 
 
 
+> |行|含义|对应递归调用|
+> |---|---|---|
+> |`stack.append((num, s, aux, t, True))`|先把当前任务压回栈，表示等“左子任务”完成后再回来执行|暂停当前 hanoi(n)|
+> |`stack.append((num - 1, s, t, aux, False))`|压入“左子任务”——把上面 n-1 个盘从 s 移到 aux|调用 hanoi(n-1, a, c, b)|
+> 
+> ---
+> 
+> **三、再来看完整的三个阶段**
+> 
+> 对于 `hanoi(n, a, b, c)`，对应的三个阶段是：
+> 
 
-#### 练习: 01958 Strange Towers of Hanoi（选做）
+
+> |阶段|名称|动作|在模拟代码中的表现|
+> |---|---|---|---|
+> |①|左子任务|把 n−1 个盘从 a → b|压入 `(n-1, s, t, aux, False)`|
+> |②|中间动作|把第 n 个盘从 a → c|`result.append(f"{n}:{s}->{t}")`|
+> |③|右子任务|把 n−1 个盘从 b → c|压入 `(n-1, aux, s, t, False)`|
+> 
+> ---
+> 
+> **四、直观类比**
+> 
+> 想象有三步要完成：
+> 
+> ```
+> 1️⃣ 先干左边的事
+> 2️⃣ 再干自己的事
+> 3️⃣ 最后干右边的事
+> ```
+> 
+> 递归自然会自动“记住回来继续干”，  
+> 而我们手动模拟时，就要自己用栈来“记住回来继续干”，  
+> 那就是通过这个 `visited` 或 `left_done` 标志位实现的。
+> 
+> ---
+> 
+> **五、小结**
+> 
+
+
+> |概念|含义|
+> |---|---|
+> |左子任务|`hanoi(n-1, a, c, b)`，先把上面的盘移到辅助柱|
+> |中间动作|移动最大盘 `n:{a}->{c}`|
+> |右子任务|`hanoi(n-1, b, a, c)`，再把那些盘从辅助柱移到目标柱|
+> |visited / left_done|表示左子任务是否已经执行完成，是否可以继续中间动作和右子任务|
+> 
+> 
+
+
+#### 练习: T01958 Strange Towers of Hanoi
 
 http://cs101.openjudge.cn/practice/01958/
 
@@ -1037,6 +1162,13 @@ $
 f[n] = \min_{1 \le k < n} (2 \times f[k] + d[n-k])
 $
 
+> [!NOTE]
+> Frame–Stewart 的核心思想是 **分治 + 利用多余柱子减少移动次数**：
+> 
+> - 把问题拆成两部分：先移走一小部分盘子（利用所有柱子），再移动剩下的大盘（受限柱子数），最后把小盘移回来。
+> - 通过枚举分割点 k，取最小值，实现递推优化。
+> 
+> 尽管该算法未被严格证明对所有 p≥4 都是最优的，但它在实践中表现极佳，且是目前公认的最优策略。
 
 
 
@@ -1843,7 +1975,7 @@ print(fibonacci(35))  # 现在会非常快
 >
 >    ```python
 >    from functools import lru_cache
->                                                 
+>                                                    
 >    @lru_cache(maxsize=None)
 >    def fibonacci(n):
 >        if n == 0:
@@ -2768,7 +2900,7 @@ class Solution:
 
 
 
-# 五 并查集（Disjoint Set）
+# 五、并查集（Disjoint Set）
 
 > 通常情况下，使用邻接表来表示并查集（Disjoint Set）和前缀树（Trie Tree）是比较常见的做法。
 >
