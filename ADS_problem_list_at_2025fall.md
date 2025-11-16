@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-11-13 23:09 GMT+8*
+*Updated 2025-11-15 22:58 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -21,6 +21,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1117 | 433B. Kuriyama Mirai's Stones  | dp, implementation, sorting | 1200  | https://codeforces.com/contest/433/problem/B    |
 | 1116 | 118.杨辉三角      | dp       | Easy | https://leetcode.cn/problems/pascals-triangle/          |
 | 1115 | 368B. Sereja and Suffixes | brute force, dp | 1300  | https://codeforces.com/problemset/problem/368/B    |
 | 1114 | 70.爬楼梯 | dp       | Easy | https://leetcode.cn/problems/climbing-stairs/          |
