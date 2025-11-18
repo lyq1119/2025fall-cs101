@@ -22,6 +22,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
 | 1119 | 02945:拦截导弹    | dp      | Medium | http://cs101.openjudge.cn/pctbook/M02945         |
+|  |        | dp begin       |  |          |
 | 1118 | 04089:电话号码    | trie    | Medium    | http://cs101.openjudge.cn/pctbook/M04089/      |
 | 1117 | 433B. Kuriyama Mirai's Stones  | dp, implementation, sorting | 1200  | https://codeforces.com/contest/433/problem/B    |
 | 1116 | 118.杨辉三角      | dp       | Easy | https://leetcode.cn/problems/pascals-triangle/          |
