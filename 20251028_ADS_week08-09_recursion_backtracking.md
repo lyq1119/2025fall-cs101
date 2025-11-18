@@ -1,6 +1,6 @@
 # Week8~9 递归、回溯、并查集
 
-*Updated 2025-11-09 14:11 GMT+8*  
+*Updated 2025-11-15 22:49 GMT+8*  
  *Compiled by Hongfei Yan (2024 Fall)*  
 
 
@@ -1975,7 +1975,7 @@ print(fibonacci(35))  # 现在会非常快
 >
 >    ```python
 >    from functools import lru_cache
->                                                    
+>                                                       
 >    @lru_cache(maxsize=None)
 >    def fibonacci(n):
 >        if n == 0:
@@ -2490,6 +2490,98 @@ class Solution:
 ```
 
 全排列视频讲解：https://pku.instructuremedia.com/embed/c76751c9-bc0e-49f1-8a99-624b955de668
+
+
+
+## 练习sy134: 全排列III 中等
+
+https://sunnywhy.com/sfbj/4/3/134
+
+给定一个长度为n的序列，其中有n个可能重复的正整数，求该序列的所有全排列。
+
+**输入描述**
+
+第一行一个正整数n（$1 \le n \le 8$），表示序列中的元素个数。
+
+第二行按升序给出n个可能重复的正整数（每个正整数均不超过100）。
+
+**输出描述**
+
+每个全排列一行，输出所有全排列。
+
+输出顺序为：两个全排列A和B，若满足前k-1项对应相同，但有$A_k < B_k$，那么将全排列A优先输出（例如[1,2,3]比[1,3,2]优先输出）。
+
+在输出时，全排列中的每个数之间用一个空格隔开，行末不允许有多余的空格。不允许出现相同的全排列。
+
+样例1
+
+输入
+
+```
+3
+1 1 3
+```
+
+输出
+
+```
+1 1 3
+1 3 1
+3 1 1
+```
+
+
+
+
+
+有2处剪枝。必须按 **位置（索引）** 来判断是否使用过，而不是按 **值**。
+
+```python
+from typing import List
+
+class Solution:
+    #def permute(self, nums: List[int]) -> List[List[int]]:
+    def permute(self, nums: List[int]) -> set[tuple]:
+        n = len(nums)
+        # ans, sol = [], []
+        ans, sol = set(), []
+        used = [False] * n  # ← 新增：记录每个位置是否用过
+
+        def backtrack():
+            # 终止条件：当前排列已满
+            if len(sol) == n:
+                # ans.append(sol[:])  # 深拷贝
+                ans.add(tuple(sol))
+                return
+
+            # 尝试每个未被使用的数
+            #for x in nums:
+            for i in range(n):
+                if used[i]:
+                    continue
+                # 去重剪枝：相同值且前一个未使用，则跳过（保证字典序+去重）
+                if i>0 and nums[i-1]==nums[i] and used[i-1]:
+                    continue
+                used[i] = True
+                sol.append(nums[i])  # 选择
+                backtrack()  # 递归
+                sol.pop()  # 回溯
+                used[i] = False
+
+        nums.sort()
+        backtrack()
+        return ans
+
+if __name__ == '__main__':
+    sol = Solution()
+    n = int(input())
+    a = list(map(int, input().split()))
+    result = sol.permute(a)
+    for perm in sorted(result):
+        print(*perm)
+```
+
+
 
 
 
