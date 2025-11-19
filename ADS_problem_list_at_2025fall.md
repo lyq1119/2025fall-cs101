@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-11-18 22:18 GMT+8*
+*Updated 2025-11-19 22:13 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -21,6 +21,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1120 | 706B. Interesting drink | binary search, dp, implementation | 1100  | https://codeforces.com/problemset/problem/706/B    |
 | 1119 | 02945:拦截导弹    | dp      | Medium | http://cs101.openjudge.cn/pctbook/M02945         |
 |  |        | dp begin       |  |          |
 | 1118 | 04089:电话号码    | trie    | Medium    | http://cs101.openjudge.cn/pctbook/M04089/      |
