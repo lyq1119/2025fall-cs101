@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-11-22 11:30 GMT+8*
+*Updated 2025-11-25 00:28 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -21,6 +21,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1125 | 139.单词拆分      | dp     | Medium | https://leetcode.cn/problems/word-break/         |
 | 1124 | 279.完全平方数    | dp     | Medium | https://leetcode.cn/problems/perfect-squares/          |
 | 1123 | 16532: 北大杯台球比赛      | matrices | Medium | http://cs101.openjudge.cn/practice/16532          |
 | 1122 | 198.打家劫舍      | dp     | Medium | https://leetcode.cn/problems/house-robber/           |
