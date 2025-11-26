@@ -1985,9 +1985,9 @@ for result in results:
 
 
 
-### 练习21577: 护林员盖房子 加强版
+### 练习27205: 护林员盖房子 加强版
 
-matrix/implementation, http://cs101.openjudge.cn/practice/21577
+monotonic stack, http://cs101.openjudge.cn/pctbook/T27205/
 
 在一片保护林中，护林员想要盖一座房子来居住，但他不能砍伐任何树木。
 现在请你帮他计算：保护林中所能用来盖房子的矩形空地的最大面积。
