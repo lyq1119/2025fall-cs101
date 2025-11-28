@@ -21,9 +21,9 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
-| 1130 | 455A. Boredom | dp | 1500  | https://codeforces.com/problemset/problem/455/A    |
-| 1129 | 1195C. Basketball Exercise | dp | 1400  | https://codeforces.com/problemset/problem/1195/C    |
-| 1128 |698A. Vacations | dp | 1400  | https://codeforces.com/problemset/problem/698/A    |
+| 1201 | 455A. Boredom | dp | 1500  | https://codeforces.com/problemset/problem/455/A    |
+| 1130 | 1195C. Basketball Exercise | dp | 1400  | https://codeforces.com/problemset/problem/1195/C    |
+| 1129 |698A. Vacations | dp | 1400  | https://codeforces.com/problemset/problem/698/A    |
 | 1128 | 20744:土豪购物  | dp      | Medium | http://cs101.openjudge.cn/pctbook/M20744/          |
 | 1127 | 3151: Pots      | bfs      | Medium | http://cs101.openjudge.cn/practice/03151/         |
 | 1126 | 152.乘积最大子数组| dp     | Medium | https://leetcode.cn/problems/maximum-product-subarray/         |
