@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-11-26 12:30 GMT+8*
+*Updated 2025-11-28 21:29 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -21,6 +21,10 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1201 | 455A. Boredom | dp | 1500  | https://codeforces.com/problemset/problem/455/A    |
+| 1130 | 1195C. Basketball Exercise | dp | 1400  | https://codeforces.com/problemset/problem/1195/C    |
+| 1129 |698A. Vacations | dp | 1400  | https://codeforces.com/problemset/problem/698/A    |
+| 1128 | 20744:土豪购物  | dp      | Medium | http://cs101.openjudge.cn/pctbook/M20744/          |
 | 1127 | 3151: Pots      | bfs      | Medium | http://cs101.openjudge.cn/practice/03151/         |
 | 1126 | 152.乘积最大子数组| dp     | Medium | https://leetcode.cn/problems/maximum-product-subarray/         |
 | 1125 | 139.单词拆分      | dp     | Medium | https://leetcode.cn/problems/word-break/         |
