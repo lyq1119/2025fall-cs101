@@ -1,6 +1,6 @@
 # 计算机原理
 
-*Updated 2025-09-25 22:16 GMT+8*  
+*Updated 2025-12-02 02:31 GMT+8*  
  *Compiled by Hongfei Yan (2024 Fall)*    
 
 
@@ -255,7 +255,7 @@ print(outstring)
 
 
 
-​	**软件实现**：提供一个图灵机的 Python 实现，代码在
+​	**软件实现**：在附录A，提供一个图灵机的 Python 实现，代码在
 https://github.com/GMyhf/2019fall-cs101/tree/master/TuringMachine
 ​	参考自 https://www.python-course.eu/turing_machine.php，在此基础上增加了加法操作，能够完成 14 分钟示例视频中的加法演示。该实现采用 Python **面向对象编程（Object-Oriented Programming, OOP）** 方式编写，相关语法可参考 https://www.runoob.com/python3/python3-class.html。
 
@@ -266,7 +266,11 @@ https://github.com/GMyhf/2019fall-cs101/tree/master/TuringMachine
 
 
 
-## 其他知识点4～6、7和8
+
+
+
+
+<mark>其他知识点4～6、7和8</mark>
 
 下面内容中，“4 进制转换”～“6 数据运算”的内容，取自《计算机科学导论》，佛罗赞，2018年1月第4版。
 
@@ -1881,7 +1885,199 @@ Telnet 和 FTP（文件传输协议）的传统实现确实是以明文形式传
 
 # 附录
 
-## A 以只读方式打开UTF-8 编码的文件
+## A 软件实现图灵机
+
+​	本附录给出图灵机的一个软件实现示例，主要由两个核心类构成：**Tape 类** 和 **TuringMachine 类**。完整Python代码可以在以下仓库获得：
+
+Github: https://github.com/GMyhf/2019fall-cs101/tree/master/TuringMachine
+实现参考自：https://www.python-course.eu/turing_machine.php。
+
+### 一、图灵机的形式化定义
+
+​	图灵机是最早的计算机理论模型之一，虽然结构极为简洁，却具有与现代通用计算机等价的计算能力。
+
+​	一个确定性图灵机定义为7元组：$M = （Q, \Sigma, \Gamma, \delta, b, q_0, q_f）$
+
+​	含义如下：
+
+​	\- $Q$：有限状态集 (set of states)
+
+​	- $\Sigma$：输入字母表 (input alphabet)
+
+​	\- $\Gamma$：纸带字母表 (the tape alphabet)，满足 $\Sigma \subseteq \Gamma$
+
+​	\- $\delta$：状态转移函数 (transition function)
+
+​		$Q \times \Gamma \rightarrow Q \times \Gamma \times \{L, R, N\}$ 其中 L、R、N表示向左移动，向右移动或保持不动
+
+​	\- $b$：空白字符 (blank symbol)，满足 $\Sigma \subseteq \Gamma \quad \text{且} \quad b \notin \Sigma$
+
+​	\- $q_0$：开始状态，$q_0 \in Q$
+
+​	\- $q_f$：接收或终止状态（final/halting state），$q_f \in Q$
+
+
+
+### 二、源码结构
+
+​	本实现包含三个 Python 文件：
+
+1. **turing_machine.py** —— 图灵机核心类，包含 Tape 与 TuringMachine 两个类。
+2. **binary_complement.py** —— 示例：实现二进制串的按位取反（0 ↔ 1）。
+3. **TM_adding.py** —— 示例：实现图灵机加法运算（增加了终止状态以避免死循环）。
+
+
+
+**核心类定义（turing_machine.py）**
+
+```python
+# ref: https://www.python-course.eu/turing_machine.php
+class Tape:
+    
+    blank_symbol = " "
+    
+    def __init__(self, tape_string = ""):
+        self.__tape = dict((enumerate(tape_string)))
+        
+    def __str__(self):
+        s = ""
+        min_used_index = min(self.__tape.keys()) 
+        max_used_index = max(self.__tape.keys())
+        for i in range(min_used_index, max_used_index + 1):
+            s += self.__tape[i]
+        return s    
+   
+    def __getitem__(self,index):
+        return self.__tape.get(index, Tape.blank_symbol)
+
+    def __setitem__(self, pos, char):
+        self.__tape[pos] = char 
+
+        
+class TuringMachine:
+    
+    def __init__(self, 
+                 tape = "", 
+                 blank_symbol = " ",
+                 initial_state = "",
+                 final_states = None,
+                 transition_function = None):
+        self.__tape = Tape(tape)
+        self.__head_position = 0
+        self.__blank_symbol = blank_symbol
+        self.__current_state = initial_state
+        self.__transition_function = transition_function or {}
+
+        self.__final_states = set(final_states) if final_states else set()
+        
+    def get_tape(self): 
+        return str(self.__tape)
+    
+    def step(self):
+        char_under_head = self.__tape[self.__head_position]
+        x = (self.__current_state, char_under_head)
+        if x in self.__transition_function:
+            write_char, move, next_state = self.__transition_function[x]
+            self.__tape[self.__head_position] = write_char
+            
+            if move == "R":
+                self.__head_position += 1
+            elif move == "L":
+                self.__head_position -= 1
+                
+            self.__current_state = next_state
+
+    def final(self):
+        return self.__current_state in self.__final_states
+```
+
+
+
+**示例一：二进按位取反（binary_complement.py）**
+
+```python
+from turing_machine import TuringMachine
+
+final_states = {"final"}
+
+transition_function = {
+    ("init","0"):("1", "R", "init"),
+    ("init","1"):("0", "R", "init"),
+    ("init"," "):(" ", "N", "final"),
+}
+
+t = TuringMachine(
+        tape="010011001",
+        initial_state="init",
+        final_states=final_states,
+        transition_function=transition_function)
+
+print("Input on Tape:\n" + t.get_tape())
+
+while not t.final():
+    t.step()
+
+print("Result of the Turing machine calculation:")
+print(t.get_tape())
+```
+
+​	运行结果
+
+```
+Input on Tape:
+010011001
+Result of the Turing machine calculation:
+101100110
+```
+
+
+
+**示例二：加法运算（TM_adding.py）**
+
+​	该示例实现 B 站视频《图灵机如何做加法》中的运算流程（https://www.bilibili.com/video/BV13v4y1w7yM ）。因为原视频未设终止状态，此处加入 `final_states` 以避免无限循环。	
+
+
+```python
+from turing_machine import TuringMachine
+
+final_states = {"final"}
+
+transition_function = {
+    ("q1", "1"): ("1", "R", "q1"),
+    ("q1", " "): ("1", "R", "q2"),
+    ("q2", "1"): ("1", "R", "q2"),
+    ("q2", " "): (" ", "L", "q3"),
+    ("q3", "1"): (" ", "N", "q3"),
+    ("q3", " "): (" ", "N", "final")
+}
+
+t = TuringMachine(
+    tape="1111 111 ",
+    initial_state="q1",
+    final_states=final_states,
+    transition_function=transition_function)
+
+print("Input on Tape:\n" + t.get_tape())
+
+while not t.final():
+    t.step()
+
+print("Result of the Turing machine calculation:")
+print(t.get_tape())
+```
+
+​	运行结果
+
+```
+Input on Tape:
+1111 111 
+Result of the Turing machine calculation:
+1111111 
+```
+
+
+
+## B 以只读方式打开UTF-8 编码的文件
 
 本程序演示如何使用 Python 以只读模式打开一个 UTF-8 编码的文件。程序支持通过**绝对路径**或**相对路径**访问文件，适用于多种目录结构。
 
