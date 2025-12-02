@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-12-01 22:08 GMT+8*
+*Updated 2025-12-03 00:26 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -21,6 +21,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1203 | 02456: Aggressive cows     | binary search    | Medium | http://cs101.openjudge.cn/practice/02456         |
 | 1202 | 1760.袋子里最少数目的球    | binary search    | Medium | https://leetcode.cn/problems/minimum-limit-of-balls-in-a-bag/          |
 | 1201 | 455A. Boredom | dp | 1500  | https://codeforces.com/problemset/problem/455/A    |
 | 1130 | 1195C. Basketball Exercise | dp | 1400  | https://codeforces.com/problemset/problem/1195/C    |
