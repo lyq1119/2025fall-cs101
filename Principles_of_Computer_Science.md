@@ -1,11 +1,13 @@
 # 计算机原理
 
-*Updated 2025-12-02 02:31 GMT+8*  
+*Updated 2025-12-02 13:28 GMT+8*  
  *Compiled by Hongfei Yan (2024 Fall)*    
 
 
 
-> 我们重点讲解三个计算机原理：1）ASCII编码，2）虚拟地址空间（对于理解操作系统和内存管理至关重要），3）图灵机（对深入理解算法和可计算性有着不可替代的作用）
+> 二进制的按位运算是常用编程技巧。例如：力扣 78.子集。
+>
+> 重点讲解三个计算机原理：1）ASCII编码，2）虚拟地址空间（对于理解操作系统和内存管理至关重要），3）图灵机（对深入理解算法和可计算性有着不可替代的作用）
 
 
 
@@ -74,21 +76,43 @@
 
 
 
-​	在 Python 中，可以快速查看 ASCII 表：
+在 Python 中，可以快速查看 ASCII 表：
 
 ```python
 import string
 print(string.printable)
+print(repr(string.printable))
+print(string.ascii_lowercase)
+print(string.ascii_uppercase)
 ```
 
-​	输出结果为：
+输出结果为：
 
 ```
-0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~ 	
-\r\x0b\x0c
+0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~ 	
+
+'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~ \t\n\r\x0b\x0c'
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ
 ```
 
-​	其中 `string.printable` 返回所有可打印字符（数字、字母、标点和空白符）。如果想查看 `string` 模块中有哪些可用常量和函数，可以使用：
+> 其中：
+>
+> - `\t` 是制表符（Tab）
+> - `\n` 是换行
+> - `\r` 是回车
+> - `\x0b` 是垂直制表符（`\v`）
+> - `\x0c` 是换页符（`\f`）
+>
+> 这些在 `repr()` 中都以**转义序列**的形式清晰显示出来，不会“隐身”。
+
+其中 `string.printable` 返回所有可打印字符（数字、字母、标点和空白符）。
+
+repr() 是 内置函数，用于获取对象的 “官方”字符串表示形式（representation），通常这个表示是明确的、无歧义的。主要用途：查看字符串中不可见字符（如换行符、制表符等）
+
+
+
+如果想查看 `string` 模块中有哪些可用常量和函数，可以使用：
 
 ```python
 dir(string)
@@ -138,7 +162,11 @@ print(chr(uppera))  # 输出: A
 
 http://cs101.openjudge.cn/pctbook/E28674/
 
-小xu了解后很感兴趣，于是她开始学习了加密解密相关的技术。某一天，她猜测某一段密文只是采用了一种非常简单的加密方法完成加密：每个字母对应的密文是其在字母表中的后 k 个字母，但 **'a' 被视为 'z' 的下一个字母，从而整个字母表形成一个环**。例如，如果 k=3，那么字母 'a' 将被加密为 'd'，'z' 加密为 'c'，依此类推。
+2024年8月20日，广大玩家期待已久的中国首款“3A游戏”《黑神话：悟空》如期发售。游戏内容改编自中国四大名著之一的《西游记》，在正式发布前，游戏已获得业界媒体与评论家们的普遍好评，称赞其在战斗系统、视觉设计以及世界观方面的构建。游戏上线后迅速登顶多个平台的销量榜首，两周内的全球销量超过1800万份，成为有史以来销售速度最快的游戏之一。
+
+你的朋友小x注意到《黑神话：悟空》至今没有盗版，她感到很好奇，在网上查询后得知《黑神话：悟空》采用“D加密”技术来为防盗版提供技术支持。D加密，全称 Denuvo Anti-Tamper，是由奥地利 Denuvo 公司推出的一种防篡改技术。Denuvo Anti-Tamper 的目标是保护游戏免受盗版和破解攻击。它的原理是在游戏程序中嵌入一些特殊的代码，这些代码会进行复杂的加密和解密操作，使得黑客无法轻易地破解游戏并且在游戏中进行修改。
+
+小x了解后很感兴趣，于是她开始学习了加密解密相关的技术。某一天，她猜测某一段密文只是采用了一种非常简单的加密方法完成加密：每个字母对应的密文是其在字母表中的后 k 个字母，但 **'a' 被视为 'z' 的下一个字母，从而整个字母表形成一个环**。例如，如果 k=3，那么字母 'a' 将被加密为 'd'，'z' 加密为 'c'，依此类推。
 
 现在，请你帮助她按照她的猜测完成对密文的破译（即根据密文得出其对应的明文）。
 
@@ -153,35 +181,100 @@ http://cs101.openjudge.cn/pctbook/E28674/
 
 密文对应的明文。
 
+样例输入
 
+```
+sample1 input:
+5
+LfrjXhnjshj
+
+sample1 output:
+GameScience
+```
+
+样例输出
+
+```
+sample2 input:
+33
+IshjrTfaoDbrvun
+
+sample2 output:
+BlackMythWukong
+```
+
+提示
+
+tags: implementation, strings
+
+来源
+
+2024 TA-lxy
+
+
+
+【靳熙恒 25 物理学院】初始化的字母表本来是手打的，学了ASCII码，于是可以自动生成字母表了，解放双手！之后还学到可以用 string 库生成字母表。
 
 ```python
-characters=[chr(i) for i in range(65,91)]
-uporlow=[]  
-outstring=''  
-  
-k=int(input())%26  
-instring=input()  
-  
-for i in instring:  
-    if i.isupper():  
-        uporlow.append(1)  
-    if i.islower():  
-        uporlow.append(0)  
-instring=instring.upper()  
-  
-for i in range(len(instring)):  
-    place=characters.index(instring[i])-k  
-    if uporlow[i]==0:  
-        outstring+=characters[place].lower()  
-    if uporlow[i]==1:  
-        outstring+=characters[place]  
-  
+characters = [chr(i) for i in range(65, 91)]
+uporlow = []
+outstring = ''
+
+k = int(input()) % 26
+instring = input()
+
+for i in instring:
+    if i.isupper():
+        uporlow.append(1)
+    if i.islower():
+        uporlow.append(0)
+instring = instring.upper()
+
+for i in range(len(instring)):
+    place = characters.index(instring[i]) - k
+    if uporlow[i] == 0:
+        outstring += characters[place].lower()
+    if uporlow[i] == 1:
+        outstring += characters[place]
+
 print(outstring)
 
 ```
 
-靳熙恒 25 物理学院，在黑神话悟空那道题里初始化的字母表本来是手打的，但之后学了ASCII码，于是可以自动生成字母表了，解放双手！之后还学到可以用 string 库生成字母表。
+
+
+
+
+思路：
+
+1. `maketrans` 是「建规则」：定义 “每个加密字母对应哪个解密字母”；
+2. `translate` 是「用规则」：把密文中的字母按规则替换，非字母不变。
+
+```python
+import string
+
+k = int(input())
+s = input()  # 原始密文
+
+# 计算解密偏移（等价于向左移动 k 位）
+shift = (-k) % 26
+
+# 原始字母表
+lower = string.ascii_lowercase  # 'abcdefghijklmnopqrstuvwxyz'
+upper = string.ascii_uppercase  # 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+# 构建解密后的字母表：每个字母向前移 k 位
+decrypted_lower = lower[shift:] + lower[:shift]
+decrypted_upper = upper[shift:] + upper[:shift]
+
+# 创建翻译表：将原字母映射到解密后的字母
+translation_table = str.maketrans(lower + upper, decrypted_lower + decrypted_upper)
+
+# 应用翻译并输出
+print(s.translate(translation_table))
+```
+
+
 
 
 
@@ -223,6 +316,113 @@ print(outstring)
 > 对写程序重要，能感觉到程序在计算机中哪个位置，为什么出错。
 >
 > <img src="https://raw.githubusercontent.com/GMyhf/img/main/img/image-20250105194607858.png" alt="image-20250105194607858" style="zoom:50%;" />
+
+
+
+virtual_meomory.py
+
+```python
+import sys
+
+print("==== 冯·诺依曼架构：Python 进程的虚拟地址空间演示 ====\n")
+
+# 1. —— 代码区（Code Segment） ——————————————————————
+def code_function():
+    return 1
+
+print("[代码区] 函数对象地址:", hex(id(code_function)))
+
+# 2. —— 数据区（Global / Static Data Segment） ——————————
+GLOBAL_VAR = 12345
+print("[数据区] 全局变量地址:", hex(id(GLOBAL_VAR)))
+
+
+# 3. —— 堆（Heap）动态分配 ——————————————————————
+a = [1, 2, 3, 4]   # list 对象由 Python 运行时在堆上分配
+b = {"name": "von Neumann"}
+print("[堆] list 对象地址:", hex(id(a)))
+print("[堆] dict 对象地址:", hex(id(b)))
+
+
+# 4. —— 栈（Stack Frame） ————————————————————————
+def stack_demo(depth):
+    x = depth * 10
+    print(f"[栈] depth={depth} 的局部变量 x 地址:", hex(id(x)))
+    if depth > 0:
+        stack_demo(depth - 1)
+
+print()
+stack_demo(2)
+
+
+# 5. —— 展示虚拟地址空间是 “连续、统一” 的抽象 ————————
+print("\n==== 地址空间连续性展示 ====")
+items = [
+    ("代码区", id(code_function)),
+    ("数据区", id(GLOBAL_VAR)),
+    ("堆(list)", id(a)),
+    ("堆(dict)", id(b)),
+]
+
+for name, addr in items:
+    print(f"{name:<10} -> {hex(addr)}")
+
+print("\n注意：虽然这些地址看似很大，但它们都属于同一个 64-bit 进程的虚拟地址空间。")
+print("不同区域看上去杂乱，但操作系统和 CPU 通过页表完成了真正的物理内存映射。")
+
+```
+
+
+
+mac机器运行显示
+
+```
+==== 冯·诺依曼架构：Python 进程的虚拟地址空间演示 ====
+
+[代码区] 函数对象地址: 0x1003c9da0
+[数据区] 全局变量地址: 0x100246150
+[堆] list 对象地址: 0x100327600
+[堆] dict 对象地址: 0x100361e80
+
+[栈] depth=2 的局部变量 x 地址: 0x100e96260
+[栈] depth=1 的局部变量 x 地址: 0x100e96120
+[栈] depth=0 的局部变量 x 地址: 0x100e95fe0
+
+==== 地址空间连续性展示 ====
+代码区        -> 0x1003c9da0
+数据区        -> 0x100246150
+堆(list)    -> 0x100327600
+堆(dict)    -> 0x100361e80
+
+注意：虽然这些地址看似很大，但它们都属于同一个 64-bit 进程的虚拟地址空间。
+不同区域看上去杂乱，但操作系统和 CPU 通过页表完成了真正的物理内存映射。
+```
+
+
+
+clab 上 RockyLinux 运行显示
+
+```
+==== 冯·诺依曼架构：Python 进程的虚拟地址空间演示 ====
+
+[代码区] 函数对象地址: 0x7fe7f522a1f0
+[数据区] 全局变量地址: 0x7fe7f4d90b50
+[堆] list 对象地址: 0x7fe7f4d80c40
+[堆] dict 对象地址: 0x7fe7f4df5640
+
+[栈] depth=2 的局部变量 x 地址: 0x7fe7f527cb90
+[栈] depth=1 的局部变量 x 地址: 0x7fe7f527ca50
+[栈] depth=0 的局部变量 x 地址: 0x7fe7f527c910
+
+==== 地址空间连续性展示 ====
+代码区        -> 0x7fe7f522a1f0
+数据区        -> 0x7fe7f4d90b50
+堆(list)    -> 0x7fe7f4d80c40
+堆(dict)    -> 0x7fe7f4df5640
+
+注意：虽然这些地址看似很大，但它们都属于同一个 64-bit 进程的虚拟地址空间。
+不同区域看上去杂乱，但操作系统和 CPU 通过页表完成了真正的物理内存映射
+```
 
 
 
@@ -461,7 +661,7 @@ https://github.com/GMyhf/2019fall-cs101/tree/master/TuringMachine
 
 **2. 位模式**
 
-为了表示数据的不同类型，应该使用位模式，它是一个序列，有时也称为位流。图3-2展示了由16个位组成的位模式。它是0和1的组合。这就意味着，如果我们需要存储一个由16个位组成的位模式，那么需要16个电子开关。如果我们需要存储1000个位模式，每个16位，那么需要16 000个开关。通常长度为8的位模式被称为1个字节（byte）。有时用字（word）这个术语指代更长的位模式。
+为了表示数据的不同类型，应该使用位模式，它是一个序列，有时也称为位流。展示了由16个位组成的位模式。它是0和1的组合。这就意味着，如果我们需要存储一个由16个位组成的位模式，那么需要16个电子开关。如果我们需要存储1000个位模式，每个16位，那么需要16 000个开关。通常长度为8的位模式被称为1个字节（byte）。有时用字（word）这个术语指代更长的位模式。
 
 
 
@@ -523,7 +723,7 @@ https://github.com/GMyhf/2019fall-cs101/tree/master/TuringMachine
 
 **例5-3** 当译解作为无符号整数保存在内存中的位串00101011时，从输出设备返回什么？
 
-解 使用第2章的解题过程，二进制整数转换为十进制无符号整数43。
+解 二进制整数转换为十进制无符号整数43。
 
 
 
@@ -768,7 +968,7 @@ https://github.com/GMyhf/2019fall-cs101/tree/master/TuringMachine
 
 (3) 尾数
 
-尾数是指小数点右边的二进制数。它定义了该数的精度。尾数是作为无符号整数存储的。如果我们把尾数和符号一起考虑，则可以说这个组合是作为符号加绝对值格式的整数存储的。但是，我们需要记住它不是整数，而是像整数那样存储的小数部分。我们强调这一点是因为在尾数中如果在数字的右边插入多余的零，这个值将会改变，而在一个真正的整数中，如果在数字的左边插入多余的零，这个值是不会改变的。
+尾数是指小数点右边的二进制数。它定义了该数的精度。尾数是作为无符号整数存储的。如果我们把尾数和符号一起考虑，则可以说这个组合是作为符号加绝对值格式的整数存储的。
 
 **尾数是带符号的小数部分，可以像以符号加绝对值表示法存储的整数那样对待。**
 
@@ -784,7 +984,7 @@ https://github.com/GMyhf/2019fall-cs101/tree/master/TuringMachine
 
 ## 6.1 逻辑运算
 
-计算机中的数据是以位模式（bit pattern）存储的。逻辑运算是指那些应用于模式中的一个二进制位，或在两个模式中相应的两个二进制位的相同基本运算。这意味着我们可以在位层次上和模式层次上定义逻辑运算。模式层次上的逻辑运算是具有相同类型的位层次上的`n`个逻辑运算，这里的`n`就是模式中的位的数目。
+计算机中的数据是以位模式（bit pattern）存储的。<mark>逻辑运算是指那些应用于模式中的一个二进制位，或在两个模式中相应的两个二进制位的相同基本运算</mark>。这意味着我们可以在位层次上和模式层次上定义逻辑运算。模式层次上的逻辑运算是具有相同类型的位层次上的`n`个逻辑运算，这里的`n`就是模式中的位的数目。
 
 ### 6.1.1 位层次上的逻辑运算
 
@@ -832,7 +1032,7 @@ https://github.com/GMyhf/2019fall-cs101/tree/master/TuringMachine
 
 **1.非（NOT）**
 
-**NOT运算符**是一元操作符：它只有一个输入。输出位是输人位的相反，如果输入是0，则输出为1;如果输入为1，则输出为0。换言之，NOT运算符是输入的反转。NOT运算符的真值表只有两行，因为单个输入只有两种可能：0或1。
+**NOT运算符**是一元操作符：它只有一个输入。输出位是输人位的相反，如果输入是0，则输出为1；如果输入为1，则输出为0。换言之，NOT运算符是输入的反转。NOT运算符的真值表只有两行，因为单个输入只有两种可能：0或1。
 
 <img src="https://raw.githubusercontent.com/GMyhf/img/main/img/image-20250913133342403.png" alt="image-20250913133342403" style="zoom: 67%;" />
 
@@ -1050,7 +1250,7 @@ NOT运算符的唯一应用就是对整个模式求反。对模式应用此运�
 
 ### 6.2.2 算术移位运算
 
-算术移位运算假定位模式是用二进制补码格式表示的带符号位的整数。算术右移被用来对整数除以2；而算术左移被用来对整数乘以2。这些运算不应该改变符号位（最左）。算术右移保留符号位，但同时也把它复制，放入相邻的右边的位中，因此符号被保存。算术左移丢弃符号位，接受它的右边的位作为符号位。如果新的符号位与原先的相同，那么运算成功，否则发生上溢或下溢，结果是非法的。图6-5显示了这两种运算。
+算术移位运算假定位模式是用二进制补码格式表示的带符号位的整数。算术右移被用来对整数除以2；而算术左移被用来对整数乘以2。这些运算不应该改变符号位（最左）。算术右移保留符号位，但同时也把它复制，放入相邻的右边的位中，因此符号被保存。<mark>算术左移丢弃符号位，接受它的右边的位作为符号位。如果新的符号位与原先的相同，那么运算成功，否则发生上溢或下溢，结果是非法的</mark>。图6-5显示了这两种运算。
 
 <img src="https://raw.githubusercontent.com/GMyhf/img/main/img/image-20250913135349416.png" alt="image-20250913135349416" style="zoom:67%;" />
 
@@ -1086,6 +1286,100 @@ NOT运算符的唯一应用就是对整个模式求反。对模式应用此运�
 
 
 
+## 练习M78.子集
+
+backtracking, https://leetcode.cn/problems/subsets/
+
+给你一个整数数组 `nums` ，数组中的元素 **互不相同** 。返回该数组所有可能的子集（幂集）。
+
+解集 **不能** 包含重复的子集。你可以按 **任意顺序** 返回解集。
+
+**示例 1：**
+
+```
+输入：nums = [1,2,3]
+输出：[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+```
+
+**示例 2：**
+
+```
+输入：nums = [0]
+输出：[[],[0]]
+```
+
+ 提示：**
+
+- `1 <= nums.length <= 10`
+- `-10 <= nums[i] <= 10`
+- `nums` 中的所有元素 **互不相同**
+
+
+
+对每个元素有两种选择：**选入子集** 或 **不选入子集**。
+
+<img src="https://raw.githubusercontent.com/GMyhf/img/main/img/202511011249848.jpg" alt="915e44223ee7989e9ade44ac04b93086" style="zoom:15%;" />
+
+
+
+**利用二进制数与子集之间的一一对应关系**来生成所有子集。对于长度为 `n` 的数组 `nums`，其所有子集共有 `2^n` 个。 每个子集可以看作是对每个元素“选”或“不选”的决策组合，正好可以用一个 `n` 位的二进制数表示：
+
+```python
+from typing import List
+
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        n = len(nums)
+        ans = []
+        for i in range(1 << n):  # 等价于 2**n，但更快
+            subset = []
+            for j in range(n):
+                if i & (1 << j):  # 检查二进制位的标准做法。第 j 位是否为 1。
+                    subset.append(nums[j])
+            ans.append(subset)
+        return ans
+```
+
+
+
+
+
+> 思路：递归回溯（选或不选）
+>
+> 递归遍历所有位置，到达末尾时将当前路径加入结果。
+>
+> ```python
+> class Solution:
+>     def subsets(self, nums: List[int]) -> List[List[int]]:
+>         n = len(nums)
+>         ans, sol = [], []
+>         
+>         def backtrack(i):
+>             # 终止条件：处理完所有元素
+>             if i == n:
+>                 ans.append(sol[:])
+>                 return
+>             
+>             # 分支1：不选择 nums[i]
+>             backtrack(i + 1)
+>             
+>             # 分支2：选择 nums[i]
+>             sol.append(nums[i])
+>             backtrack(i + 1)
+>             sol.pop()  # 回溯
+>         
+>         backtrack(0)
+>         return ans
+> ```
+>
+> 子集视频讲解：https://pku.instructuremedia.com/embed/d8ccd717-3664-41bc-85d2-7170f348327b
+
+
+
+
+
+
+
 ## 6.3 算术运算
 
 算术运算包括加、减、乘、除，适用于整数和浮点数。
@@ -1096,7 +1390,7 @@ NOT运算符的唯一应用就是对整个模式求反。对模式应用此运�
 
 **1. 二进制补码中的加减法**
 
-我们首先讨论二进制补码表示的整数的加法和减法，这是因为它较容易。正如我们在第3章讨论的，整数通常是以二进制补码形式存储的。二进制补码表示法的一个优点是加法和减法间没有区别。当遇到减法时，计算机只简单地把它转变为加法，但要为第二个数求二进制的补。换言之：
+我们首先讨论二进制补码表示的整数的加法和减法，这是因为它较容易。整数通常是以二进制补码形式存储的。二进制补码表示法的一个优点是加法和减法间没有区别。当遇到减法时，计算机只简单地把它转变为加法，但要为第二个数求二进制的补。换言之：
 
 \[ A - B \leftrightarrow A + (\overline{B} + 1) \]，这里的 \((\overline{B} + 1)\) 表示 \(B\) 的补码
 
@@ -1188,7 +1482,7 @@ $A = (01111111)_2 \quad B = (00000011)_2$
 | + $B$ | 0 0 0 0 0 0 1 1 |
 | $R$   | 1 0 0 0 0 0 1 0 |
 
-我们期望的结果是127+3=130，但答案是-126。错误是由于上溢，因为期望的答案(+130)不在范围-128~+127 之间。
+我们期望的结果是127+3=130，但答案是-126。<mark>错误是由于上溢</mark>，因为期望的答案(+130)不在范围-128~+127 之间。
 **当我们进行计算机中数字上的算术运算时，要记住每个数字和结果应该在分配的二进制位的定义范围之内。**
 
 **2.符号加绝对值整数的加减法**
@@ -1199,7 +1493,7 @@ $A = (01111111)_2 \quad B = (00000011)_2$
 
 ### 6.4.2 实数的算术运算
 
-像加、减、乘和除这样的算术运算都能应用于用浮点数格式存储的实数上。两实数的乘法涉及两个用符号加绝对值表示的整数的乘法;两实数的除法涉及两个用符号加绝对值表示的整数的除法。
+像加、减、乘和除这样的算术运算都能应用于用浮点数格式存储的实数上。两实数的乘法涉及两个用符号加绝对值表示的整数的乘法；两实数的除法涉及两个用符号加绝对值表示的整数的除法。
 
 
 
@@ -1444,14 +1738,14 @@ CPU与I/O设备之间存在速度差异，因此需要同步机制。常见的�
 从上图来看，raw.githubusercontent.com 的域名解析出现了问题。这可能是由于 DNS 污染(DNS hijacking导致的。DNS 污染是指某些网络服务提供商或恶意软件篡改了 DNS 解析结果，将用户引导到错误的 IP 地址。
 
 DNS 污染通常发生在以下几种情况下:
-1.ISP 篡改:一些互联网服务提供商(ISP)可能会故意篡改 DNS 解析结果，将用户重定向到广告页面或其他网站。
-2.恶意软件:某些恶意软件会修改本地的 hosts 文件或系统设置，以达到类似的目的。
-3.政府控制:在某些国家和地区，政府可能会实施 DNS 污染来阻止访问特定网站。
+1.ISP 篡改：一些互联网服务提供商(ISP)可能会故意篡改 DNS 解析结果，将用户重定向到广告页面或其他网站。
+2.恶意软件：某些恶意软件会修改本地的 hosts 文件或系统设置，以达到类似的目的。
+3.政府控制：在某些国家和地区，政府可能会实施 DNS 污染来阻止访问特定网站。
 
 **如何解决 DNS 污染**
 使用公共 DNS 服务器
 你可以尝试使用公共 DNS 服务器，如 Google Public DNS (8.8.8.8和 8.8.4.4)或 Cloudflare DNS (1.1.1.1 和1.0.0.1)，这些服务器通常不会被篡改。
-更改 DNS 设置: 可以通过系统偏好设置中的网络设置来更改 DNS 服务器地址。
+更改 DNS 设置：可以通过系统偏好设置中的网络设置来更改 DNS 服务器地址。
 
 修改本地 hosts 文件
 如果你确定某个域名被污染，可以手动修改本地的 hosts 文件，将正确的IP 地址与域名绑定。
