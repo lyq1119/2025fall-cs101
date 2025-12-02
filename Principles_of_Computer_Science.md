@@ -1204,7 +1204,7 @@ NOT运算符的唯一应用就是对整个模式求反。对模式应用此运�
 
 <img src="https://raw.githubusercontent.com/GMyhf/img/main/img/image-20250913134339208.png" alt="image-20250913134339208" style="zoom:67%;" />
 
-<center>图6-3 逻辑移位运算<center>
+<center>图6-3 逻辑移位运算</center>
 
 
 
@@ -1254,7 +1254,8 @@ NOT运算符的唯一应用就是对整个模式求反。对模式应用此运�
 
 <img src="https://raw.githubusercontent.com/GMyhf/img/main/img/image-20250913135349416.png" alt="image-20250913135349416" style="zoom:67%;" />
 
-<center>图6-5 算术移位运算<center>
+<center>图6-5 算术移位运算</center>
+
 
 
 
