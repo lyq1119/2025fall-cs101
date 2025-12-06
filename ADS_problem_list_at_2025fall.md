@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-12-04 00:10 GMT+8*
+*Updated 2025-12-06 20:09 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -21,6 +21,9 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+|  |       |       | - |          |
+| 1207 | 20106: 走山路      | Dijkstra      | Medium |  http://cs101.openjudge.cn/practice/20106/        |
+| 1206 | 22067: 快速堆猪    | 辅助栈      | Medium |  http://cs101.openjudge.cn/practice/22067/        |
 | 1205 | 2502: Subway   | dijkstra | Tough | http://cs101.openjudge.cn/practice/02502/          |
 | 1204 | 72.编辑距离    | dp       | Medium | https://leetcode.cn/problems/edit-distance/         |
 | 1203 | 02456: Aggressive cows     | binary search    | Medium | http://cs101.openjudge.cn/practice/02456         |
