@@ -21,6 +21,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1211 | 01426:Find The Multiple     | bfs      | Medium | http://cs101.openjudge.cn/practice/01426/          |
 | 1210 | 433.最小基因变化   | bfs    | Medium | https://leetcode.cn/problems/minimum-genetic-mutation/         |
 | 1209 | 909.蛇梯棋  | bfs  | Medium    | https://leetcode.cn/problems/snakes-and-ladders/      |
 | 1208 | 7206: 我是最快的马 | bfs      | Tough | http://cs101.openjudge.cn/pctbook/T07206/         |
