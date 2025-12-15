@@ -21,6 +21,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1217 | 02431: Expedition      | heap       | Medium | http://cs101.openjudge.cn/practice/02431          |
 | 1216 | 1202.交换字符串中的元素   | dsu      | Medium | https://leetcode.cn/problems/smallest-string-with-swaps/    |
 | 1215 | 542.01矩阵 | dp, bfs      | Medium | https://leetcode.cn/problems/01-matrix/         |
 | 1214 | 01088:滑雪 | dp      | Medium       | http://cs101.openjudge.cn/pctbook/M01088/ |
