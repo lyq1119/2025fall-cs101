@@ -1,6 +1,6 @@
-# 20251216-Week15 计概知识图谱
+# 20251216-Week15～16 计概知识图谱
 
-*Updated 2025-12-16 19:45 GMT+8*
+*Updated 2025-12-16 23:45 GMT+8*
  *Compiled by Hongfei Yan (2024 Fall)*
 
 
@@ -1245,7 +1245,7 @@ http://cs101.openjudge.cn/practice/02456
 
 
 
-# 3 能申请到$10^{18}$内存吗？
+# 3 能申请到$10^{18}$内存吗？（原理）
 
 我的机器2024fall时候是macOS Sonoma 14.6.1，最大可以申请到 276.00 GB（即接近于$2^{38}$）。计算方法如下所述。
 
@@ -2115,9 +2115,9 @@ class Solution:
 
 
 
-# 6 并查集dsu题目
+# 6 并查集dsu
 
-### M360 学校的班级个数（1）
+## M360 学校的班级个数（1）
 
 https://sunnywhy.com/sfbj/9/6/360
 
@@ -2194,7 +2194,7 @@ This code reads the number of students and relationships from the input, initial
 
 
 
-### M361 学校的班级人数（2）
+## M361 学校的班级人数（2）
 
 https://sunnywhy.com/sfbj/9/6/361
 
@@ -2285,7 +2285,7 @@ This code reads the number of students and relationships from the input, initial
 
 
 
-### M362 是否相同班级
+## M362 是否相同班级
 
 https://sunnywhy.com/sfbj/9/6/362
 
@@ -2375,7 +2375,7 @@ This code reads the number of students and relationships from the input, initial
 
 
 
-#### M363 迷宫连通性
+## M363 迷宫连通性
 
 https://sunnywhy.com/sfbj/9/6/363
 
@@ -2475,13 +2475,15 @@ This code reads the number of rooms and connections from the input, initializes 
 
 这个题目挺像排队的，大家练习下。
 
-### M1202.交换字符串中的元素
+## M1202.交换字符串中的元素
 
 dsu, https://leetcode.cn/problems/smallest-string-with-swaps/
 
 
 
-# 5 辅助栈、懒删除
+
+
+# 7 辅助栈、懒删除
 
 ## M22067: 快速堆猪
 
@@ -2647,7 +2649,7 @@ while True:
 
 
 
-## 练习27384:候选人追踪
+## T27384:候选人追踪
 
 懒删除，http://cs101.openjudge.cn/practice/27384/
 
@@ -2699,7 +2701,7 @@ HC
 
 
 
-# 6 DFS + 剪枝
+# 8 DFS + 剪枝
 
 ### T30193: 哈密顿激活层
 
@@ -2713,7 +2715,7 @@ http://cs101.openjudge.cn/pctbook/T01011/
 
 
 
-# 7 单调栈、单调队列
+# 9 单调栈、单调队列
 
 ## T42.接雨水
 
@@ -3121,7 +3123,7 @@ if __name__ == "__main__":
 
 
 
-# 8 算法概念关联与深度理解
+# 10 算法概念关联与深度理解
 
 > 你的这些理解**非常棒**！你已经抓住了这些算法和数据结构背后的“神髓”——即它们不仅仅是代码的堆砌，而是某种思想（如利用历史信息、贪心策略、状态转移）的具体体现。
 >
