@@ -1,6 +1,6 @@
 # 2025fall 计概（Algo DS）每日选作
 
-*Updated 2025-12-15 14:20 GMT+8*
+*Updated 2025-12-19 00:24 GMT+8*
  *Compiled by Hongfei Yan (2020 Fall)*  
 https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.md
 
@@ -21,6 +21,9 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1221 | 04102: 宠物小精灵之收服      | dp      | Tough |  http://cs101.openjudge.cn/practice/04102        |
+| 1220 | 02967:核电站  | dp      | Tough | http://cs101.openjudge.cn/pctbook/T09267          |
+| 1219 | 30370:善良的助教      | implementation      | Medium | http://cs101.openjudge.cn/practice/30370/          |
 | 1218 | 1642.可以到达的最远建筑   | greedy, heap       | Medium | https://leetcode.cn/problems/furthest-building-you-can-reach/          |
 | 1217 | 02431: Expedition      | greedy, heap  | Medium | http://cs101.openjudge.cn/practice/02431          |
 | 1216 | 1202.交换字符串中的元素   | dsu      | Medium | https://leetcode.cn/problems/smallest-string-with-swaps/    |
