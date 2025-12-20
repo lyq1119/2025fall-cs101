@@ -21,6 +21,7 @@ https://github.com/GMyhf/2025fall-cs101/blob/main/ADS_problem_list_at_2025fall.m
 
 | 日期       | 问题编号与名称                 | 标签                                 | 难度 | 链接                                             |
 | ---------- | ------------------------------ | ------------------------------------ | ---- | ------------------------------------------------ |
+| 1224 | 10065.独特蘑菇      | sliding window    | Medium | https://sunnywhy.com/problem/10065          |
 | 1223 | 1425A. Arena of Greed | games    | 1400 | https://codeforces.com/problemset/problem/1425/A          |
 | 1222 | 29853:小蓝和小桥      | games    | Medium | http://cs101.openjudge.cn/practice/29853/          |
 | 1221 | 04102: 宠物小精灵之收服      | dp      | Tough |  http://cs101.openjudge.cn/practice/04102        |
